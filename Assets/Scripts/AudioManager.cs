@@ -116,6 +116,7 @@ using UnityEngine.Audio;
 
         private void Update() {
             if (Input.GetMouseButtonDown(0)) {
+                Debug.Log("Making sound");
                 PlayOnce("UISound");
             }
         }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName="New Sound", menuName= "AudioManager/Audio")]
+[CreateAssetMenu(fileName="New Audio", menuName= "AudioManager/Audio")]
 public class Audio : ScriptableObject
 {
     [SerializeField]
@@ -46,6 +46,7 @@ public class Audio : ScriptableObject
     public void Play(AudioSource newSource) {
         newSource.volume = volume * (1 + Random.Range(-randomVolume / 2f, randomVolume / 2f));
         newSource.pitch = pitch * (1 + Random.Range(-randomPitch / 2f, randomPitch / 2f));
+        
         newSource.Play();
     }
         
