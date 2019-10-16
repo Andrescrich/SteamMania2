@@ -3,11 +3,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+ using UnityEngine.PlayerLoop;
 
-namespace HW
+ namespace HW
 {
     public class AudioManager : MonoBehaviour
     {
+        #region references
+        public static AudioManager instance;
+
+        [Header("Fade")]
+        [SerializeField]
+        private float fadeInSpeed = 0.6f;
+        [SerializeField]
+        private float fadeOutSpeed = 0.3f;
+
+        [Header("Volume")]
+
+        [SerializeField]
+        private float masterVolume = 100;
+
+        public float MasterVolume { 
+            get => masterVolume;
+            set => masterVolume = value;
+        }
+        [SerializeField]
+        private float musicVolume = 100;
+
+        public float MusicVolume{ 
+            get => musicVolume;
+            set => musicVolume = value;
+        }
+
+        [SerializeField]
+        private float sfxVolume = 100;
+        
+        public float SFXVolume{ 
+            get => sfxVolume;
+            set => sfxVolume = value;
+        }
+
+        [SerializeField]
+        private float uiVolume = 100;
+        public float UIVolume { 
+            get => uiVolume;
+            set => uiVolume = value;
+        }
+        
+        [SerializeField]
+        private float volumeThreshold = -80.0f;
+
+        Audio[] uiAudio;
+
+        Audio[] musicAudio;
+
+        Audio[] sfxAudio;
+
+        GameObject musicGameObject;
+
+
+        GameObject SFXGameObject;
+
+
+        GameObject UIGameObject;
+        public static string musicVolumeName = "musicVol";
+        public static string masterVolumeName = "masterVol";
+        public static string sfxVolumeName = "sfxVol";
+        public static string uiVolumeName = "uiVol";
+
+        public AudioMixer mixer;
+
+        #endregion
 
     #region Unity Methods
         private void Awake()
@@ -22,25 +88,39 @@ namespace HW
             }
             DontDestroyOnLoad(gameObject);
 
-            musicGameObject = transform.Find("MusicHolder").gameObject;
-            SFXGameObject = transform.Find("SFXHolder").gameObject;
-            UIGameObject = transform.Find("UIHolder").gameObject;
+            InitHolder();
             InitMusic();
         }
-        private void Start()
-        {
-           
+
+        private void InitHolder() {
+            musicGameObject = transform.Find("MusicHolder").gameObject;
+            if (musicGameObject == null) {
+                GameObject musicHolder = new GameObject("MusicHolder");
+                musicHolder.transform.SetParent(transform);
+            }
+
+            SFXGameObject = transform.Find("SFXHolder").gameObject;
+            if (SFXGameObject == null) {
+                GameObject sfxHolder = new GameObject("SFXHolder");
+                sfxHolder.transform.SetParent(transform);
+            }
+
+            UIGameObject = transform.Find("UIHolder").gameObject;
+            if (UIGameObject == null) {
+                GameObject uiHolder = new GameObject("UIHolder");
+                uiHolder.transform.SetParent(transform);
+            }
+        }
+        #endregion
+
+
+        private void Update() {
+            if (Input.GetMouseButtonDown(0)) {
+                PlayOnce("UISound");
+            }
         }
 
-        float counter = 0;
-        private void Update()
-        {
-            
-        }
-    #endregion
-
-
-    #region static methods
+        #region static methods
         public static void PlayOnce(string name)
         {
             instance.PlayOnce(instance.FindAudio(name));
@@ -128,13 +208,13 @@ namespace HW
         {
             if (sliderValue <= 0)
             {
-                mixer.SetFloat("MasterVolume", volumeThreshold);
+                mixer.SetFloat(masterVolumeName, volumeThreshold);
             }
             else
             {
                 // Translate unit range to logarithmic value. 
                 float value = 20f * Mathf.Log10(sliderValue);
-                mixer.SetFloat("MasterVol", value);
+                mixer.SetFloat(masterVolumeName, value);
             }
         }
 
@@ -142,13 +222,13 @@ namespace HW
         {
             if (sliderValue <= 0)
             {
-                mixer.SetFloat("MusicVol", volumeThreshold);
+                mixer.SetFloat(musicVolumeName, volumeThreshold);
             }
             else
             {
                 // Translate unit range to logarithmic value. 
                 float value = 20f * Mathf.Log10(sliderValue);
-                mixer.SetFloat("MusicVol", value);
+                mixer.SetFloat(musicVolumeName, value);
             }
         }
 
@@ -156,13 +236,13 @@ namespace HW
         {
             if (sliderValue <= 0)
             {
-                mixer.SetFloat("SFXVol", volumeThreshold);
+                mixer.SetFloat(sfxVolumeName, volumeThreshold);
             }
             else
             {
                 // Translate unit range to logarithmic value. 
                 float value = 20f * Mathf.Log10(sliderValue);
-                mixer.SetFloat("SFXVol", value);
+                mixer.SetFloat(sfxVolumeName, value);
             }
         }
 
@@ -170,34 +250,34 @@ namespace HW
         {
             if (sliderValue <= 0)
             {
-                mixer.SetFloat("UIVol", volumeThreshold);
+                mixer.SetFloat(uiVolumeName, volumeThreshold);
             }
             else
             {
                 // Translate unit range to logarithmic value. 
                 float value = 20f * Mathf.Log10(sliderValue);
-                mixer.SetFloat("UIVol", value);
+                mixer.SetFloat(uiVolumeName, value);
             }
         }
 
         public void ClearMasterVolume()
         {
-            mixer.ClearFloat("MasterVol");
+            mixer.ClearFloat(masterVolumeName);
         }
 
         public void ClearMusicVolume()
         {
-            mixer.ClearFloat("MusicVol");
+            mixer.ClearFloat(musicVolumeName);
         }
 
         public void ClearSFXVolume()
         {
-            mixer.ClearFloat("SFXVol");
+            mixer.ClearFloat(sfxVolumeName);
         }
 
         public void ClearUIVolume()
         {
-            mixer.ClearFloat("UIVol");
+            mixer.ClearFloat(uiVolumeName);
         }
 
     #endregion
@@ -224,7 +304,6 @@ namespace HW
             }
 
             sfxAudio = Resources.LoadAll<Audio>("Audio/SFX");
-            Debug.Log(sfxAudio.Length);
             foreach (var music in sfxAudio)
             {
                 music.source = SFXGameObject.AddComponent<AudioSource>();
@@ -282,55 +361,5 @@ namespace HW
 
 
     #endregion
-
-    #region references
-        public static AudioManager instance;
-
-        [Header("Fade")]
-        [SerializeField]
-        private float fadeInSpeed = 0.6f;
-        [SerializeField]
-        private float fadeOutSpeed = 0.3f;
-
-        [Header("Volume")]
-
-        [SerializeField]
-        private float masterVolume = 100;
-
-        public float MasterVolume { get { return masterVolume; } set { masterVolume = value; }}
-        [SerializeField]
-        private float musicVolume = 100;
-
-        public float MusicVolume{ get { return musicVolume; } set {musicVolume = value; } }
-
-        [SerializeField]
-        private float sfxVolume = 100;
-        
-        public float SFXVolume{ get { return sfxVolume; } set { sfxVolume = value; }}
-
-        [SerializeField]
-        private float uiVolume = 100;
-        public float UIVolume { get { return uiVolume; } set { uiVolume = value; }}
-        
-        [SerializeField]
-        private float volumeThreshold = -80.0f;
-
-        Audio[] uiAudio;
-
-        Audio[] musicAudio;
-
-        Audio[] sfxAudio;
-
-        GameObject musicGameObject;
-
-
-        GameObject SFXGameObject;
-
-
-        GameObject UIGameObject;
-
-        public AudioMixer mixer;
-
-        #endregion
     }
 }

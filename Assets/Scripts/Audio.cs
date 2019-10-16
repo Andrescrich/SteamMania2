@@ -41,7 +41,13 @@ public class Audio : ScriptableObject
         source.volume = volume * (1 + Random.Range(-randomVolume / 2f, randomVolume / 2f));
         source.pitch = pitch * (1 + Random.Range(-randomPitch / 2f, randomPitch / 2f));
         source.Play();
-    } 
+    }
+
+    public void Play(AudioSource newSource) {
+        newSource.volume = volume * (1 + Random.Range(-randomVolume / 2f, randomVolume / 2f));
+        newSource.pitch = pitch * (1 + Random.Range(-randomPitch / 2f, randomPitch / 2f));
+        newSource.Play();
+    }
         
     public void PlayDelayed(float delay)
     {
