@@ -7495,6 +7495,7 @@ MonoBehaviour:
   uiVolume: 1
   mixer: {fileID: 24100000, guid: 98dc12fe6ce9b32489b9dee67b5167d8, type: 2}
   uiSound: {fileID: 11400000, guid: 3f6d5156b0b328e4cb5b1e07e361b3c4, type: 2}
+  sfxSound: {fileID: 11400000, guid: 0d68683ee918a794b9ed5c968c430b2f, type: 2}
 --- !u!4 &1300123088
 Transform:
   m_ObjectHideFlags: 0
@@ -7522,11 +7523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicSourcesCount: 11
-  SFXSourcesCount: 1
-  UISourcesCount: 4
   musicSources: []
-  sfxSources: []
-  uiSources: []
 --- !u!1 &1359742339
 GameObject:
   m_ObjectHideFlags: 0
