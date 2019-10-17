@@ -30,6 +30,7 @@
       <Path>.vscode</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
+      <Path>SteamMania</Path>
       <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
