@@ -15,7 +15,7 @@ public class Audio : ScriptableObject
 
     [SerializeField]
     [Range(0f, 1f)]
-    public float Volume;
+    public float Volume = 1f;
 
     [SerializeField]
     [Range(0.5f, 1.5f)]

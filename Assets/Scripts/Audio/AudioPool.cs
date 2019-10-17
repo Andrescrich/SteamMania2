@@ -31,6 +31,13 @@ public class AudioPool : MonoBehaviour
             CreateAudioSource();
         }
     }
+    private AudioSource CreateAudioSource()
+    {
+        AudioSource source = musicHolder.AddComponent<AudioSource>();
+        source.enabled = false;
+        musicSources.Add(source);
+        return source;
+    }
 
     private void Update()
     {
@@ -57,11 +64,4 @@ public class AudioPool : MonoBehaviour
         return CreateAudioSource();
     }
 
-    private AudioSource CreateAudioSource()
-    {
-        AudioSource source = musicHolder.AddComponent<AudioSource>();
-        source.enabled = false;
-        musicSources.Add(source);
-        return source;
-    }
 }

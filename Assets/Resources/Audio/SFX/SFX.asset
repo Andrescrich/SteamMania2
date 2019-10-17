@@ -15,7 +15,7 @@ MonoBehaviour:
   Type: 1
   Clips:
   - {fileID: 8300000, guid: c0529baf7c5dbdf4888703fca4bc69cb, type: 3}
-  Volume: 0.143
+  Volume: 0.6
   Pitch: 1
   RandomVolume: 0.1
   RandomPitch: 0.1
