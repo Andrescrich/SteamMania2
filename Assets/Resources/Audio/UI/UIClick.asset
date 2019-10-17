@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fde5e480254d5940840c9f3b0d7f687, type: 3}
   m_Name: UIClick
   m_EditorClassIdentifier: 
-  name: UISound
-  clip: {fileID: 8300000, guid: fcab62bbafcc3654d8a5478c914d93a1, type: 3}
-  volume: 0.692
-  pitch: 1
-  randomVolume: 0.1
-  randomPitch: 0.1
-  source: {fileID: 0}
+  Name: UISound
+  Clips:
+  - {fileID: 8300000, guid: fcab62bbafcc3654d8a5478c914d93a1, type: 3}
+  Volume: 0
+  Pitch: 1
+  RandomVolume: 0.1
+  RandomPitch: 0.1
   loop: 0
-  playOnAwake: 0

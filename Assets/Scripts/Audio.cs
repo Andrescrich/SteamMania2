@@ -1,112 +1,82 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 [CreateAssetMenu(fileName="New Audio", menuName= "AudioManager/Audio")]
 public class Audio : ScriptableObject
 {
-    [SerializeField]
-    private new string name;
+    [SerializeField] public AudioType Type;
 
     [SerializeField]
-    private AudioClip clip;
-
+    public List<AudioClip> Clips;
 
     [SerializeField]
     [Range(0f, 1f)]
-    private float volume;
+    public float Volume;
 
     [SerializeField]
     [Range(0.5f, 1.5f)]
-    private float pitch = 1f;
+    public float Pitch = 1f;
 
     [SerializeField]
     [Range(0, 0.5f)]
-    private float randomVolume = .1f;
+    public float RandomVolume = .1f;
 
     [SerializeField]
     [Range(0, 0.5f)]
-    private float randomPitch = .1f;
+    public float RandomPitch = .1f;
 
-    [SerializeField]
-    public AudioSource source;
+    [SerializeField] private bool loop;
+    
 
-    [SerializeField]
-    private bool loop = false;
-
-    [SerializeField]
-    private bool playOnAwake;
-
-    public void Play()
-    {
-        source.volume = volume * (1 + Random.Range(-randomVolume / 2f, randomVolume / 2f));
-        source.pitch = pitch * (1 + Random.Range(-randomPitch / 2f, randomPitch / 2f));
+    private void ModifyAudio(AudioSource source) {
+        source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));
+        source.pitch = Pitch * (1 + Random.Range(-RandomPitch / 2f, RandomPitch / 2f));
+        source.loop = loop;
+    }
+    public void Play(AudioSource source) {
+        ModifyAudio(source);
+        source.clip = GetRandomClip();
         source.Play();
     }
 
-    public void Play(AudioSource newSource) {
-        newSource.volume = volume * (1 + Random.Range(-randomVolume / 2f, randomVolume / 2f));
-        newSource.pitch = pitch * (1 + Random.Range(-randomPitch / 2f, randomPitch / 2f));
-        
-        newSource.Play();
+    public AudioClip GetRandomClip() {
+        if (Clips.Count == 0) {
+            Debug.LogError(nameof(Audio)+" does not have audio clips.");
+            return null;
+        }
+        return Clips[Random.Range(0, Clips.Count)];
     }
         
-    public void PlayDelayed(float delay)
+    public void PlayDelayed(AudioSource source, float delay)
     {
+        ModifyAudio(source);
+        source.clip = GetRandomClip();
         source.PlayDelayed(delay);
     }
 
-    public void PlayOnce()
+    public void PlayOnce(AudioSource source)
     {
-        source.PlayOneShot(clip);
+        ModifyAudio(source);
+        source.PlayOneShot(GetRandomClip());
     }
 
 
-    public void Pause()
+    public void Pause(AudioSource source)
     {
         source.Pause();
     }
 
-    public void Resume()
+    public void Resume(AudioSource source)
     {
         source.UnPause();
     }
 
-    public void Stop()
+    public void Stop(AudioSource source)
     {
         source.Stop();
     }
-
-
-
-    public AudioClip audioClip
-    {
-        get => clip;
-        set => clip = value;
-    }
-
-    public string audioName
-    {
-        get => name;
-        set => base.name = value;
-    }
-
-    public bool audioLoop
-    {
-        get { return loop; }
-        set { loop = value; }
-    }
-
-
-    public float audioVolume
-    {
-        get => volume;
-        set => volume = value;
-    }
-
-    public bool PlayOnAwake
-    {
-        get => playOnAwake;
-        set => playOnAwake = value;
-    }
-
 }

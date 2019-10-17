@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\André\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\André\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_SteamMania.32462181.00" t="ExcludeRecursive" />
-    <e p="D:\Program Files (x86)\Unity Projects\SteamMania" t="IncludeRecursive">
+    <e p="C:\Users\delga\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\delga\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SteamMania.1117522497.00" t="ExcludeRecursive" />
+    <e p="D:\Iban\ProyectoStart\SteamMania" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -16,14 +16,17 @@
           <e p="AudioFade.cs" t="Include" />
           <e p="AudioManager.cs" t="Include" />
           <e p="BulletScript.cs" t="Include" />
+          <e p="Enums" t="Include">
+            <e p="AudioType.cs" t="Include" />
+          </e>
           <e p="Health.cs" t="Include" />
           <e p="ParallaxingScript.cs" t="Include" />
           <e p="ParallaxObject.cs" t="Include" />
           <e p="ParticleScript.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="PlayerStates.cs" t="Include" />
-          <e p="PublicAudioUtil.cs" t="Include" />
           <e p="ShootingFXScript.cs" t="Include" />
+          <e p="Singleton.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

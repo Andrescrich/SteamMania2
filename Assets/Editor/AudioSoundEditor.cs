@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
-using System.Reflection;
+using UnityEngine;
 
-[CustomEditor(typeof(Audio), true)]
-public class AudioSoundEditor : Editor {
-    [SerializeField] private AudioSource sourcePreviewer;
+namespace Editor
+{
+    [CustomEditor(typeof(Audio), true)]
+    public class AudioSoundEditor : UnityEditor.Editor {
+        [SerializeField] private AudioSource sourcePreviewer;
+        private void OnEnable()
+        {
+            GameObject go = GameObject.Find("AudioManager");
+        
+        }
 
-    private void OnEnable() {
+        public override void OnInspectorGUI() {
+            DrawDefaultInspector();
+            Audio audioEditor = (Audio) target;
+            sourcePreviewer = EditorUtility
+                .CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave, typeof(AudioSource))
+                .GetComponent<AudioSource>();
 
-    }
-
-    public override void OnInspectorGUI() {
-        DrawDefaultInspector();
-        sourcePreviewer = EditorUtility
-            .CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave, typeof(AudioSource))
-            .GetComponent<AudioSource>();
-
-        if (GUILayout.Button("Preview")) {
-            ((Audio) target).Play();
-            PublicAudioUtil.PlayClip(sourcePreviewer.clip);
+            if (GUILayout.Button("Preview")) {
+                audioEditor.Play(sourcePreviewer);
+            }
         }
     }
 }
