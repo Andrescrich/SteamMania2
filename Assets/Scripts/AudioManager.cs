@@ -24,32 +24,33 @@ using UnityEngine.Audio;
         [SerializeField]
         [Range(0,1)]
         private float masterVolume = 1;
+        [Space]
+        
+        [SerializeField]
+        [Range(0,1)]
+        private float musicVolume = 1;
+
+
+        [SerializeField]
+        [Range(0,1)]
+        private float sfxVolume = 1;
+
+        [SerializeField]
+        [Range(0,1)]
+        private float uiVolume = 1;
 
         public float MasterVolume { 
             get => masterVolume;
             set => masterVolume = value;
         }
-        [SerializeField]
-        [Range(0,1)]
-        private float musicVolume = 1;
-
-        public float MusicVolume{ 
+        public float MusicVolume { 
             get => musicVolume;
             set => musicVolume = value;
         }
-
-        [SerializeField]
-        [Range(0,1)]
-        private float sfxVolume = 1;
-        
-        public float SFXVolume{ 
+        public float SFXVolume { 
             get => sfxVolume;
             set => sfxVolume = value;
         }
-
-        [SerializeField]
-        [Range(0,1)]
-        private float uiVolume = 1;
         public float UIVolume { 
             get => uiVolume;
             set => uiVolume = value;
@@ -63,13 +64,6 @@ using UnityEngine.Audio;
 
         Audio[] sfxAudio;
 
-        GameObject musicGameObject;
-
-
-        GameObject SFXGameObject;
-
-
-        GameObject UIGameObject;
         
         public static string musicVolumeName = "musicVol";
         public static string masterVolumeName = "masterVol";
@@ -78,43 +72,25 @@ using UnityEngine.Audio;
 
         public AudioMixer mixer;
 
+        private AudioPool pool;
+
         #endregion
 
     #region Unity Methods
         public override void Awake()
         {
             base.Awake();
-            source = GetComponent<AudioSource>();
-            InitHolder();
+            pool = GetComponent<AudioPool>();
             
-        }
-
-        private void InitHolder() {
-            musicGameObject = transform.Find("MusicHolder").gameObject;
-            if (musicGameObject == null) {
-                GameObject musicHolder = new GameObject("MusicHolder");
-                musicHolder.transform.SetParent(transform);
-            }
-
-            SFXGameObject = transform.Find("SFXHolder").gameObject;
-            if (SFXGameObject == null) {
-                GameObject sfxHolder = new GameObject("SFXHolder");
-                sfxHolder.transform.SetParent(transform);
-            }
-
-            UIGameObject = transform.Find("UIHolder").gameObject;
-            if (UIGameObject == null) {
-                GameObject uiHolder = new GameObject("UIHolder");
-                uiHolder.transform.SetParent(transform);
-            }
         }
         #endregion
 
-        private AudioSource source;
         
         #region static methods
 
         public Audio uiSound;
+
+        public Audio sfxSound;
 
 
         private void Update()
@@ -122,6 +98,11 @@ using UnityEngine.Audio;
             if (Input.GetMouseButtonDown(0))
             {
                 Play(uiSound);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Play(sfxSound);
             }
             SetMasterVolume(masterVolume);
             SetUIVolume(uiVolume);
@@ -174,48 +155,49 @@ using UnityEngine.Audio;
 
         public void Play(Audio sound)
         {
-            SetMixer(sound, mixer);
+            AudioSource source = pool.GetAudioSource();
+            SetMixer(source, sound);
             sound.Play(source);
         }
         void PlayOnce(Audio sound)
         {
-            SetMixer(sound, mixer);
-            sound.PlayOnce(source);
+            SetMixer(pool.GetAudioSource(), sound);
+            sound.PlayOnce(pool.GetAudioSource());
         }
 
         void PlayDelayed(Audio sound, float delay)
         {
-            SetMixer(sound, mixer);
-            sound.PlayDelayed(source, delay);
+            SetMixer(pool.GetAudioSource(), sound);
+            sound.PlayDelayed(pool.GetAudioSource(), delay);
         }
 
         void Stop(Audio sound)
         {
-            SetMixer(sound, mixer);
-            sound.Stop(source);
+            SetMixer(pool.GetAudioSource(),sound);
+            sound.Stop(pool.GetAudioSource());
         }
 
         void PauseSound(Audio sound)
         {
-            SetMixer(sound, mixer);
-            sound.Pause(source);
+            SetMixer(pool.GetAudioSource(),sound);
+            sound.Pause(pool.GetAudioSource());
         }
 
         void ResumeSound(Audio sound)
         {
-            SetMixer(sound, mixer);
-            sound.Resume(source);
+            SetMixer(pool.GetAudioSource(),sound);
+            sound.Resume(pool.GetAudioSource());
         }
         void FadeOut(Audio sound)
         {
-            SetMixer(sound, mixer);
-            StartCoroutine(AudioFade.FadeOut(source, fadeOutSpeed));
+            SetMixer(pool.GetAudioSource(), sound);
+            StartCoroutine(AudioFade.FadeOut(pool.GetAudioSource(), fadeOutSpeed));
         }
 
         void FadeIn(Audio sound)
         {
-            SetMixer(sound, mixer);
-            StartCoroutine(AudioFade.FadeIn(source, fadeInSpeed, musicVolume));
+            SetMixer(pool.GetAudioSource(), sound);
+            StartCoroutine(AudioFade.FadeIn(pool.GetAudioSource(), fadeInSpeed, musicVolume));
         }
 
         public void SetMasterVolume(float sliderValue)
@@ -298,7 +280,7 @@ using UnityEngine.Audio;
 
     #region private Methods
 
-    private void SetMixer(Audio audio, AudioMixer mixer)
+    private void SetMixer(AudioSource source, Audio audio)
     {
         source.outputAudioMixerGroup = mixer.FindMatchingGroups(audio.Type.ToString())[0];
     }

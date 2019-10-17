@@ -15,6 +15,7 @@
           <e p="Audio.cs" t="Include" />
           <e p="AudioFade.cs" t="Include" />
           <e p="AudioManager.cs" t="Include" />
+          <e p="AudioPool.cs" t="Include" />
           <e p="BulletScript.cs" t="Include" />
           <e p="Enums" t="Include">
             <e p="AudioType.cs" t="Include" />
