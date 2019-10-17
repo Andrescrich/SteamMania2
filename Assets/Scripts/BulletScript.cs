@@ -26,6 +26,10 @@ public class BulletScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         Impact();
+        if (other.gameObject.layer == 12)
+        {
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
+        }
     }
 
 
