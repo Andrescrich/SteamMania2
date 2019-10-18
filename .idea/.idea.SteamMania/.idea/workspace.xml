@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9b952f2-d84a-429d-8a94-43a6f8d16f3e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/AudioSoundEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/AudioSoundEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/AudioManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioFade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioFade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,16 +25,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioPauseController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioVolumeSetter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioPauseController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enums/AudioType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Audio/AudioManager.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enums/AudioType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioVolumeSetter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -68,6 +61,7 @@
         <option value="$PROJECT_DIR$/Assets/Editor/AudioSoundEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioFade.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
       </list>
     </option>

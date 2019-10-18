@@ -95,11 +95,6 @@ using UnityEngine.Audio;
             InitializePool();
         }
 
-        #endregion
-
-        
-        #region static methods
-
 
         private void Update()
         {            
@@ -125,6 +120,11 @@ using UnityEngine.Audio;
             SetSFXVolume(SFXVolume);
             SetUIVolume(UIVolume);
         }
+        #endregion
+
+        
+        #region static methods
+
         /*
         public static void PlayOnce(string name)
         {
@@ -172,9 +172,13 @@ using UnityEngine.Audio;
     #region public Methods
 
         
-        public void Play(Audio sound)
+        public void Play(Audio sound, Vector3 position = default)
         {
             AudioSource source = GetAudioSource();
+            if (position != Vector3.zero)
+            {
+                Debug.Log("Work on positioning the audio");
+            }
             SetMixer(source, sound);
             sound.Play(source);
         }
@@ -212,18 +216,18 @@ using UnityEngine.Audio;
             SetMixer(source, sound);
             sound.Resume(source);
         }
-        void FadeOut(Audio sound)
-        {
-            AudioSource source = GetAudioSource();
-            SetMixer(source, sound);
-            StartCoroutine(AudioFade.FadeOut(source, fadeOutSpeed));
-        }
-
+        
         void FadeIn(Audio sound)
         {
             AudioSource source = GetAudioSource();
             SetMixer(source, sound);    
-            StartCoroutine(AudioFade.FadeIn(source, fadeInSpeed, musicVolume));
+            StartCoroutine(AudioFade.StartFade(mixer, masterVolumeName, fadeInSpeed, 1f));
+        }
+        void FadeOut(Audio sound)
+        {
+            AudioSource source = GetAudioSource();
+            SetMixer(source, sound);
+            StartCoroutine(AudioFade.StartFade(mixer, masterVolumeName, fadeOutSpeed, 0f));
         }
 
         public void SetMasterVolume(float sliderValue)

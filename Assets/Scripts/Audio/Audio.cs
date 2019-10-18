@@ -54,17 +54,11 @@ public class Audio : ScriptableObject
     public void Play(AudioSource source) {
         ModifyAudio(source);
         source.clip = GetRandomClip();
+        var length = source.clip.length;
         source.Play();
+        
     }
 
-    public AudioClip GetRandomClip() {
-        if (Clips.Count == 0) {
-            Debug.LogError(nameof(Audio)+" does not have audio clips.");
-            return null;
-        }
-        return Clips[Random.Range(0, Clips.Count)];
-    }
-        
     public void PlayDelayed(AudioSource source, float delay)
     {
         ModifyAudio(source);
@@ -93,4 +87,14 @@ public class Audio : ScriptableObject
     {
         source.Stop();
     }
+    
+    
+    private AudioClip GetRandomClip() {
+        if (Clips.Count == 0) {
+            Debug.LogError(nameof(Audio)+" does not have audio clips.");
+            return null;
+        }
+        return Clips[Random.Range(0, Clips.Count)];
+    }
+
 }
