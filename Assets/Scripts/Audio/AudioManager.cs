@@ -1,9 +1,6 @@
-﻿﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
- using UnityEngine.PlayerLoop;
 
  public class AudioManager : Singleton<AudioManager>
     {

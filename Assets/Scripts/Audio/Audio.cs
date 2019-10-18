@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using Random = UnityEngine.Random;
+using NaughtyAttributes;
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
 [System.Serializable]
 [CreateAssetMenu(fileName="New Audio", menuName= "AudioManager/Audio")]
@@ -11,6 +15,7 @@ public class Audio : ScriptableObject
     [SerializeField] public AudioType Type;
 
     [SerializeField]
+    [BoxGroup]
     public List<AudioClip> Clips;
 
     [SerializeField]
@@ -18,7 +23,6 @@ public class Audio : ScriptableObject
     public float Volume = 1f;
 
     [SerializeField]
-    [Range(0.5f, 1.5f)]
     public float Pitch = 1f;
 
     [SerializeField]
@@ -30,13 +34,23 @@ public class Audio : ScriptableObject
     public float RandomPitch = .1f;
 
     [SerializeField] private bool loop;
-    
+
+    [Button("Preview")]
+    public void PreviewClip()
+    {
+        AudioSource source =
+            EditorUtility.CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave,
+                typeof(AudioSource)).GetComponent<AudioSource>();
+        loop = false;
+        Play(source);
+    }
 
     private void ModifyAudio(AudioSource source) {
         source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));
         source.pitch = Pitch * (1 + Random.Range(-RandomPitch / 2f, RandomPitch / 2f));
         source.loop = loop;
     }
+    
     public void Play(AudioSource source) {
         ModifyAudio(source);
         source.clip = GetRandomClip();

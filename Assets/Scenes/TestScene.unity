@@ -12784,23 +12784,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8692685977485163073, guid: ca34a794539b15d4cad42538d0728208,
-        type: 3}
-      propertyPath: MaxAudioSources
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8692685977485163073, guid: ca34a794539b15d4cad42538d0728208,
-        type: 3}
-      propertyPath: StartingAudioSources
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8692685977485163103, guid: ca34a794539b15d4cad42538d0728208,
-        type: 3}
-      propertyPath: Paused
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8692685977485163103, guid: ca34a794539b15d4cad42538d0728208, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca34a794539b15d4cad42538d0728208, type: 3}
 --- !u!1 &1914978068
 GameObject:
