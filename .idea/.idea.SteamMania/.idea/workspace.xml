@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="c9b952f2-d84a-429d-8a94-43a6f8d16f3e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/workspace.xml" afterDir="false" />
@@ -15,12 +16,72 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPool.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" afterDir="false" />
     </list>
+=======
+    <list default="true" id="c9b952f2-d84a-429d-8a94-43a6f8d16f3e" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Health.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+              <folding>
+                <marker date="1571307648459" expanded="true" signature="64:678" ph="{...}" />
+                <marker date="1571307648459" expanded="true" signature="198:310" ph="{...}" />
+                <marker date="1571307648459" expanded="true" signature="338:518" ph="{...}" />
+                <marker date="1571307648459" expanded="true" signature="382:512" ph="{...}" />
+                <marker date="1571307648459" expanded="true" signature="544:591" ph="{...}" />
+                <marker date="1571307648459" expanded="true" signature="634:676" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/EnemyHealth.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <marker date="1571307648458" expanded="true" signature="6:78" ph="..." />
+                <marker date="1571307648458" expanded="true" signature="113:274" ph="{...}" />
+                <marker date="1571307648458" expanded="true" signature="141:205" ph="{...}" />
+                <marker date="1571307648458" expanded="true" signature="231:272" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/BulletScript.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+              <folding>
+                <marker date="1571307648458" expanded="false" signature="6:92" ph="..." />
+                <marker date="1571307648458" expanded="true" signature="135:1124" ph="{...}" />
+                <marker date="1571307648458" expanded="true" signature="322:424" ph="{...}" />
+                <marker date="1571307648458" expanded="true" signature="456:539" ph="{...}" />
+                <marker date="1571307648458" expanded="true" signature="595:759" ph="{...}" />
+                <marker date="1571307648458" expanded="true" signature="661:753" ph="{...}" />
+                <marker date="1571307648458" expanded="true" signature="787:1122" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+>>>>>>> Stashed changes
   <component name="FindInProjectRecents">
     <findStrings>
       <find>flip</find>
@@ -34,8 +95,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< Updated upstream
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioPauseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BulletScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> Stashed changes
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Audio/AudioManager.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -66,9 +132,15 @@
         <option value="$PROJECT_DIR$/Assets/Editor/ExtendedEditorWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/ExtendedEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/AudioSoundEditor.cs" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
+=======
+        <option value="$PROJECT_DIR$/Assets/EnemyHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BulletScript.cs" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -79,6 +151,15 @@
       </list>
     </option>
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="363" />
+    <option name="y" value="21" />
+    <option name="width" value="927" />
+    <option name="height" value="978" />
+  </component>
+>>>>>>> Stashed changes
   <component name="ProjectId" id="1SIjjYBBQF51On9ymQ7V3PNWSiy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -148,6 +229,7 @@
       <workItem from="1571258179922" duration="2749000" />
       <workItem from="1571264516828" duration="39000" />
       <workItem from="1571307224818" duration="177000" />
+<<<<<<< Updated upstream
       <workItem from="1571307438619" duration="17000" />
       <workItem from="1571318748687" duration="9097000" />
       <workItem from="1571339207968" duration="5834000" />
@@ -155,6 +237,54 @@
     </task>
     <servers />
   </component>
+=======
+      <workItem from="1571307438619" duration="709000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="886000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Unity" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" weight="0.32946146" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
+    </layout>
+  </component>
+>>>>>>> Stashed changes
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -190,4 +320,53 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/EnemyHealth.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <marker date="1571307648458" expanded="true" signature="6:78" ph="..." />
+            <marker date="1571307648458" expanded="true" signature="113:274" ph="{...}" />
+            <marker date="1571307648458" expanded="true" signature="141:205" ph="{...}" />
+            <marker date="1571307648458" expanded="true" signature="231:272" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/BulletScript.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+          <folding>
+            <marker date="1571307648458" expanded="false" signature="6:92" ph="..." />
+            <marker date="1571307648458" expanded="true" signature="135:1124" ph="{...}" />
+            <marker date="1571307648458" expanded="true" signature="322:424" ph="{...}" />
+            <marker date="1571307648458" expanded="true" signature="456:539" ph="{...}" />
+            <marker date="1571307648458" expanded="true" signature="595:759" ph="{...}" />
+            <marker date="1571307648458" expanded="true" signature="661:753" ph="{...}" />
+            <marker date="1571307648458" expanded="true" signature="787:1122" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Health.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding>
+            <marker date="1571307648459" expanded="true" signature="64:678" ph="{...}" />
+            <marker date="1571307648459" expanded="true" signature="198:310" ph="{...}" />
+            <marker date="1571307648459" expanded="true" signature="338:518" ph="{...}" />
+            <marker date="1571307648459" expanded="true" signature="382:512" ph="{...}" />
+            <marker date="1571307648459" expanded="true" signature="544:591" ph="{...}" />
+            <marker date="1571307648459" expanded="true" signature="634:676" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+>>>>>>> Stashed changes
 </project>
