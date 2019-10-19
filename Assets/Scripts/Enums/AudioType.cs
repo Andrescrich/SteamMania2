@@ -1,6 +1,6 @@
 ﻿public enum AudioType
 {
-    MUSIC,
+    Music,
     SFX,
     UI
 }

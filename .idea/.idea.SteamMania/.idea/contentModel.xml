@@ -150,13 +150,18 @@
             </e>
           </e>
         </e>
+<<<<<<< HEAD
         <e p="GameManager.cs" t="Include" />
+=======
+        <e p="PlayMusicTest.cs" t="Include" />
+>>>>>>> AudioManager
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
             <e p="Audio.cs" t="Include" />
             <e p="AudioFade.cs" t="Include" />
             <e p="AudioManager.cs" t="Include" />
             <e p="AudioPauseController.cs" t="Include" />
+            <e p="AudioSourceElement.cs" t="Include" />
             <e p="AudioVolumeSetter.cs" t="Include" />
           </e>
           <e p="BulletScript.cs" t="Include" />

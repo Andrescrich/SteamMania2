@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: MainMusic
   m_EditorClassIdentifier: 
   Type: 0
-  Clips: []
+  Clips:
+  - {fileID: 8300000, guid: a691233a5a46f11418dee3a7c3d0307d, type: 3}
   Volume: 0.6
   Pitch: 1
   RandomVolume: 0.1
-  RandomPitch: 0.1
+  RandomPitch: 0
   loop: 0

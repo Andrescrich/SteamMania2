@@ -5,16 +5,13 @@
     <list default="true" id="c9b952f2-d84a-429d-8a94-43a6f8d16f3e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/AudioSoundEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/AudioSoundEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayMusicTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayMusicTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/AudioManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/MasterMixer.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/MasterMixer.mixer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioVolumeSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioVolumeSetter.cs" afterDir="false" />
     </list>
 =======
     <list default="true" id="c9b952f2-d84a-429d-8a94-43a6f8d16f3e" name="Default Changelist" comment="" />
@@ -25,6 +22,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
   <component name="FileEditorManager">
@@ -90,13 +88,19 @@
       <find>width</find>
     </findStrings>
   </component>
+=======
+>>>>>>> AudioManager
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
 <<<<<<< Updated upstream
+=======
+>>>>>>> AudioManager
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioPauseController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
 =======
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BulletScript.cs" root0="FORCE_HIGHLIGHTING" />
@@ -107,7 +111,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enums/AudioType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PlayMusicTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioVolumeSetter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioSourceElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -121,20 +128,26 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PublicAudioUtil.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enums/AudioType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AudioPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/VolumeSliderTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioVolumeSetter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioPauseController.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/ExtendedEditorWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/ExtendedEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/AudioSoundEditor.cs" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioFade.cs" />
+>>>>>>> AudioManager
         <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enums/AudioType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioVolumeSetter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioSourceElement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayMusicTest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
 =======
         <option value="$PROJECT_DIR$/Assets/EnemyHealth.cs" />
@@ -234,6 +247,8 @@
       <workItem from="1571318748687" duration="9097000" />
       <workItem from="1571339207968" duration="5834000" />
       <workItem from="1571355027766" duration="4149000" />
+      <workItem from="1571440762084" duration="8285000" />
+      <workItem from="1571492843696" duration="4905000" />
     </task>
     <servers />
   </component>

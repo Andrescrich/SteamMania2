@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -68,15 +69,16 @@ using UnityEngine.Audio;
         public AudioMixer mixer;
 
         [Header("Pool")]
-        public int StartingAudioSources;
+        public int StartingAudioSources = 15;
+        [SerializeField]
+        private bool canGrow;
 
-        private GameObject musicHolder;
-        private List<AudioSource> musicSources;
+        public AudioSourceElement prefabSource;
 
-        [Header("Test")]
-        public Audio uiSound;
+        public List<AudioSource> musicSources;
+        public List<AudioSource> inUse;
 
-        public Audio sfxSound;
+        
 
         #endregion
 
@@ -84,46 +86,44 @@ using UnityEngine.Audio;
         public override void Awake()
         {
             base.Awake();
-            musicHolder = new GameObject("Holder");
-            musicHolder.transform.SetParent(gameObject.transform);
+            gameObject.name = "AudioManager";
             musicSources = new List<AudioSource>();
+            inUse = new List<AudioSource>();
+            mixer = Resources.Load<AudioMixer>("Audio/MasterMixer");
+            prefabSource = Resources.Load<AudioSourceElement>("Audio/AudioSourceElement");
 
         }
 
         public void Start()
-        {
+        {            
+            SetMasterVolume(MasterVolume);
+            SetMusicVolume(MusicVolume);
+            SetSFXVolume(SFXVolume);
+            SetUIVolume(UIVolume);
             InitializePool();
         }
 
+
+        private void Update()
+        {
+            SetMasterVolume(MasterVolume);
+            SetMusicVolume(MusicVolume);
+            SetSFXVolume(SFXVolume);
+            SetUIVolume(UIVolume);
+        }
         #endregion
 
         
         #region static methods
 
+        public static void Play(Audio sound, GameObject go = default)
+        {
+            Instance.PlayMethod(sound, go);
+        }
 
-        private void Update()
-        {            
-            foreach (var music in musicSources)
-            {
-                if (!music.isPlaying)
-                {
-                    music.enabled = false;
-                }
-            }
-            if (Input.GetMouseButtonDown(0))
-            {
-                Play(uiSound);
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                Play(sfxSound);
-            }
-
-            SetMasterVolume(MasterVolume);
-            SetMusicVolume(MusicVolume);
-            SetSFXVolume(SFXVolume);
-            SetUIVolume(UIVolume);
+        public static void Stop(Audio sound, GameObject go = default)
+        {
+            Instance.StopMethod(sound, go);
         }
         /*
         public static void PlayOnce(string name)
@@ -171,13 +171,70 @@ using UnityEngine.Audio;
 
     #region public Methods
 
-        
-        public void Play(Audio sound)
+    
+        public void PlayMethod(Audio sound, GameObject position = default)
         {
-            AudioSource source = GetAudioSource();
-            SetMixer(source, sound);
-            sound.Play(source);
+
+            if (position != default)
+            {
+                AudioSource newSource = position.GetComponent<AudioSource>();
+                if (newSource != null)
+                {
+                    SetMixer(newSource, sound);
+                    sound.Play(newSource);
+                }
+                else
+                {
+                    newSource = position.AddComponent<AudioSource>();
+                    SetMixer(newSource, sound);
+                    sound.Play(newSource);
+                }
+            }
+            else
+            {
+                
+                AudioSource source = GetAudioSource();
+                SetMixer(source, sound);
+                sound.Play(source);
+            }
         }
+        
+        
+        
+        void StopMethod(Audio sound, GameObject position = default)
+        {
+            if (position != default)
+            {
+                AudioSource newSource = position.GetComponent<AudioSource>();
+                if (newSource != null)
+                {
+                    SetMixer(newSource, sound);
+                    sound.Stop(newSource);
+                    Destroy(position.GetComponent<AudioSource>());
+                }
+                else
+                {
+                    newSource = position.AddComponent<AudioSource>();
+                    SetMixer(newSource, sound);
+                    sound.Stop(newSource);
+                    Destroy(position.GetComponent<AudioSource>());
+                    
+                }
+            }
+
+            foreach (var s in musicSources)
+            {
+                foreach (var clip in sound.Clips)
+                {
+                    if (clip == s.clip)
+                    {
+                        SetMixer(s, sound);
+                        sound.Stop(s);
+                    }
+                }
+            }
+        }
+        /*
         void PlayOnce(Audio sound)
         {
             AudioSource source = GetAudioSource();
@@ -192,12 +249,6 @@ using UnityEngine.Audio;
             sound.PlayDelayed(source, delay);
         }
 
-        void Stop(Audio sound)
-        {
-            AudioSource source = GetAudioSource();
-            SetMixer(source, sound);
-            sound.Stop(source);
-        }
 
         void PauseSound(Audio sound)
         {
@@ -212,20 +263,23 @@ using UnityEngine.Audio;
             SetMixer(source, sound);
             sound.Resume(source);
         }
-        void FadeOut(Audio sound)
-        {
-            AudioSource source = GetAudioSource();
-            SetMixer(source, sound);
-            StartCoroutine(AudioFade.FadeOut(source, fadeOutSpeed));
-        }
-
+        
         void FadeIn(Audio sound)
         {
             AudioSource source = GetAudioSource();
             SetMixer(source, sound);    
-            StartCoroutine(AudioFade.FadeIn(source, fadeInSpeed, musicVolume));
+            StartCoroutine(AudioFade.StartFade(mixer, masterVolumeName, fadeInSpeed, 1f));
         }
-
+        void FadeOut(Audio sound)
+        {
+            AudioSource source = GetAudioSource();
+            SetMixer(source, sound);
+            StartCoroutine(AudioFade.StartFade(mixer, masterVolumeName, fadeOutSpeed, 0f));
+        }
+        
+        */
+        
+        #region VolumeControl
         public void SetMasterVolume(float sliderValue)
         {
             masterVolume = sliderValue;
@@ -305,6 +359,7 @@ using UnityEngine.Audio;
         {
             mixer.ClearFloat(uiVolumeName);
         }
+        #endregion
 
     #endregion
 
@@ -314,31 +369,31 @@ using UnityEngine.Audio;
     {
         for (int i = 0; i < StartingAudioSources; i++)
         {
-            CreateAudioSource();
+            CreateAudioSource(false);
         }
     }
-    private AudioSource CreateAudioSource()
+    private AudioSource CreateAudioSource(bool forceEnabled)
     {
-        AudioSource source = musicHolder.AddComponent<AudioSource>();
-        source.enabled = false;
-        musicSources.Add(source);
-        return source;
+        AudioSourceElement source = Instantiate(prefabSource, transform, true);
+        source.gameObject.SetActive(forceEnabled);
+        musicSources.Add(source.Source);
+        return source.Source;
     }
     private AudioSource GetAudioSource()
     {
         foreach (var music in musicSources)
         {
-            if (!music.enabled)
+            if (!music.gameObject.activeInHierarchy)
             {
-                music.enabled = true;
+                music.gameObject.SetActive(true);
                 return music;
             }
         }
-        return CreateAudioSource();
+        return CreateAudioSource(true);
     }
-    private void SetMixer(AudioSource source, Audio audio)
+    private void SetMixer(AudioSource source, Audio sound)
     {
-        source.outputAudioMixerGroup = mixer.FindMatchingGroups(audio.Type.ToString())[0];
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups(sound.Type.ToString())[0];
     }
     #endregion
     }

@@ -12,6 +12,8 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName="New Audio", menuName= "AudioManager/Audio")]
 public class Audio : ScriptableObject
 {
+    [SerializeField] public int AudioID;
+    
     [SerializeField] public AudioType Type;
 
     [SerializeField]
@@ -35,14 +37,27 @@ public class Audio : ScriptableObject
 
     [SerializeField] private bool loop;
 
-    [Button("Preview")]
+    private AudioSource source;
+    [Button("Play")] 
     public void PreviewClip()
     {
-        AudioSource source =
-            EditorUtility.CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave,
-                typeof(AudioSource)).GetComponent<AudioSource>();
         loop = false;
         Play(source);
+    }
+
+    [Button("Stop")]
+    public void StopClip()
+    { 
+        loop = false;
+        Stop(source);
+    }
+
+    private void OnEnable()
+    {
+        source =
+            EditorUtility.CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave,
+                typeof(AudioSource)).GetComponent<AudioSource>();
+        AudioID = GetInstanceID();
     }
 
     private void ModifyAudio(AudioSource source) {
@@ -54,17 +69,12 @@ public class Audio : ScriptableObject
     public void Play(AudioSource source) {
         ModifyAudio(source);
         source.clip = GetRandomClip();
+        var length = source.clip.length;
+        source.enabled = true;
         source.Play();
+        
     }
 
-    public AudioClip GetRandomClip() {
-        if (Clips.Count == 0) {
-            Debug.LogError(nameof(Audio)+" does not have audio clips.");
-            return null;
-        }
-        return Clips[Random.Range(0, Clips.Count)];
-    }
-        
     public void PlayDelayed(AudioSource source, float delay)
     {
         ModifyAudio(source);
@@ -93,4 +103,14 @@ public class Audio : ScriptableObject
     {
         source.Stop();
     }
+    
+    
+    private AudioClip GetRandomClip() {
+        if (Clips.Count == 0) {
+            Debug.LogError(nameof(Audio)+" does not have audio clips.");
+            return null;
+        }
+        return Clips[Random.Range(0, Clips.Count)];
+    }
+
 }
