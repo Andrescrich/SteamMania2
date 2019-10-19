@@ -9,4 +9,5 @@ public class PlayerStates : MonoBehaviour
     public bool isShoothing;
     public bool isJumping = true;
     public bool isWalking;
+    public bool isDoubleJumping;
 }

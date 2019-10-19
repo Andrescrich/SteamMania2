@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Singleton<PlayerMovement>
 {
 
 
@@ -16,18 +17,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundRaycast;
     [SerializeField] private float velocity = 350f;
     [SerializeField] private float jumpForce = 500f;
+    public int bullets;
+    public int jumpsCount;
 
     private static readonly int Shoot = Animator.StringToHash("Shoot");
     private static readonly int Speed = Animator.StringToHash("Speed");
 
     // Start is called before the first frame update
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         Physics2D.IgnoreLayerCollision(8, 9);
         _anim = GetComponentInChildren<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sR = GetComponentInChildren<SpriteRenderer>();
         _pS = GetComponent<PlayerStates>();
+        gameObject.name = "Player";
 
     }
 
@@ -40,17 +45,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            AudioManager.Play(uiSound);
-        }
         Vector2 groundPos = transform.position + -transform.up * width;
         Vector2 vec2 = -transform.up * 0.2f;
         _pS.isGrounded = Physics2D.Linecast(groundPos, groundPos + vec2, isGround);
         Debug.DrawLine(groundPos, groundPos + vec2, Color.red);
-
-        if (_pS.isGrounded)
-            _pS.isJumping = false;
         
         dirMove = Input.GetAxisRaw("Horizontal");
 
@@ -66,14 +64,18 @@ public class PlayerMovement : MonoBehaviour
         {
             _pS.isShoothing = true;
             _anim.SetTrigger(Shoot);
+          //  AudioManager.Play(uiSound);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_pS.isJumping)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bullets = 3;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _pS.isGrounded)
         {
             _pS.isJumping = true;
-            Jump();
         }
-
 
         _anim.SetFloat(Speed, Mathf.Abs(dirMove));
     }
@@ -104,8 +106,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (!_pS.isGrounded) return;
-        var vector = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
+        if (!_pS.isGrounded) _pS.isJumping = false;
+            var vector = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
         _rb.velocity = vector;
     }
 }

@@ -12,7 +12,6 @@ public class ShootingFXScript : MonoBehaviour
     private PlayerMovement _pM;
     private SpriteRenderer _sR;
     private PlayerStates _pS;
-
     private void Awake()
     {
         _pM = GetComponentInParent<PlayerMovement>();
@@ -22,6 +21,7 @@ public class ShootingFXScript : MonoBehaviour
 
     public void PlayParticle()
     {
+        if (GetComponentInParent<PlayerMovement>().bullets <= 0) return;
         if (_sR.flipX)
         {
             Instantiate(particle, _pSR.transform.position, _pSR.transform.rotation);
@@ -32,6 +32,8 @@ public class ShootingFXScript : MonoBehaviour
             Instantiate(particle, _pSL.transform.position, _pSL.transform.rotation);
             Instantiate(bullet, _pSL.transform.position, _pSL.transform.rotation);
         }
+
+        GetComponentInParent<PlayerMovement>().bullets--;
     }
     
     public void CanFlip()

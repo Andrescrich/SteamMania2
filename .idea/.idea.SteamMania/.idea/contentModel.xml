@@ -150,11 +150,8 @@
             </e>
           </e>
         </e>
-<<<<<<< HEAD
         <e p="GameManager.cs" t="Include" />
-=======
         <e p="PlayMusicTest.cs" t="Include" />
->>>>>>> AudioManager
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
             <e p="Audio.cs" t="Include" />
@@ -178,6 +175,7 @@
           <e p="Singleton.cs" t="Include" />
           <e p="StaticMethods.cs" t="Include" />
         </e>
+        <e p="UIManager.cs" t="Include" />
       </e>
       <e p="NaughtyAttributes.Core.csproj" t="IncludeRecursive" />
       <e p="NaughtyAttributes.Editor.csproj" t="IncludeRecursive" />
