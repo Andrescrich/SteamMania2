@@ -70,11 +70,14 @@ using UnityEngine.Audio;
 
         [Header("Pool")]
         public int StartingAudioSources = 15;
+        [SerializeField]
+        private bool canGrow;
 
-        private GameObject musicHolder;
-        private Queue<AudioSource> musicSources;
+        public AudioSourceElement prefabSource;
 
-        private Dictionary<AudioSource, Audio> soundsOn;
+        public List<AudioSource> musicSources;
+        public List<AudioSource> inUse;
+
         
 
         #endregion
@@ -84,34 +87,25 @@ using UnityEngine.Audio;
         {
             base.Awake();
             gameObject.name = "AudioManager";
-            musicHolder = new GameObject("Holder");
-            musicHolder.transform.SetParent(transform);
-            musicSources = new Queue<AudioSource>();
-            soundsOn = new Dictionary<AudioSource, Audio>();
+            musicSources = new List<AudioSource>();
+            inUse = new List<AudioSource>();
             mixer = Resources.Load<AudioMixer>("Audio/MasterMixer");
-            SetMasterVolume(MasterVolume);
-            SetMusicVolume(MusicVolume);
-            SetSFXVolume(SFXVolume);
-            SetUIVolume(UIVolume);
+            prefabSource = Resources.Load<AudioSourceElement>("Audio/AudioSourceElement");
+
         }
 
         public void Start()
         {            
-
+            SetMasterVolume(MasterVolume);
+            SetMusicVolume(MusicVolume);
+            SetSFXVolume(SFXVolume);
+            SetUIVolume(UIVolume);
             InitializePool();
         }
 
 
         private void Update()
-        {            
-            foreach (var music in musicSources)
-            {
-                if (!music.isPlaying)
-                {
-                    music.enabled = false;
-                }
-            }
-            
+        {
             SetMasterVolume(MasterVolume);
             SetMusicVolume(MusicVolume);
             SetSFXVolume(SFXVolume);
@@ -180,7 +174,6 @@ using UnityEngine.Audio;
     
         public void PlayMethod(Audio sound, GameObject position = default)
         {
-            AudioSource source = GetAudioSource();
 
             if (position != default)
             {
@@ -199,24 +192,15 @@ using UnityEngine.Audio;
             }
             else
             {
+                
+                AudioSource source = GetAudioSource();
                 SetMixer(source, sound);
                 sound.Play(source);
             }
         }
-        void PlayOnce(Audio sound)
-        {
-            AudioSource source = GetAudioSource();
-            SetMixer(source, sound);
-            sound.PlayOnce(source);
-        }
-
-        void PlayDelayed(Audio sound, float delay)
-        {
-            AudioSource source = GetAudioSource();
-            SetMixer(source, sound);
-            sound.PlayDelayed(source, delay);
-        }
-
+        
+        
+        
         void StopMethod(Audio sound, GameObject position = default)
         {
             if (position != default)
@@ -250,6 +234,21 @@ using UnityEngine.Audio;
                 }
             }
         }
+        /*
+        void PlayOnce(Audio sound)
+        {
+            AudioSource source = GetAudioSource();
+            SetMixer(source, sound);
+            sound.PlayOnce(source);
+        }
+
+        void PlayDelayed(Audio sound, float delay)
+        {
+            AudioSource source = GetAudioSource();
+            SetMixer(source, sound);
+            sound.PlayDelayed(source, delay);
+        }
+
 
         void PauseSound(Audio sound)
         {
@@ -277,7 +276,10 @@ using UnityEngine.Audio;
             SetMixer(source, sound);
             StartCoroutine(AudioFade.StartFade(mixer, masterVolumeName, fadeOutSpeed, 0f));
         }
-
+        
+        */
+        
+        #region VolumeControl
         public void SetMasterVolume(float sliderValue)
         {
             masterVolume = sliderValue;
@@ -357,6 +359,7 @@ using UnityEngine.Audio;
         {
             mixer.ClearFloat(uiVolumeName);
         }
+        #endregion
 
     #endregion
 
@@ -371,26 +374,26 @@ using UnityEngine.Audio;
     }
     private AudioSource CreateAudioSource(bool forceEnabled)
     {
-        AudioSource source = musicHolder.AddComponent<AudioSource>();
-        source.enabled = forceEnabled;
-        musicSources.Enqueue(source);
-        return source;
+        AudioSourceElement source = Instantiate(prefabSource, transform, true);
+        source.gameObject.SetActive(forceEnabled);
+        musicSources.Add(source.Source);
+        return source.Source;
     }
     private AudioSource GetAudioSource()
     {
         foreach (var music in musicSources)
         {
-            if (!music.enabled)
+            if (!music.gameObject.activeInHierarchy)
             {
-                music.enabled = true;
+                music.gameObject.SetActive(true);
                 return music;
             }
         }
         return CreateAudioSource(true);
     }
-    private void SetMixer(AudioSource source, Audio audio)
+    private void SetMixer(AudioSource source, Audio sound)
     {
-        source.outputAudioMixerGroup = mixer.FindMatchingGroups(audio.Type.ToString())[0];
+        source.outputAudioMixerGroup = mixer.FindMatchingGroups(sound.Type.ToString())[0];
     }
     #endregion
     }

@@ -19,7 +19,7 @@ public class PlayMusicTest : MonoBehaviour
         {
             AudioManager.Stop(mainMusic, gameObject);
         }
-        /*
+        
         if (Input.GetKeyDown(KeyCode.C))
         {
             AudioManager.Play(mainMusic);
@@ -29,6 +29,6 @@ public class PlayMusicTest : MonoBehaviour
         {
             AudioManager.Stop(mainMusic);
         }
-        */
+        
     }
 }

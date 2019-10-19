@@ -14,6 +14,7 @@ public class AudioVolumeSetter : MonoBehaviour
         slider.onValueChanged.AddListener(ChangeMasterVolume);
         slider.value = AudioManager.Instance.MasterVolume;
     }
+    
 
     void ChangeMasterVolume(float value)
     {

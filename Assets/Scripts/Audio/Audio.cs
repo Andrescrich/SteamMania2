@@ -70,7 +70,7 @@ public class Audio : ScriptableObject
         ModifyAudio(source);
         source.clip = GetRandomClip();
         var length = source.clip.length;
-        
+        source.enabled = true;
         source.Play();
         
     }
