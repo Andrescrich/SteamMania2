@@ -36,10 +36,14 @@ public class PlayerMovement : MonoBehaviour
         width = _sR.bounds.extents.x;
     }
 
+    public Audio uiSound;
     // Update is called once per frame
     private void Update()
     {
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            AudioManager.Play(uiSound);
+        }
         Vector2 groundPos = transform.position + -transform.up * width;
         Vector2 vec2 = -transform.up * 0.2f;
         _pS.isGrounded = Physics2D.Linecast(groundPos, groundPos + vec2, isGround);

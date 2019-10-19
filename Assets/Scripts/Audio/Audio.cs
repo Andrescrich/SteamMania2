@@ -12,6 +12,8 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName="New Audio", menuName= "AudioManager/Audio")]
 public class Audio : ScriptableObject
 {
+    [SerializeField] public int AudioID;
+    
     [SerializeField] public AudioType Type;
 
     [SerializeField]
@@ -35,14 +37,27 @@ public class Audio : ScriptableObject
 
     [SerializeField] private bool loop;
 
-    [Button("Preview")]
+    private AudioSource source;
+    [Button("Play")] 
     public void PreviewClip()
     {
-        AudioSource source =
-            EditorUtility.CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave,
-                typeof(AudioSource)).GetComponent<AudioSource>();
         loop = false;
         Play(source);
+    }
+
+    [Button("Stop")]
+    public void StopClip()
+    { 
+        loop = false;
+        Stop(source);
+    }
+
+    private void OnEnable()
+    {
+        source =
+            EditorUtility.CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave,
+                typeof(AudioSource)).GetComponent<AudioSource>();
+        AudioID = GetInstanceID();
     }
 
     private void ModifyAudio(AudioSource source) {
@@ -55,6 +70,7 @@ public class Audio : ScriptableObject
         ModifyAudio(source);
         source.clip = GetRandomClip();
         var length = source.clip.length;
+        
         source.Play();
         
     }

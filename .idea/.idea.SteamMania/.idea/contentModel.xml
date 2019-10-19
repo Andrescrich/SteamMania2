@@ -150,6 +150,7 @@
             </e>
           </e>
         </e>
+        <e p="PlayMusicTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
             <e p="Audio.cs" t="Include" />
