@@ -18,7 +18,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     [SerializeField] private float velocity = 350f;
     [SerializeField] private float jumpForce = 500f;
     public int bullets;
-    public int jumpsCount;
+    public bool canDoubleJump;
 
     private static readonly int Shoot = Animator.StringToHash("Shoot");
     private static readonly int Speed = Animator.StringToHash("Speed");
@@ -60,7 +60,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
             _pS.isWalking = false;
         }
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && bullets > 0)
         {
             _pS.isShoothing = true;
             _anim.SetTrigger(Shoot);
@@ -72,9 +72,14 @@ public class PlayerMovement : Singleton<PlayerMovement>
             bullets = 3;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && _pS.isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && _pS.isJumping == false && _pS.isGrounded)
         {
             _pS.isJumping = true;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump && _pS.isDoubleJumping == false && !_pS.isGrounded)
+        {
+            _pS.isDoubleJumping = true;
         }
 
         _anim.SetFloat(Speed, Mathf.Abs(dirMove));
@@ -86,6 +91,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
         
         if(_pS.isJumping)
             Jump();
+        if(_pS.isDoubleJumping)
+            DoubleJump();
     }
 
     private void Move(float dirMov, float vel)
@@ -106,8 +113,27 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     private void Jump()
     {
-        if (!_pS.isGrounded) _pS.isJumping = false;
-            var vector = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
+        if (!_pS.isGrounded)
+        {
+            _pS.isJumping = false;
+            canDoubleJump = true;
+            return;
+        }
+        var vector = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
         _rb.velocity = vector;
+        Debug.Log("Jump");
+    }
+
+    private void DoubleJump()
+    {
+        if (!canDoubleJump)
+        {
+            _pS.isDoubleJumping = false;
+            return;
+        }
+        var vector = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
+        _rb.velocity = vector;
+        canDoubleJump = false;
+        Debug.Log("DoubleJump");
     }
 }
