@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public abstract class Health : MonoBehaviour
 {
@@ -28,8 +29,9 @@ public abstract class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
     
-    public void TakeDamage(float dmg)
+    public virtual void TakeDamage(float dmg)
     {
         currentHealth -= dmg;
+        GameManager.Instance.HitStop();
     }
 }
