@@ -9,7 +9,7 @@ public class PlayMusicTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Play(mainMusic, gameObject);
+        AudioManager.PlayDelayed(mainMusic,1f,gameObject);
     }
 
     // Update is called once per frame
@@ -18,16 +18,25 @@ public class PlayMusicTest : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             AudioManager.Stop(mainMusic, gameObject);
-        }
-        
+        }        
         if (Input.GetKeyDown(KeyCode.C))
         {
-            AudioManager.Play(mainMusic);
+            AudioManager.FadeIn(mainMusic);
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            AudioManager.Stop(mainMusic);
+            AudioManager.FadeOut(mainMusic);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AudioManager.Pause(mainMusic);
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            AudioManager.Resume(mainMusic);
         }
         
     }

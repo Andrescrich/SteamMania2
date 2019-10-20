@@ -30,7 +30,7 @@ public static class AudioFade
     {
         float startVolume = source.volume;
  
-        while (source.volume > 0)
+        while (source.volume > 0.1f)
         {
             source.volume -= startVolume * Time.deltaTime / fadeTime;
  
@@ -45,7 +45,7 @@ public static class AudioFade
     public static IEnumerator FadeIn(AudioSource source,float fadeTime, float MaxVolume)
     {
         float startVolume = 0.2f;
- 
+        
         source.volume = 0;
         source.Play();
  
