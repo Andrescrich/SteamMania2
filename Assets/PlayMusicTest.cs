@@ -23,25 +23,14 @@ public class PlayMusicTest : MonoBehaviour
         }        
         if (Input.GetKeyDown(KeyCode.C))
         {
-            AudioManager.FadeOut(outMusic);
-            AudioManager.FadeIn(inMusic);
+            //AudioManager.FadeOut(outMusic);
+            //AudioManager.FadeIn(inMusic, fadeTime: 0.2f);
+            AudioManager.CrossFade(inMusic, outMusic);
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            AudioManager.FadeOut(inMusic);
-            AudioManager.FadeIn(outMusic);
+            AudioManager.CrossFade(outMusic, inMusic);
         }
-        
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AudioManager.Pause(inMusic);
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            AudioManager.Resume(inMusic);
-        }
-        
     }
 }

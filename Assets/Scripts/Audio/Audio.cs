@@ -70,30 +70,32 @@ public class Audio : ScriptableObject
 
     private void ModifyAudio(AudioSource source) {        
         source.clip = GetRandomClip();
-        source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));
-        source.pitch = Pitch * (1 + Random.Range(-RandomPitch / 2f, RandomPitch / 2f));
         source.loop = loop;
         source.spatialBlend = SpatialBlend;
+        if (Type != AudioType.Music)
+        {
+            source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));
+            source.pitch = Pitch * (1 + Random.Range(-RandomPitch / 2f, RandomPitch / 2f));
+        }
     }
     
-    public void Play(AudioSource source, bool modifyAudio = true) {
-        if(modifyAudio)
-            ModifyAudio(source);
+    public void Play(AudioSource source) {
+        ModifyAudio(source);
         source.Play();
         
     }
 
-    public void PlayDelayed(AudioSource source, float delay, bool modifyAudio = true)
+    public void PlayDelayed(AudioSource source, float delay)
     {
-        if(modifyAudio)
-            ModifyAudio(source);
+
+        ModifyAudio(source);
         source.PlayDelayed(delay);
     }
 
-    public void PlayOnce(AudioSource source, bool modifyAudio = true)
+    public void PlayOnce(AudioSource source)
     {
-        if(modifyAudio)
-            ModifyAudio(source);
+
+        ModifyAudio(source);
         source.PlayOneShot(source.clip);
     }
 

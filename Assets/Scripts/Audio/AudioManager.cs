@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -147,14 +148,20 @@ using UnityEngine.Audio;
             Instance.UnPauseMethod(sound, go);
         }
 
-        public static void FadeIn(Audio sound, GameObject go = default)
+        public static void FadeIn(Audio sound, GameObject go = default, float fadeTime = 1f)
         {
-            Instance.FadeInMethod(sound, go);
+            Instance.FadeInMethod(sound, go, fadeTime);
         }
         
-        public static void FadeOut(Audio sound, GameObject go = default)
+        public static void FadeOut(Audio sound, GameObject go = default, float fadeTime = 1f)
         {
-            Instance.FadeOutMethod(sound, go);
+            Instance.FadeOutMethod(sound, go, fadeTime);
+        }
+
+        public static void CrossFade(Audio inSound, Audio outSound, GameObject inGo = default,
+            GameObject outGo = default, float fadeInTime = 1f, float fadeOutTime = 1f)
+        {
+            Instance.CrossFade(inSound, outSound, fadeInTime, fadeOutTime, inGo, outGo);
         }
 
         #endregion
@@ -312,30 +319,31 @@ using UnityEngine.Audio;
             }
         }
 
-        private Coroutine FadeInCoroutine;
-        private Coroutine FadeOutCoroutine;
-        void FadeInMethod(Audio sound, GameObject go)
+        void FadeInMethod(Audio sound, GameObject go, float fadeTime)
         {
             AudioSource source = HandleAudioSource(sound, go);
             source.clip = sound.GetRandomClip();
-            //error en el SOUND.VOLUME
-            FadeInCoroutine = StartCoroutine(AudioFade.FadeIn(source, fadeInSpeed, 0.6f));
-
-
+            StartCoroutine(AudioFade.FadeIn(source, fadeTime, sound.Volume));
         }
         
-        void FadeOutMethod(Audio sound, GameObject go)
+        void FadeOutMethod(Audio sound, GameObject go, float fadeTime)
         {
             foreach (AudioSourceElement s in inUse.ToList())
             {
                 if (sound.AudioID == s.SourceElementID)
                 {
-                    FadeOutCoroutine = StartCoroutine(AudioFade.FadeOut(s.Source, fadeOutSpeed));
-
+                   StartCoroutine(AudioFade.FadeOut(s.Source, fadeTime));
                 }
             }
-
         }
+
+        void CrossFade(Audio outMusic, Audio inMusic, float fadeInTime, float fadeOutTime, GameObject inGo, GameObject outGo)
+        {
+            FadeOutMethod(outMusic, outGo, fadeOutTime);
+            FadeInMethod(inMusic, inGo, fadeInTime);
+        }
+        
+        
     private void InitializePool()
     {
         for (int i = 0; i < StartingAudioSources; i++)
@@ -362,6 +370,7 @@ using UnityEngine.Audio;
 
         }
 
+        sourceElement.sound = sound;
         sourceElement.SourceElementID = sound.AudioID;
         SetMixer(source, sound);
         inUse.Add(sourceElement);

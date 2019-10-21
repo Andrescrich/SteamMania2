@@ -33,7 +33,7 @@ public static class AudioFade
         while (source.volume >= 0.1f)
         {
             
-            source.volume -= startVolume * Time.deltaTime / fadeTime;
+            source.volume -= startVolume * Time.unscaledDeltaTime / fadeTime;
             yield return null;
         }
 
@@ -52,7 +52,7 @@ public static class AudioFade
  
         while (source.volume <= MaxVolume)
         {
-            source.volume += startVolume * Time.deltaTime / fadeTime;
+            source.volume += startVolume * Time.unscaledDeltaTime / fadeTime;
  
             yield return null;
         }
