@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eebbc5c34b486f4293f3269c329d193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInSpeed: 0.6
-  fadeOutSpeed: 0.3
+  fadeInSpeed: 1
+  fadeOutSpeed: 3
   masterVolume: 1
   musicVolume: 1
   sfxVolume: 1
@@ -54,3 +54,5 @@ MonoBehaviour:
   canGrow: 0
   prefabSource: {fileID: 2504305005209753280, guid: d07363d02d984d04283d261d1a60d0b1,
     type: 3}
+  musicSources: []
+  inUse: []

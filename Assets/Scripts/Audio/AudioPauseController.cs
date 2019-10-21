@@ -12,7 +12,7 @@ public class AudioPauseController : MonoBehaviour
 
     private AudioMixer mixer;
 
-    public bool Paused;
+    public bool Paused = false;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class AudioPauseController : MonoBehaviour
         unpauseSnapshot = mixer.FindSnapshot("Unpaused");
     }
 
-    public void Pause()
+    public void TogglePause()
     {
         if (!Paused)
         {
@@ -41,13 +41,13 @@ public class AudioPauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Pause();
+            TogglePause();
         }
     }
 
     public void Lowpass()
     {
-        if (Time.timeScale == 0)
+        if (!Paused)
         {
             unpauseSnapshot.TransitionTo(.1f);
         }
