@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\André\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\André\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_SteamMania.32462181.00" t="ExcludeRecursive" />
-    <e p="D:\Program Files (x86)\Unity Projects\SteamMania" t="IncludeRecursive">
+    <e p="C:\Users\delga\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\delga\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SteamMania.1117522497.00" t="ExcludeRecursive" />
+    <e p="D:\Iban\ProyectoStart\SteamMania" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="EnemyHealth.cs" t="Include" />
@@ -150,11 +150,8 @@
             </e>
           </e>
         </e>
-<<<<<<< HEAD
         <e p="GameManager.cs" t="Include" />
-=======
         <e p="PlayMusicTest.cs" t="Include" />
->>>>>>> AudioManager
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
             <e p="Audio.cs" t="Include" />

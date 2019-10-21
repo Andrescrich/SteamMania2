@@ -6,23 +6,24 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceElement : MonoBehaviour
 {
+    [SerializeField] public int SourceElementID;
+    [SerializeField] public Audio sound;
+    
     private AudioSource audioSource;
 
-    public AudioSource Source
-    {
-        get => audioSource;
-        set => audioSource = value;
-    }
+    public AudioSource Source => audioSource;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        SourceElementID = GetInstanceID();
     }
 
     private void Update()
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && audioSource.time == 0)
         {
+            AudioManager.Instance.ReturnToPool(this);
             gameObject.SetActive(false);
         }
     }

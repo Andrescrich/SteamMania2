@@ -21,71 +21,82 @@ public class Audio : ScriptableObject
     public List<AudioClip> Clips;
 
     [SerializeField]
-    [Range(0f, 1f)]
+    [Slider(0f,1f)]
     public float Volume = 1f;
 
     [SerializeField]
+    [Slider(0.5f,1.5f)]
     public float Pitch = 1f;
 
+    [SerializeField] [Slider(0f, 1f)] public float SpatialBlend = 0.5f;
+
+    [Header("Modifications")]
     [SerializeField]
-    [Range(0, 0.5f)]
+    [Slider(0f,0.5f)]
     public float RandomVolume = .1f;
 
     [SerializeField]
-    [Range(0, 0.5f)]
+    [Slider(0, 0.5f)]
     public float RandomPitch = .1f;
 
     [SerializeField] private bool loop;
 
-    private AudioSource source;
+    private AudioSource hidableSource;
     [Button("Play")] 
     public void PreviewClip()
     {
-        loop = false;
-        Play(source);
+        #if UNITY_EDITOR
+            loop = false;
+        #endif
+        Play(hidableSource);
     }
 
     [Button("Stop")]
     public void StopClip()
     { 
-        loop = false;
-        Stop(source);
+        #if UNITY_EDITOR
+                loop = false;
+        #endif
+        Stop(hidableSource);
     }
 
     private void OnEnable()
     {
-        source =
+        hidableSource =
             EditorUtility.CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave,
                 typeof(AudioSource)).GetComponent<AudioSource>();
         AudioID = GetInstanceID();
     }
 
-    private void ModifyAudio(AudioSource source) {
-        source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));
-        source.pitch = Pitch * (1 + Random.Range(-RandomPitch / 2f, RandomPitch / 2f));
+    private void ModifyAudio(AudioSource source) {        
+        source.clip = GetRandomClip();
         source.loop = loop;
+        source.spatialBlend = SpatialBlend;
+        if (Type != AudioType.Music)
+        {
+            source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));
+            source.pitch = Pitch * (1 + Random.Range(-RandomPitch / 2f, RandomPitch / 2f));
+        }
     }
     
     public void Play(AudioSource source) {
         ModifyAudio(source);
-        source.clip = GetRandomClip();
-        var length = source.clip.length;
-        source.enabled = true;
         source.Play();
         
     }
 
     public void PlayDelayed(AudioSource source, float delay)
     {
+
         ModifyAudio(source);
-        source.clip = GetRandomClip();
         source.PlayDelayed(delay);
     }
 
     public void PlayOnce(AudioSource source)
     {
+
         ModifyAudio(source);
-        source.PlayOneShot(GetRandomClip());
+        source.PlayOneShot(source.clip);
     }
 
 
@@ -105,7 +116,7 @@ public class Audio : ScriptableObject
     }
     
     
-    private AudioClip GetRandomClip() {
+    public AudioClip GetRandomClip() {
         if (Clips.Count == 0) {
             Debug.LogError(nameof(Audio)+" does not have audio clips.");
             return null;

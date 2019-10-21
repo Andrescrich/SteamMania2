@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            AudioManager.Play(uiSound);
+            AudioManager.Play(uiSound, gameObject);
         }
         Vector2 groundPos = transform.position + -transform.up * width;
         Vector2 vec2 = -transform.up * 0.2f;

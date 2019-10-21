@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayMusicTest : MonoBehaviour
 {
 
-    public Audio mainMusic;
+    public Audio inMusic;
+
+    public Audio outMusic;
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Play(mainMusic, gameObject);
+        AudioManager.PlayDelayed(inMusic,1f,gameObject);
     }
 
     // Update is called once per frame
@@ -17,18 +19,18 @@ public class PlayMusicTest : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            AudioManager.Stop(mainMusic, gameObject);
-        }
-        
+            AudioManager.Stop(inMusic, gameObject);
+        }        
         if (Input.GetKeyDown(KeyCode.C))
         {
-            AudioManager.Play(mainMusic);
+            //AudioManager.FadeOut(outMusic);
+            //AudioManager.FadeIn(inMusic, fadeTime: 0.2f);
+            AudioManager.CrossFade(inMusic, outMusic);
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            AudioManager.Stop(mainMusic);
+            AudioManager.CrossFade(outMusic, inMusic);
         }
-        
     }
 }
