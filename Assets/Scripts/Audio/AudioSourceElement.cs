@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceElement : MonoBehaviour
 {
-    
+    [SerializeField] public int SourceElementID;
     [SerializeField] public Audio sound;
     
     private AudioSource audioSource;
@@ -16,6 +16,7 @@ public class AudioSourceElement : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        SourceElementID = GetInstanceID();
     }
 
     private void Update()

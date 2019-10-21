@@ -30,15 +30,16 @@ public static class AudioFade
     {
         float startVolume = source.volume;
  
-        while (source.volume > 0.1f)
+        while (source.volume >= 0.1f)
         {
+            
             source.volume -= startVolume * Time.deltaTime / fadeTime;
- 
             yield return null;
         }
+
+        source.volume = 0;
         OnFadeInEnd?.Invoke();
         source.Stop();
-        source.volume = startVolume;
 
     }
 
@@ -46,16 +47,15 @@ public static class AudioFade
     {
         float startVolume = 0.2f;
         
-        source.volume = 0;
+        source.volume = 0.01f;
         source.Play();
  
-        while (source.volume < MaxVolume)
+        while (source.volume <= MaxVolume)
         {
             source.volume += startVolume * Time.deltaTime / fadeTime;
  
             yield return null;
         }
         OnFadeOutEnd?.Invoke();
-        source.volume = MaxVolume;
     }
 }

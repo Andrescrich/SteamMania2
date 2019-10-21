@@ -117,7 +117,7 @@ using UnityEngine.Audio;
         #endregion
 
         
-        #region static methods
+        #region static Methods
 
         public static void Play(Audio sound, GameObject go = default)
         {
@@ -156,23 +156,8 @@ using UnityEngine.Audio;
         {
             Instance.FadeOutMethod(sound, go);
         }
-        
-        /*
-¡
 
-        public static void FadeIn(string name)
-        {
-            instance.FadeIn(instance.FindAudio(name));
-        }
-
-        public static void FadeOut(string name)
-        {
-            instance.FadeOut(instance.FindAudio(name));
-        }
-
-        */
-
-    #endregion
+        #endregion
 
     #region public Methods
 
@@ -181,92 +166,7 @@ using UnityEngine.Audio;
             inUse.Remove(element);
         }
     
-        public void PlayMethod(Audio sound, GameObject position)
-        {
-            AudioSource source = HandleAudioSource(sound, position);
-            sound.Play(source);
-            
-        }
-
-        public void PlayOnceMethod(Audio sound, GameObject position)
-        {
-            AudioSource source = HandleAudioSource(sound, position);
-            sound.PlayOnce(source);
-        }
-        public void PlayDelayedMethod(Audio sound, float delay, GameObject position)
-        {
-            AudioSource source = HandleAudioSource(sound, position);
-            sound.PlayDelayed(source, delay);
-        }
         
-        void StopMethod(Audio sound, GameObject go)
-        {
-            foreach (AudioSourceElement s in inUse.ToList())
-            {
-                if (sound == s.sound)
-                {
-                    //Get the sound in the playing Sounds that is equal to the audio we want to stop
-                    sound.Stop(s.Source);
-                    //remove it if it contains it
-                    if (inUse.Contains(s))
-                    {
-                        inUse.Remove(s);
-                    }
-                }
-            }
-        }
-
-        void PauseMethod(Audio sound, GameObject go)
-        {
-            foreach (AudioSourceElement s in inUse.ToList())
-            {
-                if (sound == s.sound)
-                {
-                    //Get the sound in the playing Sounds that is equal to the audio we want to stop
-                    sound.Pause(s.Source);
-                }
-            }
-        }
-
-        void UnPauseMethod(Audio sound, GameObject go)
-        {
-            foreach (AudioSourceElement s in inUse.ToList())
-            {
-                if (sound == s.sound)
-                {
-                    //Get the sound in the playing Sounds that is equal to the audio we want to stop
-                    sound.Resume(s.Source);
-                }
-            }
-        }
-
-        private IEnumerator FadeInCoroutine;
-        private IEnumerator FadeOutCoroutine;
-        void FadeInMethod(Audio sound, GameObject go)
-        {
-            AudioSource source = HandleAudioSource(sound, go);
-            source.clip = sound.GetRandomClip();
-            FadeInCoroutine = AudioFade.FadeIn(source, fadeInSpeed, sound.Volume);
-            if(FadeOutCoroutine!=null)
-                StopCoroutine(FadeOutCoroutine);
-            StartCoroutine(FadeInCoroutine);
-
-        }
-        
-        void FadeOutMethod(Audio sound, GameObject go)
-        {
-            foreach (AudioSourceElement s in inUse.ToList())
-            {
-                if (sound == s.sound)
-                {
-                    FadeOutCoroutine = AudioFade.FadeOut(s.Source, fadeOutSpeed);
-                    if(FadeInCoroutine!=null)
-                        StopCoroutine(FadeInCoroutine);
-                    StartCoroutine(FadeOutCoroutine);
-                }
-            }
-
-        }
 
         #region VolumeControl
         public void SetMasterVolume(float sliderValue)
@@ -292,8 +192,7 @@ using UnityEngine.Audio;
                 mixer.SetFloat(musicVolumeName, volumeThreshold);
             }
             else
-            {
-                // Translate unit range to logarithmic value. 
+            { 
                 float value = 20f * Mathf.Log10(sliderValue);
                 mixer.SetFloat(musicVolumeName, value);
             }
@@ -353,7 +252,90 @@ using UnityEngine.Audio;
     #endregion
 
     #region private Methods
+    
+    void PlayMethod(Audio sound, GameObject position)
+        {
+            AudioSource source = HandleAudioSource(sound, position);
+            sound.Play(source);
             
+        }
+
+        void PlayOnceMethod(Audio sound, GameObject position)
+        {
+            AudioSource source = HandleAudioSource(sound, position);
+            sound.PlayOnce(source);
+        }
+        void PlayDelayedMethod(Audio sound, float delay, GameObject position)
+        {
+            AudioSource source = HandleAudioSource(sound, position);
+            sound.PlayDelayed(source, delay);
+        }
+        
+        void StopMethod(Audio sound, GameObject go)
+        {
+            foreach (AudioSourceElement s in inUse.ToList())
+            {
+                if (sound.AudioID == s.SourceElementID)
+                {
+                    //Get the sound in the playing Sounds that is equal to the audio we want to stop
+                    sound.Stop(s.Source);
+                    //remove it if it contains it
+                    if (inUse.Contains(s))
+                    {
+                        ReturnToPool(s);
+                    }
+                }
+            }
+        }
+
+        void PauseMethod(Audio sound, GameObject go)
+        {
+            foreach (AudioSourceElement s in inUse.ToList())
+            {
+                if (sound.AudioID == s.SourceElementID)
+                {
+                    //Get the sound in the playing Sounds that is equal to the audio we want to stop
+                    sound.Pause(s.Source);
+                }
+            }
+        }
+
+        void UnPauseMethod(Audio sound, GameObject go)
+        {
+            foreach (AudioSourceElement s in inUse.ToList())
+            {
+                if (sound.AudioID == s.SourceElementID)
+                {
+                    //Get the sound in the playing Sounds that is equal to the audio we want to stop
+                    sound.Resume(s.Source);
+                }
+            }
+        }
+
+        private Coroutine FadeInCoroutine;
+        private Coroutine FadeOutCoroutine;
+        void FadeInMethod(Audio sound, GameObject go)
+        {
+            AudioSource source = HandleAudioSource(sound, go);
+            source.clip = sound.GetRandomClip();
+            //error en el SOUND.VOLUME
+            FadeInCoroutine = StartCoroutine(AudioFade.FadeIn(source, fadeInSpeed, 0.6f));
+
+
+        }
+        
+        void FadeOutMethod(Audio sound, GameObject go)
+        {
+            foreach (AudioSourceElement s in inUse.ToList())
+            {
+                if (sound.AudioID == s.SourceElementID)
+                {
+                    FadeOutCoroutine = StartCoroutine(AudioFade.FadeOut(s.Source, fadeOutSpeed));
+
+                }
+            }
+
+        }
     private void InitializePool()
     {
         for (int i = 0; i < StartingAudioSources; i++)
@@ -380,7 +362,7 @@ using UnityEngine.Audio;
 
         }
 
-        sourceElement.sound = sound;
+        sourceElement.SourceElementID = sound.AudioID;
         SetMixer(source, sound);
         inUse.Add(sourceElement);
         return source;

@@ -12,6 +12,7 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName="New Audio", menuName= "AudioManager/Audio")]
 public class Audio : ScriptableObject
 {
+    [SerializeField] public int AudioID;
     
     [SerializeField] public AudioType Type;
 
@@ -64,6 +65,7 @@ public class Audio : ScriptableObject
         hidableSource =
             EditorUtility.CreateGameObjectWithHideFlags("Audio Preview", HideFlags.HideAndDontSave,
                 typeof(AudioSource)).GetComponent<AudioSource>();
+        AudioID = GetInstanceID();
     }
 
     private void ModifyAudio(AudioSource source) {        
