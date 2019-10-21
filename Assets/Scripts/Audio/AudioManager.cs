@@ -71,7 +71,7 @@ using UnityEngine.Audio;
         public AudioMixer mixer;
 
         [Header("Pool")]
-        public int StartingAudioSources = 15;
+        public int StartingAudioSources = 7;
         [SerializeField]
         private bool canGrow;
 
