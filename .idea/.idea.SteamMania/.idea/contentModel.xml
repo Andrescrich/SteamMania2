@@ -151,6 +151,7 @@
           </e>
         </e>
         <e p="GameManager.cs" t="Include" />
+        <e p="InputMaster.cs" t="Include" />
         <e p="PlayMusicTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
