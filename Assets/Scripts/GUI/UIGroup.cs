@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class UIGroup : MonoBehaviour
 {
 
@@ -50,9 +45,9 @@ public class UIGroup : MonoBehaviour
         foreach (var component in components)
         {
             component.StartHidden = startHidden;
-            if(overrideAllIn)
+            if (overrideAllIn)
                 SetAnimation(component, animationInType, true);
-            if(overrideAllOut)
+            if (overrideAllOut)
                 SetAnimation(component, animationOutType, false);
         }
     }
@@ -62,10 +57,10 @@ public class UIGroup : MonoBehaviour
         foreach (var component in components)
         {
             component.StartHidden = startHidden;
-            if(overrideAllIn)
+            if (overrideAllIn)
                 SetAnimation(component, animationInType, true);
-            if(overrideAllOut)
-              SetAnimation(component, animationOutType, false);
+            if (overrideAllOut)
+                SetAnimation(component, animationOutType, false);
         }
     }
     private void SetAnimation(UITweener component, AnimationType animationType, bool toggleIn)

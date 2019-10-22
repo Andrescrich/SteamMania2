@@ -2,12 +2,12 @@
 using UnityEngine;
 
 [System.Serializable]
-public struct FadeData : AnimationData
+public class FadeData : AnimationData
 {
-    [SerializeField] public float fadeInDuration;
-    [SerializeField] public float fadeOutDuration;
+    [SerializeField] public float fadeInDuration = 1f;
+    [SerializeField] public float fadeOutDuration = 1f;
     [SerializeField] public Vector2 fadeAlpha;
-    [SerializeField] public float fadeFrom, fadeTo;
+    [SerializeField] public float fadeFrom = 0f, fadeTo = 1f;
 }
 
 public interface AnimationData
@@ -15,31 +15,31 @@ public interface AnimationData
 }
 
 [Serializable]
-public struct MoveData : AnimationData
+public class MoveData : AnimationData
 {
-    [SerializeField] public float moveInDuration;
-    [SerializeField] public float moveOutDuration;
-    [SerializeField] public LeanTweenType moveEaseInType;
-    [SerializeField] public LeanTweenType moveEaseOutType;
-    [SerializeField] public bool useDefaultPosition;
+    [SerializeField] public float moveInDuration = 0.6f;
+    [SerializeField] public float moveOutDuration = 0.6f;
+    [SerializeField] public LeanTweenType moveEaseInType = LeanTweenType.easeOutBack;
+    [SerializeField] public LeanTweenType moveEaseOutType = LeanTweenType.easeInBack;
+    [SerializeField] public bool useDefaultPosition = true;
     [SerializeField] public Vector3 moveInFrom, moveOriginal, moveOutTo;
 }
 
 [Serializable]
-public struct ScaleData : AnimationData 
+public class ScaleData : AnimationData
 {
-    [SerializeField] public Vector3 scaleFrom, scaleTo;
-    [SerializeField] public float scaleInDuration;
-    [SerializeField] public float scaleOutDuration;
-    [SerializeField] public LeanTweenType scaleEaseInType;
-    [SerializeField] public LeanTweenType scaleEaseOutType;
+    [SerializeField] public Vector3 scaleFrom = Vector3.zero, scaleTo = Vector3.one;
+    [SerializeField] public float scaleInDuration = 0.6f;
+    [SerializeField] public float scaleOutDuration = 0.6f;
+    [SerializeField] public LeanTweenType scaleEaseInType = LeanTweenType.easeOutCirc;
+    [SerializeField] public LeanTweenType scaleEaseOutType = LeanTweenType.easeInCirc;
 }
 
 [Serializable]
-public struct RotateData : AnimationData
+public class RotateData : AnimationData
 {
     [SerializeField] public float rotateFrom, rotateTo;
-    [SerializeField] public float rotateInDuration;
-    [SerializeField] public LeanTweenType rotateEaseInType;
-    [SerializeField] public LeanTweenType rotateEaseOutType;
+    [SerializeField] public float rotateInDuration = 0.6f;
+    [SerializeField] public LeanTweenType rotateEaseInType = LeanTweenType.easeOutCirc;
+    [SerializeField] public LeanTweenType rotateEaseOutType = LeanTweenType.easeInCirc;
 }

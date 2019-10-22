@@ -14,18 +14,19 @@ public enum AnimationType
 }
 
 [RequireComponent(typeof(CanvasGroup))]
-public class UITweener : MonoBehaviour {
-    
+public class UITweener : MonoBehaviour
+{
+
     [SerializeField] private bool startHidden;
-    
-    [SerializeField] private FadeData fadeData; 
+
+    [SerializeField] private FadeData fadeData;
     private float fadeValue;
     [SerializeField] private MoveData moveData;
 
     [SerializeField] private ScaleData scaleData;
 
     [SerializeField] private RotateData rotateData;
-    
+
 
 
 
@@ -37,12 +38,12 @@ public class UITweener : MonoBehaviour {
     [SerializeField] public bool useMovementIn;
     [SerializeField] public bool useScaleIn;
     [SerializeField] public bool useRotateIn;
-    
+
     [SerializeField] public bool useFadeOut;
     [SerializeField] public bool useMovementOut;
     [SerializeField] public bool useScaleOut;
-    
-    
+
+
 
     protected CanvasGroup canvasGroup;
 
@@ -87,7 +88,7 @@ public class UITweener : MonoBehaviour {
     private bool pingpong;
     protected LTDescr tweenObject;
 
-    
+
     public bool StartHidden
     {
         get => startHidden;
@@ -169,7 +170,6 @@ public class UITweener : MonoBehaviour {
         set => fadeData.fadeTo = value;
     }
 
-
     #endregion
 
     #region Scale Properties
@@ -240,8 +240,8 @@ public class UITweener : MonoBehaviour {
     }
 
     #endregion
-    
-    
+
+
     public AnimationType AnimInType
     {
         get => animationInType;
@@ -299,13 +299,12 @@ public class UITweener : MonoBehaviour {
         {
             ScaleIn();
         }
-        
-        
+
+
     }
     public void Close()
     {
         ResetCanvas();
-        Hide();
         //canvasGroup.interactable = false;
         if (useFadeOut)
         {
@@ -320,8 +319,8 @@ public class UITweener : MonoBehaviour {
         {
             ScaleOut();
         }
-        
-        
+
+
     }
 
     protected void Show()
@@ -360,7 +359,8 @@ public class UITweener : MonoBehaviour {
     {
         rectTransform.anchoredPosition3D = MoveInFrom;
 
-        if (UseDefaultPosition) {
+        if (UseDefaultPosition)
+        {
             MoveOriginal = originalPosition;
         }
 
@@ -383,7 +383,7 @@ public class UITweener : MonoBehaviour {
     protected void ScaleIn()
     {
         rectTransform.localScale = ScaleFrom;
-        
+
 
         canvasGroup.alpha = 1;
 
@@ -403,7 +403,8 @@ public class UITweener : MonoBehaviour {
         tweenObject.setEase(ScaleEaseOutType);
     }
 
-    protected void RotateIn() {
+    protected void RotateIn()
+    {
 
         tweenObject = LeanTween.rotate(rectTransform, RotateTo, RotateInDuration);
         tweenObject.setDelay(delay);
