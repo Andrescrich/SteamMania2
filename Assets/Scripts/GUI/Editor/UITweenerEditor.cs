@@ -13,11 +13,27 @@ public class UIComponentEditor : Editor
 
     protected UITweener UITweenerCustomEditor;
     private SerializedProperty fadeInDurationProperty;
+    
+    
 
     private void OnEnable()
     {
         fadeInDurationProperty = serializedObject.FindProperty("fadeData.fadeInDuration");
 
+    }
+
+    private float LimitValue(float value, float min, float max)
+    {
+        if (value <= min)
+        {
+            value = min;
+        }
+
+        if (value >= max)
+        {
+            value = max;
+        }
+        return value;
     }
 
     public override void OnInspectorGUI()
@@ -26,11 +42,14 @@ public class UIComponentEditor : Editor
         serializedObject.Update();
 
         UITweenerCustomEditor = (UITweener)target;
-        UITweenerCustomEditor.StartHidden = EditorGUILayout.Toggle("Start Hidden", UITweenerCustomEditor.StartHidden);
+        
+        UITweenerCustomEditor.StartHidden = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.StartHidden, "Start Hidden");
+        //UITweenerCustomEditor.StartHidden = EditorGUILayout.Toggle("Start Hidden", UITweenerCustomEditor.StartHidden);
 
         EditorGUILayout.LabelField("Animation In", EditorStyles.boldLabel);
 
-        UITweenerCustomEditor.useFadeIn = EditorGUILayout.Toggle("Use Fade", UITweenerCustomEditor.useFadeIn);
+        //UITweenerCustomEditor.useFadeIn = EditorGUILayout.Toggle("Use Fade", UITweenerCustomEditor.useFadeIn);
+        UITweenerCustomEditor.useFadeIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useFadeIn, "Use Fade In");
 
 
         if (UITweenerCustomEditor.useFadeIn)
@@ -42,9 +61,10 @@ public class UIComponentEditor : Editor
 
 
             EditorGUILayout.BeginVertical("GroupBox");
-            EditorGUILayout.PropertyField(fadeInDurationProperty);
-            //customWindowEditor.FadeInDuration = EditorGUILayout.FloatField("Fade In Duration", customWindowEditor.FadeInDuration);
-
+            //EditorGUILayout.PropertyField(fadeInDurationProperty);
+            UITweenerCustomEditor.FadeInDuration = EditorGUILayout.FloatField("Fade In Duration", UITweenerCustomEditor.FadeInDuration);
+            UITweenerCustomEditor.FadeInDuration = LimitValue(UITweenerCustomEditor.FadeInDuration, 0.1f, 5f);
+            
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("Fade to");
             UITweenerCustomEditor.FadeTo = EditorGUILayout.Slider(UITweenerCustomEditor.FadeTo, 0, 1);
@@ -56,7 +76,8 @@ public class UIComponentEditor : Editor
 
             GUILayout.EndVertical();
         }
-        UITweenerCustomEditor.useMovementIn = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementIn);
+        //UITweenerCustomEditor.useMovementIn = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementIn);
+        UITweenerCustomEditor.useMovementIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useMovementIn, "Use Movement In");
 
         if (UITweenerCustomEditor.useMovementIn)
         {
@@ -68,7 +89,7 @@ public class UIComponentEditor : Editor
 
             EditorGUILayout.BeginVertical("GroupBox");
             UITweenerCustomEditor.MoveInDuration = EditorGUILayout.FloatField("Move In Duration", UITweenerCustomEditor.MoveInDuration);
-
+            UITweenerCustomEditor.MoveInDuration = LimitValue(UITweenerCustomEditor.MoveInDuration, 0.1f, 5f);
             UITweenerCustomEditor.MoveEaseInType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease In Type", UITweenerCustomEditor.MoveEaseInType);
 
             UITweenerCustomEditor.UseDefaultPosition = EditorGUILayout.Toggle("Use Own Position: ", UITweenerCustomEditor.UseDefaultPosition);
@@ -92,7 +113,9 @@ public class UIComponentEditor : Editor
             GUILayout.EndVertical();
         }
 
-        UITweenerCustomEditor.useScaleIn = EditorGUILayout.Toggle("Use Scale", UITweenerCustomEditor.useScaleIn);
+        //UITweenerCustomEditor.useScaleIn = EditorGUILayout.Toggle("Use Scale", UITweenerCustomEditor.useScaleIn);
+        UITweenerCustomEditor.useScaleIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useScaleIn, "Use Scale In");
+
 
         if (UITweenerCustomEditor.useScaleIn)
         {
@@ -105,7 +128,7 @@ public class UIComponentEditor : Editor
             EditorGUILayout.BeginVertical("GroupBox");
             EditorGUILayout.BeginVertical();
             UITweenerCustomEditor.ScaleInDuration = EditorGUILayout.FloatField("Scale In Duration", UITweenerCustomEditor.ScaleInDuration);
-
+            UITweenerCustomEditor.ScaleInDuration = LimitValue(UITweenerCustomEditor.ScaleInDuration, 0.1f, 5f);
             UITweenerCustomEditor.ScaleEaseInType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease In Type", UITweenerCustomEditor.ScaleEaseInType);
 
             UITweenerCustomEditor.ScaleFrom = EditorGUILayout.Vector3Field("Scale From", UITweenerCustomEditor.ScaleFrom);
@@ -121,8 +144,8 @@ public class UIComponentEditor : Editor
         }
 
 
-        UITweenerCustomEditor.useRotateIn = EditorGUILayout.Toggle("Use Rotate", UITweenerCustomEditor.useRotateIn);
-
+        //UITweenerCustomEditor.useRotateIn = EditorGUILayout.Toggle("Use Rotate", UITweenerCustomEditor.useRotateIn);
+        UITweenerCustomEditor.useRotateIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useRotateIn, "Use Rotate In");
         if (UITweenerCustomEditor.useRotateIn)
         {
             EditorGUILayout.BeginVertical("HelpBox");
@@ -134,7 +157,7 @@ public class UIComponentEditor : Editor
             EditorGUILayout.BeginVertical("GroupBox");
             EditorGUILayout.BeginVertical();
             UITweenerCustomEditor.RotateInDuration = EditorGUILayout.FloatField("Rotate In Duration", UITweenerCustomEditor.RotateInDuration);
-
+            UITweenerCustomEditor.RotateInDuration = LimitValue(UITweenerCustomEditor.RotateInDuration, 0.1f, 5f);
             EditorGUILayout.EndVertical();
 
             GUILayout.EndVertical();
@@ -155,7 +178,9 @@ public class UIComponentEditor : Editor
 
         EditorGUILayout.LabelField("Animation Out", EditorStyles.boldLabel);
 
-        UITweenerCustomEditor.useFadeOut = EditorGUILayout.Toggle("Use Fade", UITweenerCustomEditor.useFadeOut);
+        //UITweenerCustomEditor.useFadeOut = EditorGUILayout.Toggle("Use Fade", UITweenerCustomEditor.useFadeOut);
+        
+        UITweenerCustomEditor.useFadeOut = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useFadeOut, "Use Fade Out");
 
 
         if (UITweenerCustomEditor.useFadeOut)
@@ -168,7 +193,7 @@ public class UIComponentEditor : Editor
 
             EditorGUILayout.BeginVertical("GroupBox");
             UITweenerCustomEditor.FadeOutDuration = EditorGUILayout.FloatField("Fade Out Duration", UITweenerCustomEditor.FadeOutDuration);
-
+            UITweenerCustomEditor.FadeOutDuration = LimitValue(UITweenerCustomEditor.FadeOutDuration, 0.1f, 5f);
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("Fade to");
             UITweenerCustomEditor.FadeFrom = EditorGUILayout.Slider(UITweenerCustomEditor.FadeFrom, 0, 1);
@@ -180,7 +205,9 @@ public class UIComponentEditor : Editor
 
             GUILayout.EndVertical();
         }
-        UITweenerCustomEditor.useMovementOut = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementOut);
+        
+        //UITweenerCustomEditor.useMovementOut = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementOut);
+        UITweenerCustomEditor.useMovementOut = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useMovementOut, "Use Movement Out");
 
         if (UITweenerCustomEditor.useMovementOut)
         {
@@ -192,7 +219,7 @@ public class UIComponentEditor : Editor
 
             EditorGUILayout.BeginVertical("GroupBox");
             UITweenerCustomEditor.MoveOutDuration = EditorGUILayout.FloatField("Move Out Duration", UITweenerCustomEditor.MoveOutDuration);
-
+            UITweenerCustomEditor.MoveOutDuration = LimitValue(UITweenerCustomEditor.MoveOutDuration, 0.1f, 5f);
             UITweenerCustomEditor.MoveEaseOutType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Out Type", UITweenerCustomEditor.MoveEaseOutType);
 
             UITweenerCustomEditor.UseDefaultPosition = EditorGUILayout.Toggle("Use Own Position: ", UITweenerCustomEditor.UseDefaultPosition);
@@ -213,7 +240,8 @@ public class UIComponentEditor : Editor
             GUILayout.EndVertical();
         }
 
-        UITweenerCustomEditor.useScaleOut = EditorGUILayout.Toggle("Use Scale", UITweenerCustomEditor.useScaleOut);
+        //UITweenerCustomEditor.useScaleOut = EditorGUILayout.Toggle("Use Scale", UITweenerCustomEditor.useScaleOut);
+        UITweenerCustomEditor.useScaleOut = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useScaleOut, "Use Scale Out");
 
         if (UITweenerCustomEditor.useScaleOut)
         {
@@ -227,7 +255,7 @@ public class UIComponentEditor : Editor
             EditorGUILayout.BeginVertical();
 
             UITweenerCustomEditor.ScaleOutDuration = EditorGUILayout.FloatField("Scale Out Duration", UITweenerCustomEditor.ScaleOutDuration);
-
+            UITweenerCustomEditor.ScaleOutDuration = LimitValue(UITweenerCustomEditor.ScaleOutDuration, 0.1f, 5f);
             UITweenerCustomEditor.ScaleEaseOutType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Out Type", UITweenerCustomEditor.ScaleEaseOutType);
 
             UITweenerCustomEditor.ScaleTo = EditorGUILayout.Vector3Field("Scale From", UITweenerCustomEditor.ScaleTo);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -13,7 +14,7 @@ public enum AnimationType
     SCALE,
 }
 
-[RequireComponent(typeof(CanvasGroup))]
+[RequireComponent(typeof(CanvasGroup),typeof(RectTransform))]
 public class UITweener : MonoBehaviour
 {
 
@@ -45,9 +46,9 @@ public class UITweener : MonoBehaviour
 
 
 
-    protected CanvasGroup canvasGroup;
+    private CanvasGroup canvasGroup;
 
-    protected RectTransform rectTransform;
+    private RectTransform rectTransform;
 
 
     private Vector3 moveValue;
@@ -258,18 +259,23 @@ public class UITweener : MonoBehaviour
 
     }
 
-    public void Start()
+    public string WindowTitle;
+
+    private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
+    }
 
+    public void Start()
+    {
         if (startHidden)
         {
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
         }
+        
         objectToAnimate = gameObject;
-
         originalPosition = rectTransform.anchoredPosition3D;
         originalScale = rectTransform.localScale;
         ResetCanvas();
@@ -299,13 +305,15 @@ public class UITweener : MonoBehaviour
         {
             ScaleIn();
         }
+        
+        tweenObject.setIgnoreTimeScale(true);
 
 
     }
     public void Close()
     {
         ResetCanvas();
-        //canvasGroup.interactable = false;
+        canvasGroup.interactable = false;
         if (useFadeOut)
         {
             FadeOut();
@@ -320,6 +328,7 @@ public class UITweener : MonoBehaviour
             ScaleOut();
         }
 
+        tweenObject.setIgnoreTimeScale(true);
 
     }
 

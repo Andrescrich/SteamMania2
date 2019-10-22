@@ -1,28 +1,49 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class UIManager : MonoBehaviour
 {
 
     public UITweener component;
-    void Start()
+    
+    private bool Paused;
+
+    private void Awake()
     {
-        
+        PauseManager pause = PauseManager.Instance;
     }
 
-    // Update is called once per frame
+    private void OnEnable()
+    {        
+        PauseManager.OnPaused += OpenPanel;
+        PauseManager.OnUnpaused += ClosePanel;
+    }
+    
+    /*
+    private void OnDisable()
+    {
+        PauseManager.OnPaused -= OpenPanel;
+        PauseManager.OnUnpaused -= ClosePanel;
+    }
+    */
+    
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            component.Open();
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            component.Close();
-        }
     }
+    
+    public void ClosePanel()
+    {
+        component.Close();
+    }
+
+    public void OpenPanel()
+    {
+        component.Open();
+    }
+    
+    
 }
