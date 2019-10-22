@@ -91,7 +91,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     {
         Move(dirMove, velocity);
 
-        if(_pS.isJumping)
+        if(_pS.isJumping && !_pS.recoiling)
               Jump();
         if (_pS.isDoubleJumping)
             DoubleJump();
@@ -124,7 +124,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
         var vector = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
         _rb.velocity = vector;
-        Debug.Log("Jump");
     }
 
     private void DoubleJump()
@@ -138,7 +137,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
         var vector = new Vector2(_rb.velocity.x, jumpForce * Time.fixedDeltaTime);
         _rb.velocity = vector;
         canDoubleJump = false;
-        Debug.Log("DoubleJump");
     }
 
     public void ShootRecoil()
