@@ -66,7 +66,7 @@ public class ShootingFXScript : MonoBehaviour
         }
         GetComponentInParent<PlayerMovement>().bullets--;
     }
-    
+
     public void CanFlip()
     {
         _pM._canFlip = !_pM._canFlip;
@@ -95,7 +95,8 @@ public class ShootingFXScript : MonoBehaviour
     private void Shoot(Vector2 recoilDir, Vector3 position, Quaternion rotation)
     {
         StartCoroutine(Recoiling(recoilDir));
+        ObjectPooler.Instance.Spawn("Bullet", position, rotation);
         Instantiate(particle, position, rotation);
-        Instantiate(bullet, position, rotation);
+    //    Instantiate(bullet, position, rotation);
     }
 }

@@ -151,6 +151,7 @@
           </e>
         </e>
         <e p="GameManager.cs" t="Include" />
+        <e p="ImpactParticle.cs" t="Include" />
         <e p="InputMaster.cs" t="Include" />
         <e p="PlayMusicTest.cs" t="Include" />
         <e p="Scripts" t="Include">
@@ -167,6 +168,7 @@
             <e p="AudioType.cs" t="Include" />
           </e>
           <e p="Health.cs" t="Include" />
+          <e p="ObjectPooler.cs" t="Include" />
           <e p="ParallaxingScript.cs" t="Include" />
           <e p="ParallaxObject.cs" t="Include" />
           <e p="ParticleScript.cs" t="Include" />

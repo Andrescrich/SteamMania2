@@ -4763,6 +4763,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9574,6 +9575,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -14386,6 +14388,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -14457,7 +14460,7 @@ GameObject:
   - component: {fileID: 4113620158442993619}
   - component: {fileID: 4113620158442993622}
   - component: {fileID: 4113620158442993621}
-  - component: {fileID: -3792278845898426037}
+  - component: {fileID: 7931903340157451330}
   m_Layer: 0
   m_Name: ImpactParticle
   m_TagString: Untagged
@@ -19214,6 +19217,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -19262,7 +19266,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &-3792278845898426037
+--- !u!114 &7931903340157451330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19271,7 +19275,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4113620158442993618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e8bb0a6f0a0ae4b83a5ec2aacddd09, type: 3}
+  m_Script: {fileID: 11500000, guid: 16251da091eace446814ee9b2a301b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8252306800160579485
@@ -24037,6 +24041,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

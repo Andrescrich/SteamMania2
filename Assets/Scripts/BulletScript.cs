@@ -39,8 +39,14 @@ public class BulletScript : MonoBehaviour
         bulletParticles.transform.localScale = new Vector3(1, 1, 1);
         var particles = bulletParticles.GetComponent<ParticleSystem>();
         particles.Stop();
-        Instantiate(impactParticle, transform.position, transform.rotation);
+        ObjectPooler.Instance.Spawn("Impact", transform.position, transform.rotation);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        bulletParticles.SetActive(true);
+        bulletParticles.transform.localScale = new Vector3(1, 1, 1);
     }
 }
