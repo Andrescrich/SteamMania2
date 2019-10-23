@@ -17,20 +17,6 @@ public class PlayMusicTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            AudioManager.Stop(inMusic, gameObject);
-        }        
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            //AudioManager.FadeOut(outMusic);
-            //AudioManager.FadeIn(inMusic, fadeTime: 0.2f);
-            AudioManager.CrossFade(inMusic, outMusic);
-        }
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            AudioManager.CrossFade(outMusic, inMusic);
-        }
     }
 }

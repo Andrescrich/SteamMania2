@@ -8,7 +8,11 @@ using UnityEngine.XR;
 public class UIManager : MonoBehaviour
 {
 
-    public UITweener component;
+    public UITweener pauseMenu;
+
+    public UITweener settingsMenu;
+
+    private List<UITweener> components;
     
     private bool Paused;
 
@@ -19,7 +23,7 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {        
-        PauseManager.OnPaused += OpenPanel;
+        PauseManager.OnPaused += OpenPausePanel;
         PauseManager.OnUnpaused += ClosePanel;
     }
     
@@ -37,13 +41,21 @@ public class UIManager : MonoBehaviour
     
     public void ClosePanel()
     {
-        component.Close();
+        pauseMenu.Close();
+        settingsMenu.Close();
     }
 
-    public void OpenPanel()
+
+    public void OpenOptionsPanel()
     {
-        component.Open();
+        pauseMenu.Close();
+        settingsMenu.Open();
     }
-    
+
+    public void OpenPausePanel()
+    {
+        settingsMenu.Close();
+        pauseMenu.Open();
+    }
     
 }

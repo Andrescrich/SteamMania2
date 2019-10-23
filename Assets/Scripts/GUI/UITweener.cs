@@ -259,8 +259,6 @@ public class UITweener : MonoBehaviour
 
     }
 
-    public string WindowTitle;
-
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -274,18 +272,21 @@ public class UITweener : MonoBehaviour
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
         }
-        
+
+        canvasGroup.blocksRaycasts = false;
         objectToAnimate = gameObject;
         originalPosition = rectTransform.anchoredPosition3D;
         originalScale = rectTransform.localScale;
         ResetCanvas();
     }
 
+    public bool opened;
     public void Open()
     {
+        if (opened) return;
+        opened = true;
         ResetCanvas();
         Show();
-        canvasGroup.interactable = true;
         if (useFadeIn)
         {
             FadeIn();
@@ -312,8 +313,9 @@ public class UITweener : MonoBehaviour
     }
     public void Close()
     {
+        if (!opened) return;
+        opened = false;
         ResetCanvas();
-        canvasGroup.interactable = false;
         if (useFadeOut)
         {
             FadeOut();
@@ -336,12 +338,16 @@ public class UITweener : MonoBehaviour
     {
         rectTransform.localScale = originalScale;
         canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 
     protected void Hide()
     {
         rectTransform.localScale = originalScale;
         canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 
 

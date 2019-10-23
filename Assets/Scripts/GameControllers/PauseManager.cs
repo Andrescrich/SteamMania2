@@ -28,12 +28,8 @@ public class PauseManager : Singleton<PauseManager>
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (Paused)
-                Unpause();
-            else
-                Pause();
+            TogglePause();
         }
-        Debug.Log(Paused);
     }
 
     public static void TogglePause()
@@ -46,7 +42,6 @@ public class PauseManager : Singleton<PauseManager>
         {
             Pause();
         }
-        Debug.Log(Paused);
     }
     
     public static void Pause()

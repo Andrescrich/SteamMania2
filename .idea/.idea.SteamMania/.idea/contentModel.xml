@@ -391,6 +391,7 @@
           </e>
           <e p="Version.txt" t="Include" />
         </e>
+        <e p="PauseShower.cs" t="Include" />
         <e p="PlayMusicTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
@@ -399,7 +400,7 @@
             <e p="AudioManager.cs" t="Include" />
             <e p="AudioPauseController.cs" t="Include" />
             <e p="AudioSourceElement.cs" t="Include" />
-            <e p="AudioVolumeSetter.cs" t="Include" />
+            <e p="AudioVariables.cs" t="Include" />
           </e>
           <e p="BulletScript.cs" t="Include" />
           <e p="Enums" t="Include">
@@ -417,6 +418,7 @@
             <e p="UIBUtton.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
             <e p="UIPanel.cs" t="Include" />
+            <e p="UISettings.cs" t="Include" />
             <e p="UITweener.cs" t="Include" />
           </e>
           <e p="Health.cs" t="Include" />
@@ -426,6 +428,7 @@
           <e p="PlayerMovement.cs" t="Include" />
           <e p="PlayerStates.cs" t="Include" />
           <e p="SaveSystem" t="Include">
+            <e p="ISave.cs" t="Include" />
             <e p="SaveSystem.cs" t="Include" />
             <e p="SaveTester.cs" t="Include" />
           </e>
@@ -461,6 +464,7 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="UIToggle.cs" t="Include" />
       </e>
       <e p="NaughtyAttributes.Core.csproj" t="IncludeRecursive" />
       <e p="NaughtyAttributes.Editor.csproj" t="IncludeRecursive" />

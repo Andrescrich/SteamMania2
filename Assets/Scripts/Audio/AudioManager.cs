@@ -37,21 +37,21 @@ using UnityEngine.Audio;
         [Range(0,1)]
         private float uiVolume = 1;
 
-        public float MasterVolume { 
-            get => masterVolume;
-            set => masterVolume = value;
+        public static float MasterVolume { 
+            get => Instance.masterVolume;
+            set => Instance.masterVolume = value;
         }
-        public float MusicVolume { 
-            get => musicVolume;
-            set => musicVolume = value;
+        public static float MusicVolume { 
+            get => Instance.musicVolume;
+            set => Instance.musicVolume = value;
         }
-        public float SFXVolume { 
-            get => sfxVolume;
-            set => sfxVolume = value;
+        public static float SFXVolume { 
+            get => Instance.sfxVolume;
+            set => Instance.sfxVolume = value;
         }
-        public float UIVolume { 
-            get => uiVolume;
-            set => uiVolume = value;
+        public static float UIVolume { 
+            get => Instance.uiVolume;
+            set => Instance.uiVolume = value;
         }
         
         private float volumeThreshold = -80.0f;
@@ -98,12 +98,8 @@ using UnityEngine.Audio;
 
         public void Start()
         {         
-            //TODO Set PlayerPerfs values to XVolume
-            
-            SetMasterVolume(MasterVolume);
-            SetMusicVolume(MusicVolume);
-            SetSFXVolume(SFXVolume);
-            SetUIVolume(UIVolume);
+            LoadAllVolumes();
+            Debug.Log("MasterVolume Start after loaded: "+MasterVolume);
             InitializePool();
         }
 
@@ -164,6 +160,21 @@ using UnityEngine.Audio;
             Instance.CrossFade(inSound, outSound, fadeInTime, fadeOutTime, inGo, outGo);
         }
 
+        public static void SetMasterVolume(float volume)
+        {
+            Instance.SetMasterVolume(volume);
+        }
+        
+        public static void SetMusicVolume(float volume)
+        {
+            Instance.SetMusicVolume(volume);
+        }
+        public static void SetSFXVolume(float volume)
+        {
+            Instance.SetSFXVolume(volume);
+            Instance.SetUIVolume(volume);
+        }
+
         #endregion
 
     #region public Methods
@@ -176,7 +187,7 @@ using UnityEngine.Audio;
         
 
         #region VolumeControl
-        public void SetMasterVolume(float sliderValue)
+        public void SetMasterVolume(float sliderValue, bool free = false)
         {
             masterVolume = sliderValue;
             if (sliderValue <= 0)
@@ -191,7 +202,7 @@ using UnityEngine.Audio;
             }
         }
 
-        public void SetMusicVolume(float sliderValue)
+        public void SetMusicVolume(float sliderValue, bool free = false)
         {
             musicVolume = sliderValue;
             if (sliderValue <= 0)
@@ -205,7 +216,7 @@ using UnityEngine.Audio;
             }
         }
 
-        public void SetSFXVolume(float sliderValue)
+        public void SetSFXVolume(float sliderValue, bool free = false)
         {
             sfxVolume = sliderValue;
             if (sliderValue <= 0)
@@ -394,5 +405,21 @@ using UnityEngine.Audio;
     }
     
     #endregion
+
+    public void SaveAllVolumes()
+    {
+        SaveSystem<float>.SavePrefs(AudioVariables.MasterVolume, masterVolume);
+        SaveSystem<float>.SavePrefs(AudioVariables.MusicVolume, musicVolume);
+        SaveSystem<float>.SavePrefs(AudioVariables.SFXVolume, sfxVolume);
+        Debug.Log("MasterVolume Saved: "+PlayerPrefs.GetFloat(AudioVariables.MasterVolume));
+    }
+
+    public void LoadAllVolumes()
+    {
+        MasterVolume = SaveSystem<float>.LoadFloat(AudioVariables.MasterVolume);
+        MusicVolume = SaveSystem<float>.LoadFloat(AudioVariables.MusicVolume);
+        SFXVolume = SaveSystem<float>.LoadFloat(AudioVariables.SFXVolume);
+        Debug.Log("MasterVolume Loaded: "+PlayerPrefs.GetFloat(AudioVariables.MasterVolume));
+    }
     }
 
