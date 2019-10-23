@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class UIToggle : MonoBehaviour
     {
         toggle = GetComponent<Toggle>();
         toggle.onValueChanged.AddListener(OnToggle);
+        toggle.isOn = SaveSystem<int>.LoadInt("ScreenKey") == 1;
     }
 
     void OnToggle(bool on)
@@ -33,5 +35,14 @@ public class UIToggle : MonoBehaviour
             offImage.gameObject.SetActive(true);
         }
     }
-    
+
+    private void OnApplicationQuit()
+    {
+        if(toggle.isOn)
+            SaveSystem<int>.SavePrefs("ScreenKey", 1);
+        else
+        {
+            SaveSystem<int>.SavePrefs("ScreenKey", 0);
+        }
+    }
 }
