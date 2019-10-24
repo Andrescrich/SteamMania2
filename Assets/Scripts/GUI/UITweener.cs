@@ -18,7 +18,6 @@ public enum AnimationType
 public class UITweener : MonoBehaviour
 {
 
-    [SerializeField] private bool startHidden;
 
     [SerializeField] private FadeData fadeData;
     private float fadeValue;
@@ -27,14 +26,10 @@ public class UITweener : MonoBehaviour
     [SerializeField] private ScaleData scaleData;
 
     [SerializeField] private RotateData rotateData;
+    
 
-
-
-
-    [SerializeField] private AnimationType animationInType;
-
-    [SerializeField] private AnimationType animationOutType;
-
+    [SerializeField] public bool startHidden;
+    
     [SerializeField] public bool useFadeIn;
     [SerializeField] public bool useMovementIn;
     [SerializeField] public bool useScaleIn;
@@ -43,6 +38,7 @@ public class UITweener : MonoBehaviour
     [SerializeField] public bool useFadeOut;
     [SerializeField] public bool useMovementOut;
     [SerializeField] public bool useScaleOut;
+    [SerializeField] public bool useRotateOut;
 
 
 
@@ -144,7 +140,7 @@ public class UITweener : MonoBehaviour
         set => moveData.moveEaseOutType = value;
     }
     #endregion
-
+    
     #region Fade Properties
 
     public float FadeInDuration
@@ -229,6 +225,12 @@ public class UITweener : MonoBehaviour
         get => rotateData.rotateInDuration;
         set => rotateData.rotateInDuration = value;
     }
+    
+    public float RotateOutDuration
+    {
+        get => rotateData.rotateOutDuration;
+        set => rotateData.rotateOutDuration = value;
+    }
     public float RotateFrom
     {
         get => rotateData.rotateFrom;
@@ -241,23 +243,6 @@ public class UITweener : MonoBehaviour
     }
 
     #endregion
-
-
-    public AnimationType AnimInType
-    {
-        get => animationInType;
-
-        set => animationInType = value;
-
-    }
-
-    public AnimationType AnimOutType
-    {
-        get => animationOutType;
-
-        set => animationOutType = value;
-
-    }
 
     private void Awake()
     {
@@ -280,11 +265,11 @@ public class UITweener : MonoBehaviour
         ResetCanvas();
     }
 
-    public bool opened;
+    public bool active;
     public void Open()
     {
-        if (opened) return;
-        opened = true;
+        if (active) return;
+        active = true;
         ResetCanvas();
         Show();
         if (useFadeIn)
@@ -307,14 +292,16 @@ public class UITweener : MonoBehaviour
             ScaleIn();
         }
         
-        tweenObject.setIgnoreTimeScale(true);
 
 
     }
-    public void Close()
+    public void Close(bool fast = false)
     {
-        if (!opened) return;
-        opened = false;
+        if (fast)
+        {
+            Hide();
+        }
+        
         ResetCanvas();
         if (useFadeOut)
         {
@@ -329,9 +316,9 @@ public class UITweener : MonoBehaviour
         {
             ScaleOut();
         }
-
-        tweenObject.setIgnoreTimeScale(true);
-
+        
+        
+        
     }
 
     protected void Show()
@@ -348,6 +335,7 @@ public class UITweener : MonoBehaviour
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+        active = false;
     }
 
 
@@ -357,17 +345,26 @@ public class UITweener : MonoBehaviour
 
         canvasGroup.alpha = FadeFrom;
 
-        tweenObject = LeanTween.alphaCanvas(canvasGroup, FadeTo, FadeInDuration);
-
+        var tweenFade = LeanTween.alphaCanvas(canvasGroup, FadeTo, FadeInDuration);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
     }
 
     protected void FadeOut()
     {
+        
         rectTransform.localScale = originalScale;
 
         canvasGroup.alpha = FadeTo;
-        tweenObject = LeanTween.alphaCanvas(canvasGroup, FadeFrom, FadeOutDuration);
-
+        var tweenFade = LeanTween.alphaCanvas(canvasGroup, FadeFrom, FadeOutDuration);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
     }
 
     protected void MoveIn()
@@ -379,20 +376,30 @@ public class UITweener : MonoBehaviour
             MoveOriginal = originalPosition;
         }
 
-        tweenObject = LeanTween.move(rectTransform, MoveOriginal, MoveInDuration);
+        var tweenFade = LeanTween.move(rectTransform, MoveOriginal, MoveInDuration);
 
-        tweenObject.setDelay(delay);
-        tweenObject.setEase(MoveEaseInType);
+        tweenFade.setDelay(delay);
+        tweenFade.setEase(MoveEaseInType);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
     }
 
     protected void MoveOut()
     {
         rectTransform.anchoredPosition3D = MoveOriginal;
 
-        tweenObject = LeanTween.move(rectTransform, MoveOutTo, MoveOutDuration);
+        var tweenFade = LeanTween.move(rectTransform, MoveOutTo, MoveOutDuration);
 
-        tweenObject.setDelay(delay);
-        tweenObject.setEase(MoveEaseOutType);
+        tweenFade.setDelay(delay);
+        tweenFade.setEase(MoveEaseOutType);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
     }
 
     protected void ScaleIn()
@@ -402,28 +409,55 @@ public class UITweener : MonoBehaviour
 
         canvasGroup.alpha = 1;
 
-        tweenObject = LeanTween.scale(objectToAnimate, ScaleTo, ScaleInDuration);
+        var tweenFade = LeanTween.scale(objectToAnimate, ScaleTo, ScaleInDuration);
 
-        tweenObject.setDelay(delay);
-        tweenObject.setEase(ScaleEaseInType);
+        tweenFade.setDelay(delay);
+        tweenFade.setEase(ScaleEaseInType);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
     }
 
     protected void ScaleOut()
     {
         rectTransform.localScale = ScaleTo;
 
-        tweenObject = LeanTween.scale(objectToAnimate, ScaleFrom, ScaleOutDuration);
+        var tweenFade = LeanTween.scale(objectToAnimate, ScaleFrom, ScaleOutDuration);
 
-        tweenObject.setDelay(delay);
-        tweenObject.setEase(ScaleEaseOutType);
+        tweenFade.setDelay(delay);
+        tweenFade.setEase(ScaleEaseOutType);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
     }
 
     protected void RotateIn()
     {
 
-        tweenObject = LeanTween.rotate(rectTransform, RotateTo, RotateInDuration);
-        tweenObject.setDelay(delay);
-        tweenObject.setEase(RotateEaseInType);
+        var tweenFade = LeanTween.rotate(rectTransform, RotateTo, RotateInDuration);
+        tweenFade.setDelay(delay);
+        tweenFade.setEase(RotateEaseInType);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
+    }
+
+    void RotateOut()
+    {
+        var tweenFade = LeanTween.rotate(rectTransform, RotateFrom, RotateOutDuration);
+        tweenFade.setDelay(delay);
+        tweenFade.setEase(RotateEaseOutType);
+        tweenFade.setIgnoreTimeScale(true);
+        tweenFade.setOnComplete(() =>
+        {
+            active = false;
+        });
     }
 
 

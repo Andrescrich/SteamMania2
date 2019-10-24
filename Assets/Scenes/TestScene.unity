@@ -6216,7 +6216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386f92516744b7e49b600ce8a33e9fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHidden: 1
   fadeData:
     fadeInDuration: 0.15
     fadeOutDuration: 0.15
@@ -6243,19 +6242,20 @@ MonoBehaviour:
     rotateFrom: 0
     rotateTo: 0
     rotateInDuration: 0.6
+    rotateOutDuration: 0.6
     rotateEaseInType: 21
     rotateEaseOutType: 20
-  animationInType: 0
-  animationOutType: 0
+  startHidden: 1
   useFadeIn: 0
-  useMovementIn: 1
-  useScaleIn: 0
+  useMovementIn: 0
+  useScaleIn: 1
   useRotateIn: 0
   useFadeOut: 0
-  useMovementOut: 1
-  useScaleOut: 0
+  useMovementOut: 0
+  useScaleOut: 1
+  useRotateOut: 0
   originalPosition: {x: 0, y: 0, z: 0}
-  opened: 0
+  active: 0
 --- !u!225 &289757357
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11085,17 +11085,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386f92516744b7e49b600ce8a33e9fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHidden: 1
   fadeData:
-    fadeInDuration: 0.15
-    fadeOutDuration: 0.15
+    fadeInDuration: 0.4
+    fadeOutDuration: 0.1
     fadeAlpha: {x: 0, y: 0}
     fadeFrom: 0
     fadeTo: 1
   moveData:
-    moveInDuration: 0.3
-    moveOutDuration: 0.3
-    moveEaseInType: 9
+    moveInDuration: 0.4
+    moveOutDuration: 0.4
+    moveEaseInType: 6
     moveEaseOutType: 8
     useDefaultPosition: 1
     moveInFrom: {x: -0.000045776, y: 2400, z: 0}
@@ -11104,27 +11103,28 @@ MonoBehaviour:
   scaleData:
     scaleFrom: {x: 0, y: 0, z: 0}
     scaleTo: {x: 1, y: 1, z: 1}
-    scaleInDuration: 0.3
-    scaleOutDuration: 0.3
-    scaleEaseInType: 9
-    scaleEaseOutType: 8
+    scaleInDuration: 0.4
+    scaleOutDuration: 0.4
+    scaleEaseInType: 6
+    scaleEaseOutType: 5
   rotateData:
     rotateFrom: 0
     rotateTo: 0
     rotateInDuration: 0.6
+    rotateOutDuration: 0.6
     rotateEaseInType: 21
     rotateEaseOutType: 20
-  animationInType: 0
-  animationOutType: 0
+  startHidden: 1
   useFadeIn: 0
   useMovementIn: 1
-  useScaleIn: 0
+  useScaleIn: 1
   useRotateIn: 0
   useFadeOut: 0
   useMovementOut: 1
-  useScaleOut: 0
+  useScaleOut: 1
+  useRotateOut: 0
   originalPosition: {x: 0, y: 0, z: 0}
-  opened: 0
+  active: 0
 --- !u!225 &1387709841
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18005,6 +18005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819620753}
   - component: {fileID: 1819620752}
+  - component: {fileID: 1819620754}
   m_Layer: 0
   m_Name: PlayMusicTester
   m_TagString: Untagged
@@ -18040,6 +18041,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1819620754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819620751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f50ddb4c7383e749a677fa240d7906b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1831617007
 GameObject:
   m_ObjectHideFlags: 0
@@ -18806,6 +18819,80 @@ PolygonCollider2D:
       - {x: 0.37, y: -1.11}
       - {x: 0.39999998, y: -1.0699999}
       - {x: 0.39999998, y: -0.84}
+--- !u!1001 &2023881855
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8692685977485163072, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163102, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692685977485163073, guid: ca34a794539b15d4cad42538d0728208,
+        type: 3}
+      propertyPath: StartingAudioSources
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca34a794539b15d4cad42538d0728208, type: 3}
 --- !u!1 &2035419773
 GameObject:
   m_ObjectHideFlags: 0

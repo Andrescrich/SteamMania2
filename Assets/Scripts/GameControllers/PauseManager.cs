@@ -15,6 +15,10 @@ public class PauseManager : Singleton<PauseManager>
         private set => Instance.paused = value;
     }
 
+    public static float PAUSE_TIME_THRESHOLD = 0.6f;
+
+    private float timeSinceLastPause;
+
     public static event Action OnPaused = delegate { };
     public static event Action OnUnpaused = delegate { };
 
@@ -22,6 +26,7 @@ public class PauseManager : Singleton<PauseManager>
     {
         base.Awake();
         gameObject.name = "Pause Manager";
+        timeSinceLastPause = PAUSE_TIME_THRESHOLD;
     }
 
     private void Update()
@@ -30,17 +35,29 @@ public class PauseManager : Singleton<PauseManager>
         {
             TogglePause();
         }
+
+        timeSinceLastPause += Time.unscaledDeltaTime;
+        if (timeSinceLastPause > PAUSE_TIME_THRESHOLD * 3)
+        {
+            timeSinceLastPause = PAUSE_TIME_THRESHOLD * 3;
+        }
+
     }
 
     public static void TogglePause()
     {
-        if (Paused)
+        if (Instance.timeSinceLastPause >= PAUSE_TIME_THRESHOLD)
         {
-            Unpause();
-        }
-        else
-        {
-            Pause();
+            Instance.timeSinceLastPause = 0;
+
+            if (Paused)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
     

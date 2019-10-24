@@ -1,11 +1,12 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 [System.Serializable]
 public class FadeData : AnimationData
 {
     [SerializeField] public float fadeInDuration = 1f;
-    [SerializeField] public float fadeOutDuration = 1f;
+    [SerializeField] [Slider(0,1)] public float fadeOutDuration = 1f;
     [SerializeField] public Vector2 fadeAlpha;
     [SerializeField] public float fadeFrom = 0f, fadeTo = 1f;
 }
@@ -40,6 +41,7 @@ public class RotateData : AnimationData
 {
     [SerializeField] public float rotateFrom, rotateTo;
     [SerializeField] public float rotateInDuration = 0.6f;
+    [SerializeField] public float rotateOutDuration = 0.6f;
     [SerializeField] public LeanTweenType rotateEaseInType = LeanTweenType.easeOutCirc;
     [SerializeField] public LeanTweenType rotateEaseOutType = LeanTweenType.easeInCirc;
 }

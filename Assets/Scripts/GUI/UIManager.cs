@@ -54,7 +54,8 @@ public class UIManager : MonoBehaviour
 
     public void OpenPausePanel()
     {
-        settingsMenu.Close();
+
+        settingsMenu.Close(true);
         pauseMenu.Open();
     }
     

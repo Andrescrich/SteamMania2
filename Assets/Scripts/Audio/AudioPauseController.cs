@@ -17,6 +17,8 @@ public class AudioPauseController : MonoBehaviour
         mixer = AudioManager.Instance.mixer;
         pausedSnapshot = mixer.FindSnapshot("Paused");
         unpauseSnapshot = mixer.FindSnapshot("Unpaused");
+        PauseManager.OnPaused += Lowpass;
+        PauseManager.OnUnpaused += Lowpass;
     }
 
 

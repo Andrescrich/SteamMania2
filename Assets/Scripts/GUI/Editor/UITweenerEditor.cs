@@ -12,16 +12,386 @@ public class UIComponentEditor : Editor
     private bool animationOutEnabled = true;
 
     protected UITweener UITweenerCustomEditor;
+    
+    #region SerializedProperties
+
+    private SerializedProperty startHiddenProperty;
+    
+    private SerializedProperty useFadeInProperty;
+    private SerializedProperty useMoveInProperty;
+    private SerializedProperty useScaleInProperty;
+    private SerializedProperty useRotateInProperty;
+
+    private SerializedProperty useFadeOutProperty;
+    private SerializedProperty useMoveOutProperty;
+    private SerializedProperty useScaleOutProperty;
+    private SerializedProperty useRotateOutProperty;
+    
     private SerializedProperty fadeInDurationProperty;
-    
-    
+    private SerializedProperty fadeOutDurationProperty;
+    private SerializedProperty fadeFromProperty, fadeToProperty;
+
+    private SerializedProperty moveInDurationProperty;
+    private SerializedProperty moveOutDurationProperty;
+    private SerializedProperty moveEaseInTypeProperty;
+    private SerializedProperty moveEaseOutTypeProperty;
+    private SerializedProperty useDefaultPositionProperty;
+    private SerializedProperty moveInFromProperty, moveOriginalProperty, moveOutProperty;
+
+    private SerializedProperty scaleInDurationProperty;
+    private SerializedProperty scaleOutDurationProperty;
+    private SerializedProperty scaleInEaseTypeProperty;
+    private SerializedProperty scaleOutEaseTypeProperty;
+    private SerializedProperty scaleFromProperty, scaleToProperty;
+
+    private SerializedProperty rotationInDurationProperty;
+    private SerializedProperty rotationOutDurationProperty;
+    private SerializedProperty rotationEaseInProperty;
+    private SerializedProperty rotationEaseOutProperty;
+    private SerializedProperty rotateFromProperty, rotateToProperty;
+
+    #endregion
 
     private void OnEnable()
-    {
+    {    
+        startHiddenProperty = serializedObject.FindProperty("startHidden");
+        
+        useFadeInProperty = serializedObject.FindProperty("useFadeIn");
+        useMoveInProperty = serializedObject.FindProperty("useMovementIn");
+        useScaleInProperty = serializedObject.FindProperty("useScaleIn");
+        useRotateInProperty = serializedObject.FindProperty("useRotateIn");
+        
+        useFadeOutProperty = serializedObject.FindProperty("useFadeOut");
+        useMoveOutProperty = serializedObject.FindProperty("useMovementOut");
+        useScaleOutProperty = serializedObject.FindProperty("useScaleOut");
+        useRotateOutProperty = serializedObject.FindProperty("useRotateOut");
+
         fadeInDurationProperty = serializedObject.FindProperty("fadeData.fadeInDuration");
+        fadeOutDurationProperty = serializedObject.FindProperty("fadeData.fadeOutDuration");
+        fadeFromProperty = serializedObject.FindProperty("fadeData.fadeFrom");
+        fadeToProperty = serializedObject.FindProperty("fadeData.fadeTo");
+        
+        moveInDurationProperty = serializedObject.FindProperty("moveData.moveInDuration");
+        moveOutDurationProperty = serializedObject.FindProperty("moveData.moveOutDuration");
+        moveEaseInTypeProperty = serializedObject.FindProperty("moveData.moveEaseInType");
+        moveEaseOutTypeProperty = serializedObject.FindProperty("moveData.moveEaseOutType");
+        useDefaultPositionProperty = serializedObject.FindProperty("moveData.useDefaultPosition");
+        moveInFromProperty = serializedObject.FindProperty("moveData.moveInFrom");
+        moveOriginalProperty = serializedObject.FindProperty("moveData.moveOriginal");
+        moveOutProperty = serializedObject.FindProperty("moveData.moveOutTo");
+        
+        scaleInDurationProperty = serializedObject.FindProperty("scaleData.scaleInDuration");
+        scaleOutDurationProperty = serializedObject.FindProperty("scaleData.scaleOutDuration");
+        scaleInEaseTypeProperty = serializedObject.FindProperty("scaleData.scaleEaseInType");
+        scaleOutEaseTypeProperty = serializedObject.FindProperty("scaleData.scaleEaseOutType");
+        scaleFromProperty = serializedObject.FindProperty("scaleData.scaleFrom");
+        scaleToProperty = serializedObject.FindProperty("scaleData.scaleTo");
+        
+        rotationInDurationProperty = serializedObject.FindProperty("rotateData.rotateInDuration");
+        rotationOutDurationProperty = serializedObject.FindProperty("scaleData.rotateOutDuration");
+        rotationEaseInProperty = serializedObject.FindProperty("scaleData.rotateEaseInType");
+        rotationEaseOutProperty = serializedObject.FindProperty("scaleData.rotateEaseOutType");
+        rotateFromProperty = serializedObject.FindProperty("scaleData.rotateFrom");
+        rotateToProperty = serializedObject.FindProperty("scaleData.rotateTo");
+        
 
     }
 
+    
+    public override void OnInspectorGUI()
+    {
+
+        serializedObject.Update();
+
+        UITweenerCustomEditor = (UITweener)target;
+        
+        startHiddenProperty.boolValue = EditorGUIExtension.ToggleButton(startHiddenProperty.boolValue, "Start Hidden");
+        //UITweenerCustomEditor.StartHidden = EditorGUILayout.Toggle("Start Hidden", UITweenerCustomEditor.StartHidden);
+
+        
+        EditorGUILayout.LabelField("Animation In", EditorStyles.boldLabel);
+
+        useFadeInProperty.boolValue = EditorGUIExtension.ToggleButton(useFadeInProperty.boolValue, "Use Fade In");
+
+
+        if (useFadeInProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Fade", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+            
+                EditorGUILayout.PropertyField(fadeInDurationProperty);
+                fadeInDurationProperty.floatValue = Mathf.Clamp(fadeInDurationProperty.floatValue, 0.1f, 5f);
+                
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.Slider(fadeToProperty, 0, 1, "Fade Out");
+                EditorGUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+        //UITweenerCustomEditor.useMovementIn = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementIn);
+        useMoveInProperty.boolValue = EditorGUIExtension.ToggleButton(useMoveInProperty.boolValue, "Use Movement In");
+        
+        
+        if (useMoveInProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Movement", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+            
+                EditorGUILayout.PropertyField(moveInDurationProperty);
+                
+                moveInDurationProperty.floatValue = Mathf.Clamp(moveInDurationProperty.floatValue, 0.1f, 5f);
+
+                EditorGUILayout.PropertyField(moveEaseInTypeProperty);
+
+                EditorGUILayout.PropertyField(useDefaultPositionProperty);
+
+                EditorGUILayout.PropertyField(moveInFromProperty);
+
+                if (useDefaultPositionProperty.boolValue)
+                {
+                    moveOriginalProperty.vector3Value = UITweenerCustomEditor.originalPosition;
+                }
+
+                EditorGUILayout.PropertyField(moveOriginalProperty);
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+
+        
+        useScaleInProperty.boolValue = EditorGUIExtension.ToggleButton(useScaleInProperty.boolValue, "Use Scale In");
+        
+
+        if (useScaleInProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Scale", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+            
+                EditorGUILayout.BeginVertical();
+
+                EditorGUILayout.PropertyField(scaleInDurationProperty);
+
+                scaleInDurationProperty.floatValue = Mathf.Clamp(scaleInDurationProperty.floatValue, 0.1f, 5f);
+
+                EditorGUILayout.PropertyField(scaleInEaseTypeProperty);
+
+                EditorGUILayout.PropertyField(scaleFromProperty);
+                
+                EditorGUILayout.PropertyField(scaleToProperty);
+
+            EditorGUILayout.EndVertical();
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+
+
+        useRotateInProperty.boolValue = EditorGUIExtension.ToggleButton(useRotateInProperty.boolValue, "Use Rotate In");
+
+        if (useRotateInProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Rotate", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+                
+                EditorGUILayout.BeginVertical();
+
+                EditorGUILayout.PropertyField(rotationInDurationProperty);
+                
+                rotationInDurationProperty.floatValue = Mathf.Clamp(rotationInDurationProperty.floatValue, 0.1f, 5f);
+
+            EditorGUILayout.EndVertical();
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+        
+        
+        
+        
+        EditorGUILayout.Separator();
+        
+        
+        
+        EditorGUILayout.LabelField("Animation Out", EditorStyles.boldLabel);
+
+        
+        
+        
+        useFadeOutProperty.boolValue = EditorGUIExtension.ToggleButton(useFadeOutProperty.boolValue, "Use Fade Out");
+        
+        if (useFadeOutProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Fade", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+            
+                EditorGUILayout.PropertyField(fadeOutDurationProperty);
+                fadeOutDurationProperty.floatValue = Mathf.Clamp(fadeOutDurationProperty.floatValue, 0.1f, 5f);
+                
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.Slider(fadeToProperty, 0, 1, "Fade To");
+                EditorGUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+        //UITweenerCustomEditor.useMovementIn = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementIn);
+        useMoveOutProperty.boolValue = EditorGUIExtension.ToggleButton(useMoveOutProperty.boolValue, "Use Movement Out");
+        
+        
+        if (useMoveOutProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Movement", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+            
+                EditorGUILayout.PropertyField(moveOutDurationProperty);
+                
+                moveOutDurationProperty.floatValue = Mathf.Clamp(moveOutDurationProperty.floatValue, 0.1f, 5f);
+
+                EditorGUILayout.PropertyField(moveEaseOutTypeProperty);
+
+                EditorGUILayout.PropertyField(useDefaultPositionProperty);
+
+                if (useDefaultPositionProperty.boolValue)
+                {
+                    moveOriginalProperty.vector3Value = UITweenerCustomEditor.originalPosition;
+                }
+
+                EditorGUILayout.PropertyField(moveOriginalProperty);
+                
+                EditorGUILayout.PropertyField(moveOutProperty);
+
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+
+        
+        useScaleOutProperty.boolValue = EditorGUIExtension.ToggleButton(useScaleOutProperty.boolValue, "Use Scale Out");
+        
+
+        if (useScaleOutProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Scale", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+            
+                EditorGUILayout.BeginVertical();
+
+                EditorGUILayout.PropertyField(scaleOutDurationProperty);
+
+                scaleOutDurationProperty.floatValue = Mathf.Clamp(scaleOutDurationProperty.floatValue, 0.1f, 5f);
+
+                EditorGUILayout.PropertyField(scaleOutEaseTypeProperty);
+
+                EditorGUILayout.PropertyField(scaleToProperty);
+                
+                EditorGUILayout.PropertyField(scaleFromProperty);
+                
+
+            EditorGUILayout.EndVertical();
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+
+
+        useRotateOutProperty.boolValue = EditorGUIExtension.ToggleButton(useRotateOutProperty.boolValue, "Use Rotate Out");
+
+        if (useRotateOutProperty.boolValue)
+        {
+            EditorGUILayout.BeginVertical("HelpBox");
+
+            EditorGUILayout.LabelField("Rotate", EditorStyles.boldLabel);
+            
+            GUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginVertical("GroupBox");
+                
+                EditorGUILayout.BeginVertical();
+
+                EditorGUILayout.PropertyField(rotationOutDurationProperty);
+                
+                rotationOutDurationProperty.floatValue = Mathf.Clamp(rotationOutDurationProperty.floatValue, 0.1f, 5f);
+
+            EditorGUILayout.EndVertical();
+
+            GUILayout.EndVertical();
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+        }
+
+
+        
+        
+        
+        
+        if (GUI.changed)
+        {
+           
+        }
+        serializedObject.ApplyModifiedProperties();
+        
+    }    
+    
+    
     private float LimitValue(float value, float min, float max)
     {
         if (value <= min)
@@ -34,247 +404,6 @@ public class UIComponentEditor : Editor
             value = max;
         }
         return value;
-    }
-
-    public override void OnInspectorGUI()
-    {
-
-        serializedObject.Update();
-
-        UITweenerCustomEditor = (UITweener)target;
-        
-        UITweenerCustomEditor.StartHidden = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.StartHidden, "Start Hidden");
-        //UITweenerCustomEditor.StartHidden = EditorGUILayout.Toggle("Start Hidden", UITweenerCustomEditor.StartHidden);
-
-        EditorGUILayout.LabelField("Animation In", EditorStyles.boldLabel);
-
-        //UITweenerCustomEditor.useFadeIn = EditorGUILayout.Toggle("Use Fade", UITweenerCustomEditor.useFadeIn);
-        UITweenerCustomEditor.useFadeIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useFadeIn, "Use Fade In");
-
-
-        if (UITweenerCustomEditor.useFadeIn)
-        {
-            EditorGUILayout.BeginVertical("HelpBox");
-
-            EditorGUILayout.LabelField("Fade", EditorStyles.boldLabel);
-            GUILayout.BeginHorizontal();
-
-
-            EditorGUILayout.BeginVertical("GroupBox");
-            //EditorGUILayout.PropertyField(fadeInDurationProperty);
-            UITweenerCustomEditor.FadeInDuration = EditorGUILayout.FloatField("Fade In Duration", UITweenerCustomEditor.FadeInDuration);
-            UITweenerCustomEditor.FadeInDuration = LimitValue(UITweenerCustomEditor.FadeInDuration, 0.1f, 5f);
-            
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.Label("Fade to");
-            UITweenerCustomEditor.FadeTo = EditorGUILayout.Slider(UITweenerCustomEditor.FadeTo, 0, 1);
-            EditorGUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-        }
-        //UITweenerCustomEditor.useMovementIn = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementIn);
-        UITweenerCustomEditor.useMovementIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useMovementIn, "Use Movement In");
-
-        if (UITweenerCustomEditor.useMovementIn)
-        {
-            EditorGUILayout.BeginVertical("HelpBox");
-
-            EditorGUILayout.LabelField("Movement", EditorStyles.boldLabel);
-            GUILayout.BeginHorizontal();
-
-
-            EditorGUILayout.BeginVertical("GroupBox");
-            UITweenerCustomEditor.MoveInDuration = EditorGUILayout.FloatField("Move In Duration", UITweenerCustomEditor.MoveInDuration);
-            UITweenerCustomEditor.MoveInDuration = LimitValue(UITweenerCustomEditor.MoveInDuration, 0.1f, 5f);
-            UITweenerCustomEditor.MoveEaseInType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease In Type", UITweenerCustomEditor.MoveEaseInType);
-
-            UITweenerCustomEditor.UseDefaultPosition = EditorGUILayout.Toggle("Use Own Position: ", UITweenerCustomEditor.UseDefaultPosition);
-
-
-
-            UITweenerCustomEditor.MoveInFrom = EditorGUILayout.Vector3Field("Move From", UITweenerCustomEditor.MoveInFrom);
-
-            if (UITweenerCustomEditor.UseDefaultPosition)
-            {
-                UITweenerCustomEditor.MoveOriginal = UITweenerCustomEditor.originalPosition;
-            }
-
-            UITweenerCustomEditor.MoveOriginal = EditorGUILayout.Vector3Field("Move to", UITweenerCustomEditor.MoveOriginal);
-
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-        }
-
-        //UITweenerCustomEditor.useScaleIn = EditorGUILayout.Toggle("Use Scale", UITweenerCustomEditor.useScaleIn);
-        UITweenerCustomEditor.useScaleIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useScaleIn, "Use Scale In");
-
-
-        if (UITweenerCustomEditor.useScaleIn)
-        {
-            EditorGUILayout.BeginVertical("HelpBox");
-
-            EditorGUILayout.LabelField("Scale", EditorStyles.boldLabel);
-            GUILayout.BeginHorizontal();
-
-
-            EditorGUILayout.BeginVertical("GroupBox");
-            EditorGUILayout.BeginVertical();
-            UITweenerCustomEditor.ScaleInDuration = EditorGUILayout.FloatField("Scale In Duration", UITweenerCustomEditor.ScaleInDuration);
-            UITweenerCustomEditor.ScaleInDuration = LimitValue(UITweenerCustomEditor.ScaleInDuration, 0.1f, 5f);
-            UITweenerCustomEditor.ScaleEaseInType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease In Type", UITweenerCustomEditor.ScaleEaseInType);
-
-            UITweenerCustomEditor.ScaleFrom = EditorGUILayout.Vector3Field("Scale From", UITweenerCustomEditor.ScaleFrom);
-
-            UITweenerCustomEditor.ScaleTo = EditorGUILayout.Vector3Field("Scale to", UITweenerCustomEditor.ScaleTo);
-            EditorGUILayout.EndVertical();
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-        }
-
-
-        //UITweenerCustomEditor.useRotateIn = EditorGUILayout.Toggle("Use Rotate", UITweenerCustomEditor.useRotateIn);
-        UITweenerCustomEditor.useRotateIn = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useRotateIn, "Use Rotate In");
-        if (UITweenerCustomEditor.useRotateIn)
-        {
-            EditorGUILayout.BeginVertical("HelpBox");
-
-            EditorGUILayout.LabelField("Rotate", EditorStyles.boldLabel);
-            GUILayout.BeginHorizontal();
-
-
-            EditorGUILayout.BeginVertical("GroupBox");
-            EditorGUILayout.BeginVertical();
-            UITweenerCustomEditor.RotateInDuration = EditorGUILayout.FloatField("Rotate In Duration", UITweenerCustomEditor.RotateInDuration);
-            UITweenerCustomEditor.RotateInDuration = LimitValue(UITweenerCustomEditor.RotateInDuration, 0.1f, 5f);
-            EditorGUILayout.EndVertical();
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-        }
-
-
-
-
-
-
-
-
-
-
-        EditorGUILayout.LabelField("Animation Out", EditorStyles.boldLabel);
-
-        //UITweenerCustomEditor.useFadeOut = EditorGUILayout.Toggle("Use Fade", UITweenerCustomEditor.useFadeOut);
-        
-        UITweenerCustomEditor.useFadeOut = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useFadeOut, "Use Fade Out");
-
-
-        if (UITweenerCustomEditor.useFadeOut)
-        {
-            EditorGUILayout.BeginVertical("HelpBox");
-
-            EditorGUILayout.LabelField("Fade", EditorStyles.boldLabel);
-            GUILayout.BeginHorizontal();
-
-
-            EditorGUILayout.BeginVertical("GroupBox");
-            UITweenerCustomEditor.FadeOutDuration = EditorGUILayout.FloatField("Fade Out Duration", UITweenerCustomEditor.FadeOutDuration);
-            UITweenerCustomEditor.FadeOutDuration = LimitValue(UITweenerCustomEditor.FadeOutDuration, 0.1f, 5f);
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.Label("Fade to");
-            UITweenerCustomEditor.FadeFrom = EditorGUILayout.Slider(UITweenerCustomEditor.FadeFrom, 0, 1);
-            EditorGUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-        }
-        
-        //UITweenerCustomEditor.useMovementOut = EditorGUILayout.Toggle("Use Movement", UITweenerCustomEditor.useMovementOut);
-        UITweenerCustomEditor.useMovementOut = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useMovementOut, "Use Movement Out");
-
-        if (UITweenerCustomEditor.useMovementOut)
-        {
-            EditorGUILayout.BeginVertical("HelpBox");
-
-            EditorGUILayout.LabelField("Movement", EditorStyles.boldLabel);
-            GUILayout.BeginHorizontal();
-
-
-            EditorGUILayout.BeginVertical("GroupBox");
-            UITweenerCustomEditor.MoveOutDuration = EditorGUILayout.FloatField("Move Out Duration", UITweenerCustomEditor.MoveOutDuration);
-            UITweenerCustomEditor.MoveOutDuration = LimitValue(UITweenerCustomEditor.MoveOutDuration, 0.1f, 5f);
-            UITweenerCustomEditor.MoveEaseOutType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Out Type", UITweenerCustomEditor.MoveEaseOutType);
-
-            UITweenerCustomEditor.UseDefaultPosition = EditorGUILayout.Toggle("Use Own Position: ", UITweenerCustomEditor.UseDefaultPosition);
-
-            UITweenerCustomEditor.MoveOriginal = EditorGUILayout.Vector3Field("Move From", UITweenerCustomEditor.MoveOriginal);
-
-            UITweenerCustomEditor.MoveOutTo = EditorGUILayout.Vector3Field("Move To", UITweenerCustomEditor.MoveOutTo);
-
-            if (UITweenerCustomEditor.UseDefaultPosition)
-            {
-                UITweenerCustomEditor.MoveOriginal = UITweenerCustomEditor.originalPosition;
-            }
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-        }
-
-        //UITweenerCustomEditor.useScaleOut = EditorGUILayout.Toggle("Use Scale", UITweenerCustomEditor.useScaleOut);
-        UITweenerCustomEditor.useScaleOut = EditorGUIExtension.ToggleButton(UITweenerCustomEditor.useScaleOut, "Use Scale Out");
-
-        if (UITweenerCustomEditor.useScaleOut)
-        {
-            EditorGUILayout.BeginVertical("HelpBox");
-
-            EditorGUILayout.LabelField("Scale", EditorStyles.boldLabel);
-            GUILayout.BeginHorizontal();
-
-
-            EditorGUILayout.BeginVertical("GroupBox");
-            EditorGUILayout.BeginVertical();
-
-            UITweenerCustomEditor.ScaleOutDuration = EditorGUILayout.FloatField("Scale Out Duration", UITweenerCustomEditor.ScaleOutDuration);
-            UITweenerCustomEditor.ScaleOutDuration = LimitValue(UITweenerCustomEditor.ScaleOutDuration, 0.1f, 5f);
-            UITweenerCustomEditor.ScaleEaseOutType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Out Type", UITweenerCustomEditor.ScaleEaseOutType);
-
-            UITweenerCustomEditor.ScaleTo = EditorGUILayout.Vector3Field("Scale From", UITweenerCustomEditor.ScaleTo);
-
-            UITweenerCustomEditor.ScaleFrom = EditorGUILayout.Vector3Field("Scale To", UITweenerCustomEditor.ScaleFrom);
-
-            EditorGUILayout.EndVertical();
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndHorizontal();
-
-            GUILayout.EndVertical();
-        }
-
-        if (GUI.changed)
-        {
-            serializedObject.ApplyModifiedProperties();
-        }
     }
 
 }
