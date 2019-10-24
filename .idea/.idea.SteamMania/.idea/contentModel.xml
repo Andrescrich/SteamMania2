@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Unity Projects\ProyectoStart\SteamMania" t="IncludeRecursive">
+    <e p="C:\Users\André\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\André\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_SteamMania.32462181.00" t="ExcludeRecursive" />
+    <e p="D:\Program Files (x86)\Unity Projects\SteamMania" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="EnemyHealth.cs" t="Include" />
@@ -149,13 +151,8 @@
           </e>
         </e>
         <e p="GameManager.cs" t="Include" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         <e p="ImpactParticle.cs" t="Include" />
->>>>>>> Chorradas
         <e p="InputMaster.cs" t="Include" />
-=======
         <e p="OdinSerializer" t="Include">
           <e p="Config" t="Include">
             <e p="AssemblyBuildInfo.cs" t="Include" />
@@ -377,7 +374,6 @@
           </e>
           <e p="Version.txt" t="Include" />
         </e>
->>>>>>> SaveManager
         <e p="PlayMusicTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
@@ -407,6 +403,34 @@
           <e p="Singleton.cs" t="Include" />
           <e p="StaticMethods.cs" t="Include" />
         </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
         <e p="UIManager.cs" t="Include" />
       </e>
       <e p="NaughtyAttributes.Core.csproj" t="IncludeRecursive" />
@@ -417,7 +441,5 @@
       <e p="SteamMania.sln" t="IncludeFlat" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\delga\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\delga\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SteamMania.-47724481.00" t="ExcludeRecursive" />
   </component>
 </project>

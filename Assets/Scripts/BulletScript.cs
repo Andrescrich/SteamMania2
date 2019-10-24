@@ -14,6 +14,7 @@ public class BulletScript : MonoBehaviour
 
     private void Awake()
     {
+        Physics2D.IgnoreLayerCollision(8, 8);
         Physics2D.IgnoreLayerCollision(13, 9);
         _rb = GetComponent<Rigidbody2D>();
     }
