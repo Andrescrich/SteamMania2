@@ -22,6 +22,6 @@ public class UIButton : MonoBehaviour
 
     private void OnButtonClick()
     {
-        PauseManager.TogglePause();
+        
     }
 }

@@ -2,47 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Toggle))]
 public class UIToggle : MonoBehaviour
 {
-    public Image onImage;
-    public Image offImage;
 
     private Toggle toggle;
+
+    private UISettings settings;
+
+    public bool IsOn => toggle.isOn;
     
     // Start is called before the first frame update
     void Start()
     {
+        settings = GetComponentInParent<UISettings>();
         toggle = GetComponent<Toggle>();
-        toggle.onValueChanged.AddListener(OnToggle);
-        toggle.isOn = SaveSystem<int>.LoadInt("ScreenKey") == 1;
     }
 
-    void OnToggle(bool on)
+    public void SetToggle(bool on)
     {
-        Screen.fullScreen = on;
-        if (on)
-        {
-            
-            onImage.gameObject.SetActive(true);
-            offImage.gameObject.SetActive(false);
-        }
-        else
-        {
-            onImage.gameObject.SetActive(false);
-            offImage.gameObject.SetActive(true);
-        }
+        toggle.isOn = on;
     }
 
-    private void OnApplicationQuit()
-    {
-        if(toggle.isOn)
-            SaveSystem<int>.SavePrefs("ScreenKey", 1);
-        else
-        {
-            SaveSystem<int>.SavePrefs("ScreenKey", 0);
-        }
-    }
 }

@@ -99,7 +99,6 @@ using UnityEngine.Audio;
         public void Start()
         {         
             LoadAllVolumes();
-            Debug.Log("MasterVolume Start after loaded: "+MasterVolume);
             InitializePool();
         }
 
@@ -408,18 +407,16 @@ using UnityEngine.Audio;
 
     public void SaveAllVolumes()
     {
-        SaveSystem<float>.SavePrefs(AudioVariables.MasterVolume, masterVolume);
-        SaveSystem<float>.SavePrefs(AudioVariables.MusicVolume, musicVolume);
-        SaveSystem<float>.SavePrefs(AudioVariables.SFXVolume, sfxVolume);
-        Debug.Log("MasterVolume Saved: "+PlayerPrefs.GetFloat(AudioVariables.MasterVolume));
+        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MasterVolume, masterVolume);
+        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MusicVolume, musicVolume);
+        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.SFXVolume, sfxVolume);
     }
 
     public void LoadAllVolumes()
     {
-        MasterVolume = SaveSystem<float>.LoadFloat(AudioVariables.MasterVolume);
-        MusicVolume = SaveSystem<float>.LoadFloat(AudioVariables.MusicVolume);
-        SFXVolume = SaveSystem<float>.LoadFloat(AudioVariables.SFXVolume);
-        Debug.Log("MasterVolume Loaded: "+PlayerPrefs.GetFloat(AudioVariables.MasterVolume));
+        MasterVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MasterVolume);
+        MusicVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MusicVolume);
+        SFXVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.SFXVolume);
     }
     }
 

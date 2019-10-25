@@ -15,8 +15,9 @@ public class PauseManager : Singleton<PauseManager>
         private set => Instance.paused = value;
     }
 
-    public static float PAUSE_TIME_THRESHOLD = 0.6f;
+    public static float PAUSE_TIME_THRESHOLD = 0.5f;
 
+    public bool CanPause;
     private float timeSinceLastPause;
 
     public static event Action OnPaused = delegate { };
@@ -31,11 +32,7 @@ public class PauseManager : Singleton<PauseManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TogglePause();
-        }
-
+        CanPause = timeSinceLastPause >= PAUSE_TIME_THRESHOLD;
         timeSinceLastPause += Time.unscaledDeltaTime;
         if (timeSinceLastPause > PAUSE_TIME_THRESHOLD * 3)
         {

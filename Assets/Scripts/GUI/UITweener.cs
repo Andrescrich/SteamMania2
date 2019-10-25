@@ -398,6 +398,7 @@ public class UITweener : MonoBehaviour
         tweenFade.setIgnoreTimeScale(true);
         tweenFade.setOnComplete(() =>
         {
+            Hide();
             active = false;
         });
     }

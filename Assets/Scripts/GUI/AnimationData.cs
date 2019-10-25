@@ -23,7 +23,9 @@ public class MoveData : AnimationData
     [SerializeField] public LeanTweenType moveEaseInType = LeanTweenType.easeOutBack;
     [SerializeField] public LeanTweenType moveEaseOutType = LeanTweenType.easeInBack;
     [SerializeField] public bool useDefaultPosition = true;
-    [SerializeField] public Vector3 moveInFrom, moveOriginal, moveOutTo;
+    [SerializeField] public Vector3 moveInFrom = new Vector3(0,-2400,0);
+    [SerializeField] public Vector3 moveOriginal = Vector3.zero;
+    [SerializeField] public Vector3 moveOutTo = new Vector3(0,2400,0);
 }
 
 [Serializable]
