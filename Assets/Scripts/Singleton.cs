@@ -20,9 +20,10 @@ public class Singleton<T> : MonoBehaviour where T : Component {
     }
 
     public virtual void Awake() {
-        DontDestroyOnLoad(gameObject);
-        if (instance != null) {
+        if (instance != null && instance != this) {
             Destroy(gameObject);
         }
+        
+        DontDestroyOnLoad(gameObject);
     }
 }

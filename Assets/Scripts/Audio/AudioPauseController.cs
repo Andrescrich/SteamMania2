@@ -12,42 +12,28 @@ public class AudioPauseController : MonoBehaviour
 
     private AudioMixer mixer;
 
-    public bool Paused = false;
-
     private void Awake()
     {
         mixer = AudioManager.Instance.mixer;
         pausedSnapshot = mixer.FindSnapshot("Paused");
         unpauseSnapshot = mixer.FindSnapshot("Unpaused");
+        PauseManager.OnPaused += Lowpass;
+        PauseManager.OnUnpaused += Lowpass;
     }
 
-    public void TogglePause()
-    {
-        if (!Paused)
-        {
-            Time.timeScale = 0;
-            Paused = true;
-        }
-        else if(Paused)
-        {
-            Time.timeScale = 1;
-            Paused = false;
-        }
-        
-        Lowpass();
-    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            TogglePause();
+            //PauseManager.TogglePause();
+            //Lowpass();
         }
     }
 
     public void Lowpass()
     {
-        if (!Paused)
+        if (!PauseManager.Paused)
         {
             unpauseSnapshot.TransitionTo(.1f);
         }

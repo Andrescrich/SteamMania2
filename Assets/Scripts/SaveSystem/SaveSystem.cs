@@ -114,6 +114,7 @@ public static class SaveSystem<T>
 
         PlayerPrefs.SetInt(key, value);
     }
+    
 
     public static float LoadFloat(string key)
     {
