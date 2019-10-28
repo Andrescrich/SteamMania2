@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class PlayerMovement : Singleton<PlayerMovement>
+public class PlayerMovement : MonoBehaviour
 {
 
     private Animator _anim;
@@ -24,9 +24,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
     private static readonly int Speed = Animator.StringToHash("Speed");
 
     // Start is called before the first frame update
-    public override void Awake()
+    public void Awake()
     {
-        base.Awake();
         Physics2D.IgnoreLayerCollision(8, 9);
         _anim = GetComponentInChildren<Animator>();
         _rb = GetComponent<Rigidbody2D>();

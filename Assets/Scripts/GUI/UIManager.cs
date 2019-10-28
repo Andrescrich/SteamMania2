@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     public UITweener pauseMenu;
 
@@ -19,29 +19,15 @@ public class UIManager : MonoBehaviour
     
     private bool Paused;
 
-    private void Awake()
+    public override void Awake()
     {
+        gameObject.name = "UIManager";
         PauseManager pause = PauseManager.Instance;
         pauseMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(true);
         
     }
 
-    private void OnEnable()
-    {
-        foreach (var sel in Selectable.allSelectablesArray)
-        {
-            Debug.Log(sel.name);
-        }
-    }
-    
-    /*
-    private void OnDisable()
-    {
-        PauseManager.OnPaused -= OpenPanel;
-        PauseManager.OnUnpaused -= ClosePanel;
-    }
-    */
     
     private void Update()
     {
@@ -71,6 +57,7 @@ public class UIManager : MonoBehaviour
     {
         settingsMenu.Close(activePanel == pauseMenu);
         pauseMenu.Close(activePanel == settingsMenu);
+        PauseManager.TogglePause();
         activePanel = null;
     }
 
@@ -92,5 +79,10 @@ public class UIManager : MonoBehaviour
         activePanel = pauseMenu;
         pauseMenu.Open();
     }
-    
+
+    public void GoBackToMenu()
+    {
+        PauseManager.TogglePause();
+        LevelManager.Instance.LoadScene("MainMenu");
+    }
 }

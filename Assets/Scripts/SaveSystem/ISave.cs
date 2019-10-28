@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface ISave<T>
 {
-    void Save(string key);
+    void Save(T objectToSave, string key);
     T Load(string key);
 }
