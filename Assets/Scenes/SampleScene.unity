@@ -5578,11 +5578,15 @@ MonoBehaviour:
   - tag: Bullet
     prefab: {fileID: 1258414709949651295, guid: e49f1c3049bae5d42b0258907911dd10,
       type: 3}
-    size: 5
+    size: 10
   - tag: Impact
     prefab: {fileID: 4113620158442993618, guid: 7f73c7e7426aeda49ba86dbe3f5b3134,
       type: 3}
-    size: 5
+    size: 10
+  - tag: CanonParticle
+    prefab: {fileID: 4113620158442993618, guid: 728c43feba532f34592dc2c9d1a7bc4a,
+      type: 3}
+    size: 10
 --- !u!4 &79158364
 Transform:
   m_ObjectHideFlags: 0
@@ -51383,9 +51387,6 @@ MonoBehaviour:
   pSLD: {fileID: 1159243642}
   pSU: {fileID: 568299840}
   pSD: {fileID: 46454816}
-  particle: {fileID: 4113620158442993618, guid: 728c43feba532f34592dc2c9d1a7bc4a,
-    type: 3}
-  bullet: {fileID: 1258414709949651295, guid: e49f1c3049bae5d42b0258907911dd10, type: 3}
 --- !u!1 &1365115252
 GameObject:
   m_ObjectHideFlags: 0
@@ -64708,7 +64709,6 @@ GameObject:
   - component: {fileID: 1899749395}
   - component: {fileID: 1899749394}
   - component: {fileID: 1899749393}
-  - component: {fileID: 1899749392}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -64716,21 +64716,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1899749392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899749391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de856a0627bcc254a95a44ecc130f8e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet1I: {fileID: 207389664}
-  bullet2I: {fileID: 594510922}
-  bullet3I: {fileID: 1966041581}
 --- !u!114 &1899749393
 MonoBehaviour:
   m_ObjectHideFlags: 0

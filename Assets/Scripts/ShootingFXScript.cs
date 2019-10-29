@@ -15,8 +15,6 @@ public class ShootingFXScript : MonoBehaviour
     public Transform pSLD;
     public Transform pSU;
     public Transform pSD;
-    public GameObject particle;
-    public GameObject bullet;
     private PlayerMovement _pM;
     private SpriteRenderer _sR;
     private PlayerStates _pS;
@@ -98,7 +96,8 @@ public class ShootingFXScript : MonoBehaviour
     {
         StartCoroutine(Recoiling(recoilDir));
         ObjectPooler.GetInstance().Spawn("Bullet", position, rotation);
-        Instantiate(particle, position, rotation);
+        ObjectPooler.GetInstance().Spawn("CanonParticle", position, rotation);
+        
     //    Instantiate(bullet, position, rotation);
     }
 }

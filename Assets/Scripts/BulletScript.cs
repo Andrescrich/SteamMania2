@@ -10,6 +10,7 @@ public class BulletScript : MonoBehaviour
     public GameObject bulletParticles;
     public GameObject impactParticle;
     [SerializeField] private float bulletV = 500f;
+    private float timeTillDeath = 5f;
 
 
     private void Awake()
@@ -17,6 +18,15 @@ public class BulletScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 8);
         Physics2D.IgnoreLayerCollision(13, 9);
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        timeTillDeath -= Time.deltaTime;
+        if (timeTillDeath < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
@@ -49,5 +59,6 @@ public class BulletScript : MonoBehaviour
     {
         bulletParticles.SetActive(true);
         bulletParticles.transform.localScale = new Vector3(1, 1, 1);
+        timeTillDeath = 5f;
     }
 }
