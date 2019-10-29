@@ -62,7 +62,7 @@ public class UISettings : MonoBehaviour
     
     public void SaveSettings()
     {
-        AudioManager.Instance.SaveAllVolumes();
+        AudioManager.GetInstance().SaveAllVolumes();
         
         if(fullScreenToggle.isOn)
             SaveSystem<int>.SavePrefs(PlayerPrefsKeys.FullScreen, 1);

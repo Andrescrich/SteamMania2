@@ -19,10 +19,8 @@ public class UIManager : Singleton<UIManager>
     
     private bool Paused;
 
-    public override void Awake()
+    protected override void Awake()
     {
-        gameObject.name = "UIManager";
-        PauseManager pause = PauseManager.Instance;
         pauseMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(true);
         
@@ -33,7 +31,7 @@ public class UIManager : Singleton<UIManager>
     {
         if (Input.GetButtonDown("Pause"))
         {
-            if (!PauseManager.Instance.CanPause) return;
+            if (!PauseManager.GetInstance().CanPause) return;
             if (activePanel == null)
             {
                 PauseManager.TogglePause();
@@ -83,6 +81,6 @@ public class UIManager : Singleton<UIManager>
     public void GoBackToMenu()
     {
         PauseManager.TogglePause();
-        LevelManager.Instance.LoadScene("MainMenu");
+        LevelManager.GetInstance().LoadScene("MainMenu");
     }
 }

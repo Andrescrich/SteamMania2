@@ -38,20 +38,20 @@ using UnityEngine.Audio;
         private float uiVolume = 1;
 
         public static float MasterVolume { 
-            get => Instance.masterVolume;
-            set => Instance.masterVolume = value;
+            get => GetInstance().masterVolume;
+            set => GetInstance().masterVolume = value;
         }
         public static float MusicVolume { 
-            get => Instance.musicVolume;
-            set => Instance.musicVolume = value;
+            get => GetInstance().musicVolume;
+            set => GetInstance().musicVolume = value;
         }
         public static float SFXVolume { 
-            get => Instance.sfxVolume;
-            set => Instance.sfxVolume = value;
+            get => GetInstance().sfxVolume;
+            set => GetInstance().sfxVolume = value;
         }
         public static float UIVolume { 
-            get => Instance.uiVolume;
-            set => Instance.uiVolume = value;
+            get => GetInstance().uiVolume;
+            set => GetInstance().uiVolume = value;
         }
         
         private float volumeThreshold = -80.0f;
@@ -85,7 +85,7 @@ using UnityEngine.Audio;
         #endregion
 
     #region Unity Methods
-        public override void Awake()
+        protected override void Awake()
         {
             base.Awake();
             gameObject.name = "AudioManager";
@@ -117,61 +117,61 @@ using UnityEngine.Audio;
 
         public static void Play(Audio sound, GameObject go = default)
         {
-            Instance.PlayMethod(sound, go);
+            GetInstance().PlayMethod(sound, go);
         }
 
         public static void Stop(Audio sound, GameObject go = default)
         {
-            Instance.StopMethod(sound, go);
+            GetInstance().StopMethod(sound, go);
         }
         
         public static void PlayOnce(Audio sound, GameObject go = default)
         {
-            Instance.PlayOnceMethod(sound, go);
+            GetInstance().PlayOnceMethod(sound, go);
         }
         
         public static void PlayDelayed(Audio sound,float delay, GameObject go = default)
         {
-            Instance.PlayDelayedMethod(sound, delay, go);
+            GetInstance().PlayDelayedMethod(sound, delay, go);
         }
         public static void Pause(Audio sound, GameObject go = default)
         {
-            Instance.PauseMethod(sound, go);
+            GetInstance().PauseMethod(sound, go);
         }
         public static void Resume(Audio sound, GameObject go = default)
         {
-            Instance.UnPauseMethod(sound, go);
+            GetInstance().UnPauseMethod(sound, go);
         }
 
         public static void FadeIn(Audio sound, GameObject go = default, float fadeTime = 1f)
         {
-            Instance.FadeInMethod(sound, go, fadeTime);
+            GetInstance().FadeInMethod(sound, go, fadeTime);
         }
         
         public static void FadeOut(Audio sound, GameObject go = default, float fadeTime = 1f)
         {
-            Instance.FadeOutMethod(sound, go, fadeTime);
+            GetInstance().FadeOutMethod(sound, go, fadeTime);
         }
 
         public static void CrossFade(Audio inSound, Audio outSound, GameObject inGo = default,
             GameObject outGo = default, float fadeInTime = 1f, float fadeOutTime = 1f)
         {
-            Instance.CrossFade(inSound, outSound, fadeInTime, fadeOutTime, inGo, outGo);
+            GetInstance().CrossFade(inSound, outSound, fadeInTime, fadeOutTime, inGo, outGo);
         }
 
         public static void SetMasterVolume(float volume)
         {
-            Instance.SetMasterVolume(volume);
+            GetInstance().SetMasterVolume(volume);
         }
         
         public static void SetMusicVolume(float volume)
         {
-            Instance.SetMusicVolume(volume);
+            GetInstance().SetMusicVolume(volume);
         }
         public static void SetSFXVolume(float volume)
         {
-            Instance.SetSFXVolume(volume);
-            Instance.SetUIVolume(volume);
+            GetInstance().SetSFXVolume(volume);
+            GetInstance().SetUIVolume(volume);
         }
 
         #endregion

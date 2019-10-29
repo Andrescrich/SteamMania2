@@ -7,31 +7,19 @@ using UnityEngine.SceneManagement;
 public class LevelManager : Singleton<LevelManager>
 {
     private ScreenFade screenFade;
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         gameObject.name = "LevelManager";
         screenFade = FindObjectOfType<ScreenFade>();
-        screenFade.Block();
     }
 
-    private void Start()
+    public void LoadScene(string sceneName, int id = default)
     {
-        StartCoroutine(WaitSecondsToStart());
+        StartCoroutine(LoadScene(sceneName, id, LoadSceneMode.Single));
     }
 
-    IEnumerator WaitSecondsToStart()
-    {
-        yield return new WaitForSeconds(1.5f);
-        screenFade.FadeOut();
-    }
-
-    public void LoadScene(string sceneName)
-    {
-        StartCoroutine(LoadScene(sceneName, LoadSceneMode.Single));
-    }
-
-    IEnumerator LoadScene(string sceneName, LoadSceneMode mode)
+    IEnumerator LoadScene(string sceneName,int id,  LoadSceneMode mode)
     {
         screenFade.FadeIn();
         while (screenFade.Active)
@@ -44,6 +32,16 @@ public class LevelManager : Singleton<LevelManager>
         while (!operation.isDone)
         {
             yield return null;
+        }
+
+        var SpawnPositions = FindObjectsOfType<SpawnPosition>();
+        foreach (var spawn in SpawnPositions)
+        {
+            if (spawn.id == id)
+            {
+                
+                FindObjectOfType<PlayerMovement>().transform.position = spawn.Position;
+            }
         }
 
         screenFade.FadeOut();

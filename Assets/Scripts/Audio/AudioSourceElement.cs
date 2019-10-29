@@ -23,7 +23,7 @@ public class AudioSourceElement : MonoBehaviour
     {
         if (!audioSource.isPlaying && audioSource.time == 0)
         {
-            AudioManager.Instance.ReturnToPool(this);
+            AudioManager.GetInstance().ReturnToPool(this);
             gameObject.SetActive(false);
         }
     }

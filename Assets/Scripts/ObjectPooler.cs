@@ -13,9 +13,8 @@ public class ObjectPooler : Singleton<ObjectPooler>
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
-    public override void Awake() {
+    protected override void Awake() {
         base.Awake();
-        gameObject.name = "ObjectPooler";
     }
 
     private void Start()

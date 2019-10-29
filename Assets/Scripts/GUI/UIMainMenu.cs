@@ -22,12 +22,11 @@ public class UIMainMenu : MonoBehaviour
         loadButton.onClick.AddListener(OnClickLoad);
         settingsButton.onClick.AddListener(OnClickSettings);
         exitButton.onClick.AddListener(OnClickExit);
-        LevelManager ins = LevelManager.Instance;
     }
 
     private void OnClickPlay()
     {
-        LevelManager.Instance.LoadScene(sceneToLoad);
+        LevelManager.GetInstance().LoadScene(sceneToLoad, 3);
     }
     
     private void OnClickLoad()

@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
-        gameObject.name = "GameManager";
     }
 
     public void HitStop()

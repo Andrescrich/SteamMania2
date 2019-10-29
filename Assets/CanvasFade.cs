@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class CanvasFade : Singleton<CanvasFade>
 {
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
-        gameObject.name = "CanvasFade";
     }
 
 }

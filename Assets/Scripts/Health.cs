@@ -32,6 +32,6 @@ public abstract class Health : MonoBehaviour
     public virtual void TakeDamage(float dmg)
     {
         currentHealth -= dmg;
-        GameManager.Instance.HitStop();
+        GameManager.GetInstance().HitStop();
     }
 }
