@@ -17,7 +17,7 @@ public class PauseManager : Singleton<PauseManager>
 
     public static float PAUSE_TIME_THRESHOLD = 0.5f;
 
-    public bool CanPause;
+    public static bool CanPause;
     private float timeSinceLastPause;
 
     public static event Action OnPaused = delegate { };

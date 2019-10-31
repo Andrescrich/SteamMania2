@@ -11,7 +11,11 @@ public class LevelManager : Singleton<LevelManager>
     {
         base.Awake();
         gameObject.name = "LevelManager";
-        screenFade = FindObjectOfType<ScreenFade>();
+        screenFade = ScreenFade.GetInstance();
+    }
+
+    private void Start()
+    {
     }
 
     public void LoadScene(string sceneName, int id = default)
@@ -25,8 +29,9 @@ public class LevelManager : Singleton<LevelManager>
         while (screenFade.Active)
         {
             yield return null;
+            
         }
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, mode);
 
         while (!operation.isDone)
@@ -43,6 +48,7 @@ public class LevelManager : Singleton<LevelManager>
                 FindObjectOfType<PlayerMovement>().transform.position = spawn.Position;
             }
         }
+        yield return new WaitForSeconds(0.3f);
 
         screenFade.FadeOut();
     }

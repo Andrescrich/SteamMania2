@@ -16,7 +16,6 @@ public class LevelEntry : MonoBehaviour
 	{
 		if (other.GetComponent<PlayerMovement>() != null)
 		{
-			Debug.Log("Touching Player");
 			LevelManager.GetInstance().LoadScene(LevelName, SpawnID);
 		}
 	}

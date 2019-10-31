@@ -2,36 +2,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
 public class UIManager : Singleton<UIManager>
 {
-    public UITweener pauseMenu;
+    public UITween pauseMenu;
 
-    public UITweener settingsMenu;
+    public UITween settingsMenu;
 
     public Button resumeButton;
 
-    public UITweener activePanel;
+    public UITween activePanel;
 
-    private List<UITweener> components;
     
     private bool Paused;
 
     protected override void Awake()
     {
-        pauseMenu.gameObject.SetActive(true);
-        settingsMenu.gameObject.SetActive(true);
-        
+        base.Awake();
+        gameObject.name = "UIManager";
     }
 
-    
+    private void Start()
+    {
+        
+        ClosePanel();
+    }
+
+
     private void Update()
     {
         if (Input.GetButtonDown("Pause"))
         {
-            if (!PauseManager.GetInstance().CanPause) return;
+            if (!PauseManager.CanPause) return;
             if (activePanel == null)
             {
                 PauseManager.TogglePause();
@@ -53,9 +58,11 @@ public class UIManager : Singleton<UIManager>
     
     public void ClosePanel()
     {
-        settingsMenu.Close(activePanel == pauseMenu);
-        pauseMenu.Close(activePanel == settingsMenu);
-        PauseManager.TogglePause();
+        EventSystem.current.SetSelectedGameObject(null);
+        settingsMenu.HidePanel();
+        pauseMenu.HidePanel();
+        if(PauseManager.Paused)
+            PauseManager.TogglePause();
         activePanel = null;
     }
 
@@ -63,24 +70,25 @@ public class UIManager : Singleton<UIManager>
     public void OpenOptionsPanel()
     {
 
-        pauseMenu.Close();
+        pauseMenu.HidePanel();
         
 
         activePanel = settingsMenu;
-        settingsMenu.Open();
+        settingsMenu.ShowPanel();
     }
 
     public void OpenPausePanel()
     {
-        settingsMenu.Close();
+        settingsMenu.HidePanel();
         resumeButton.Select();
         activePanel = pauseMenu;
-        pauseMenu.Open();
+        pauseMenu.ShowPanel();
     }
 
     public void GoBackToMenu()
     {
         PauseManager.TogglePause();
+        ClosePanel();
         LevelManager.GetInstance().LoadScene("MainMenu");
     }
 }
