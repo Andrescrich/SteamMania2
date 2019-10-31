@@ -2,91 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24617d20-cfc6-4d7e-9bc8-e6749854d2e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CanvasFade.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CanvasFade.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cubo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cubo.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets/css.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets/css/main.css.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets/favicon.ico.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/assets/index.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTBezierPath.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTBezierPath.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTDescr.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTDescr.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTEvent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTEvent.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTRect.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTRect.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTSeq.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTSeq.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTSpline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LTSpline.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanAudio.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanAudio.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanAudioOptions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanAudioOptions.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanSmooth.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanSmooth.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanTween.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanTween.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanTweenType.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/LeanTweenType.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes/index.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/elements.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/elements/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/elements/index.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/index.html.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Editor/LeanTweenDocumentationEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Editor/LeanTweenDocumentationEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LTDescr.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LTDescr.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LTDescrOptional.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LTDescrOptional.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LTSeq.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LTSeq.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanAudio.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanAudio.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanSmooth.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanSmooth.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTest.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTween.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTween.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTween.dll.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTween.dll.zip.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTweenExt.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework/LeanTweenExt.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/License.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/License.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/ReadMe.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIFade.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIFade.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayMusicTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayMusicTest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelConnections/SingletonImporter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelConnections/SingletonImporter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScreenFade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScreenFade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/AnimationData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/AnimationData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Editor/UITweenerEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/Editor/UITweenerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScreenFade.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScreenFade.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UITweener.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UITweener.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameControllers/PauseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameControllers/PauseManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -100,29 +35,45 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ScreenFade.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioPauseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/SingletonReferencer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/NaughtyAttributes/Scripts/Editor/Editors/InspectorEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DDOL.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameControllers/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Surge/Tween/TweenActions/AnchoredPosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Surge/Tween/Tween.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Rotate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScreenFade.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/NaughtyAttributes/Scripts/Editor/Editors/InspectorEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PlayMusicTester.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIPanel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIPanel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" />
-        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/CanvasFade.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScreenFade.cs" />
         <option value="$PROJECT_DIR$/Assets/SingletonReferencer.cs" />
+        <option value="$PROJECT_DIR$/Assets/DDOL.cs" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScreenFade.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayMusicTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayMusicTester.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameControllers/PauseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Rotate.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" />
       </list>
     </option>
   </component>
@@ -154,18 +105,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="7860">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="7860" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="7860">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="7860" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -180,7 +131,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572485660585</updated>
-      <workItem from="1572485665541" duration="6727000" />
+      <workItem from="1572485665541" duration="6986000" />
+      <workItem from="1572523800687" duration="11925000" />
     </task>
     <servers />
   </component>
@@ -194,7 +146,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

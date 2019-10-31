@@ -21,6 +21,7 @@ public class UIPanel : MonoBehaviour
 
     void OnClickCloseButton()
     {
-        PauseManager.TogglePause();
+        if(PauseManager.Paused)
+            PauseManager.TogglePause();
     }
 }

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using NaughtyAttributes;
 using Pixelplacement;
 using Pixelplacement.TweenSystem;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.PlayerLoop;
 
-[ExecuteInEditMode]
+
 [RequireComponent(typeof(CanvasGroup), typeof(RectTransform))]
 public class UITween : MonoBehaviour
 {
@@ -21,15 +18,12 @@ public class UITween : MonoBehaviour
 	
 	public bool move;
 	
-	[ShowIf("move")]
 	public Vector2 moveFrom;
-	[ShowIf("move")]
 	public Vector2 moveTo;
 
 	public bool scale;
 
 	public bool rotate;
-	[ShowIf("rotate")]
 	public int laps;
 	private Vector3 destinationRotation => laps * 360 * Vector3.forward;
 	private CanvasGroup canvasGroup;
@@ -37,25 +31,32 @@ public class UITween : MonoBehaviour
 
 
 	private Vector2 originalPosition;
+	private Vector2 originalScale;
+	
+	public static event Action<UITween> OnComplete = delegate {  };
+	public static event Action<UITween> OnStart = delegate {  };
 	private void Awake()
 	{
 		canvasGroup = GetComponent<CanvasGroup>();
 		rectTransform = GetComponent<RectTransform>();
+	}
+
+	private void Start()
+	{
+		
 		originalPosition = rectTransform.anchoredPosition;
+		originalScale = rectTransform.localScale;
 	}
 
 	private TweenBase tween;
 
 	
+	
 	private bool showing;
 
 	public bool Active { get; private set; }
-
-	private void Start()
-	{
-		HidePanel();
-	}
-
+	
+	
 	public void ShowPanel()
     {
 	    if (Active && showing) return;
@@ -77,7 +78,7 @@ public class UITween : MonoBehaviour
 
 	    if (scale)
 	    {
-		    tween = Tween.LocalScale(transform, Vector3.one, duration, delay, easeType, Tween.LoopType.None,
+		    tween = Tween.LocalScale(transform, originalScale, duration, delay, easeType, Tween.LoopType.None,
 			    OnStartCallback, OnCompleteCallback, false);
 		    
 	    }
@@ -88,17 +89,9 @@ public class UITween : MonoBehaviour
 				    Tween.LoopType.None,
 				    OnStartCallback, OnCompleteCallback, false);
 	    }
-    }
 
-    public void ButtonClick()
-    {
-	    if (scale)
-	    {
-		    tween = Tween.LocalScale(transform, Vector3.one, duration, delay, easeType, Tween.LoopType.None,
-			    OnStartCallback, OnCompleteCallback, false);
-	    }
     }
-
+	
     private void ResetPosition()
     {
 	    if (!move)
@@ -113,14 +106,17 @@ public class UITween : MonoBehaviour
 
 	    if (!scale)
 	    {
-		    rectTransform.localScale = Vector3.one;
+		    rectTransform.localScale = originalScale;
 	    }
     }
-    
 
+    private void Update()
+    {
+
+    }
     public void HidePanel()
     {
-	    if (Active && !showing) return;
+	    if (Active) return;
 	    Active = true;
 	    showing = false;
 	    if (fade)
@@ -147,15 +143,18 @@ public class UITween : MonoBehaviour
 		    tween = Tween.Rotate(rectTransform, destinationRotation, Space.Self, duration, delay, easeType, Tween.LoopType.None,
 			    OnStartCallback, OnCompleteCallback, false);
 	    }
+	    
     }
 
     private void OnCompleteCallback()
     {
+	    OnComplete?.Invoke(this);
 	    Active = false;
     }
 
     private void OnStartCallback()
     {
+	    OnStart?.Invoke(this);
 	    ResetPosition();
     }
 

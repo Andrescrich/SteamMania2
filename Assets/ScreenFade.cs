@@ -6,42 +6,27 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-[RequireComponent(typeof(UITween), typeof(Image)), RequireComponent(typeof(Canvas))]
+[RequireComponent(typeof(UITween))]
 public class ScreenFade : Singleton<ScreenFade>
 {
     private UITween tween;
-    private Canvas canvas;
-    private CanvasGroup canvasGroup;
-    public Image fadeImage;
-
-    public float duration = 0.35f;
-    public float delay = .1f;
-    public AnimationCurve easeType = Tween.EaseInOutStrong;
+    private Image fadeImage;
 
     public bool Active => tween.Active;
 
-    protected  override void Awake()
+    protected override void Awake()
     {
         base.Awake();
+        gameObject.name = "ScreenFade";
         tween = GetComponent<UITween>();
-        canvas = GetComponent<Canvas>();
-        canvasGroup = GetComponent<CanvasGroup>();
-        canvasGroup.blocksRaycasts = false;
-        canvasGroup.interactable = false;
-        fadeImage = GetComponent<Image>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 999;
-        fadeImage.color = Color.black;
-        fadeImage.sprite = Resources.Load<Sprite>("Sprites/cubo");
         
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        
-        tween.Set(duration, delay, easeType, true, false, false, false);
-        FadeOut();
+        //TRUQUITO PORQUE NO SE QUE PASA QUE NO HACE EL FADEOUT AL PRINCIPIO, PONE CANVASGROUP.ALPHA A 0
+        FadeIn();
+        Invoke("FadeOut", 0.3f);
     }
 
     public void FadeIn()
@@ -54,8 +39,4 @@ public class ScreenFade : Singleton<ScreenFade>
         tween.HidePanel();
     }
 
-    public void Block()
-    {
-        canvasGroup.alpha = 1;
-    }
 }

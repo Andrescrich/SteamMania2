@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
@@ -24,12 +25,18 @@ public class UIManager : Singleton<UIManager>
         gameObject.name = "UIManager";
     }
 
-    
+    private void Start()
+    {
+        
+        ClosePanel();
+    }
+
+
     private void Update()
     {
         if (Input.GetButtonDown("Pause"))
         {
-            if (!PauseManager.GetInstance().CanPause) return;
+            if (!PauseManager.CanPause) return;
             if (activePanel == null)
             {
                 PauseManager.TogglePause();
@@ -51,9 +58,11 @@ public class UIManager : Singleton<UIManager>
     
     public void ClosePanel()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         settingsMenu.HidePanel();
         pauseMenu.HidePanel();
-        PauseManager.TogglePause();
+        if(PauseManager.Paused)
+            PauseManager.TogglePause();
         activePanel = null;
     }
 
@@ -79,6 +88,7 @@ public class UIManager : Singleton<UIManager>
     public void GoBackToMenu()
     {
         PauseManager.TogglePause();
+        ClosePanel();
         LevelManager.GetInstance().LoadScene("MainMenu");
     }
 }

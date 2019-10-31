@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using Random = UnityEngine.Random;
-using NaughtyAttributes;
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
@@ -17,32 +16,30 @@ public class Audio : ScriptableObject
     [SerializeField] public AudioType Type;
 
     [SerializeField]
-    [BoxGroup]
     public List<AudioClip> Clips;
 
     [SerializeField]
-    [Slider(0f,1f)]
+    [Range(0f,1f)]
     public float Volume = 1f;
 
     [SerializeField]
-    [Slider(0.5f,1.5f)]
+    [Range(0.5f,1.5f)]
     public float Pitch = 1f;
 
-    [SerializeField] [Slider(0f, 1f)] public float SpatialBlend = 0.5f;
+    [SerializeField] [Range(0f, 1f)] public float SpatialBlend = 0.5f;
 
     [Header("Modifications")]
     [SerializeField]
-    [Slider(0f,0.5f)]
+    [Range(0f,0.5f)]
     public float RandomVolume = .1f;
 
     [SerializeField]
-    [Slider(0, 0.5f)]
+    [Range(0, 0.5f)]
     public float RandomPitch = .1f;
 
     [SerializeField] private bool loop;
 
     private AudioSource hidableSource;
-    [Button("Play")] 
     public void PreviewClip()
     {
         #if UNITY_EDITOR
@@ -51,7 +48,6 @@ public class Audio : ScriptableObject
         Play(hidableSource);
     }
 
-    [Button("Stop")]
     public void StopClip()
     { 
         #if UNITY_EDITOR

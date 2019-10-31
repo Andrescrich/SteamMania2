@@ -105,10 +105,10 @@ using UnityEngine.Audio;
 
         private void Update()
         {
-            SetMasterVolume(MasterVolume);
-            SetMusicVolume(MusicVolume);
-            SetSFXVolume(SFXVolume);
-            SetUIVolume(UIVolume);
+            SetMasterVolumeMethod(MasterVolume);
+            SetMusicVolumeMethod(MusicVolume);
+            SetSFXVolumeMethod(SFXVolume);
+            SetUIVolumeMethod(UIVolume);
         }
         #endregion
 
@@ -161,17 +161,22 @@ using UnityEngine.Audio;
 
         public static void SetMasterVolume(float volume)
         {
-            GetInstance().SetMasterVolume(volume);
+            GetInstance().SetMasterVolumeMethod(volume);
         }
         
         public static void SetMusicVolume(float volume)
         {
-            GetInstance().SetMusicVolume(volume);
+            GetInstance().SetMusicVolumeMethod(volume);
         }
         public static void SetSFXVolume(float volume)
         {
-            GetInstance().SetSFXVolume(volume);
-            GetInstance().SetUIVolume(volume);
+            GetInstance().SetSFXVolumeMethod(volume);
+            GetInstance().SetUIVolumeMethod(volume);
+        }
+        
+        public static bool IsPlaying(Audio audio)
+        {
+            return GetInstance().IsPlayingMethod(audio);
         }
 
         #endregion
@@ -186,7 +191,7 @@ using UnityEngine.Audio;
         
 
         #region VolumeControl
-        public void SetMasterVolume(float sliderValue, bool free = false)
+        public void SetMasterVolumeMethod(float sliderValue)
         {
             masterVolume = sliderValue;
             if (sliderValue <= 0)
@@ -201,7 +206,7 @@ using UnityEngine.Audio;
             }
         }
 
-        public void SetMusicVolume(float sliderValue, bool free = false)
+        public void SetMusicVolumeMethod(float sliderValue)
         {
             musicVolume = sliderValue;
             if (sliderValue <= 0)
@@ -215,7 +220,7 @@ using UnityEngine.Audio;
             }
         }
 
-        public void SetSFXVolume(float sliderValue, bool free = false)
+        public void SetSFXVolumeMethod(float sliderValue)
         {
             sfxVolume = sliderValue;
             if (sliderValue <= 0)
@@ -230,7 +235,7 @@ using UnityEngine.Audio;
             }
         }
 
-        public void SetUIVolume(float sliderValue)
+        public void SetUIVolumeMethod(float sliderValue)
         {
             uiVolume = sliderValue;
             if (sliderValue <= 0)
@@ -243,6 +248,20 @@ using UnityEngine.Audio;
                 float value = 20f * Mathf.Log10(sliderValue);
                 mixer.SetFloat(uiVolumeName, value);
             }
+        }
+
+
+        private bool  IsPlayingMethod(Audio sound)
+        {
+            foreach (var s in inUse)
+            {
+                if (s.sound == sound)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void ClearMasterVolume()
