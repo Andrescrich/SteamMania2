@@ -11,7 +11,12 @@ public class LevelManager : Singleton<LevelManager>
     {
         base.Awake();
         gameObject.name = "LevelManager";
-        screenFade = FindObjectOfType<ScreenFade>();
+        screenFade = ScreenFade.GetInstance();
+    }
+
+    private void Start()
+    {
+        screenFade.FadeOut();
     }
 
     public void LoadScene(string sceneName, int id = default)

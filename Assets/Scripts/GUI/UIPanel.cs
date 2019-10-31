@@ -4,11 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(UITweener))]
 public class UIPanel : MonoBehaviour
 {
-    private UITweener tweener;
-
     public Button closeButton;
 
     public TextMeshProUGUI titleText;
@@ -18,7 +15,6 @@ public class UIPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tweener = GetComponent<UITweener>();
         titleText.text = windowTitle;
         closeButton.onClick.AddListener(OnClickCloseButton);
     }

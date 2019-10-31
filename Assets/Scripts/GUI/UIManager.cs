@@ -7,23 +7,21 @@ using UnityEngine.XR;
 
 public class UIManager : Singleton<UIManager>
 {
-    public UITweener pauseMenu;
+    public UITween pauseMenu;
 
-    public UITweener settingsMenu;
+    public UITween settingsMenu;
 
     public Button resumeButton;
 
-    public UITweener activePanel;
+    public UITween activePanel;
 
-    private List<UITweener> components;
     
     private bool Paused;
 
     protected override void Awake()
     {
-        pauseMenu.gameObject.SetActive(true);
-        settingsMenu.gameObject.SetActive(true);
-        
+        base.Awake();
+        gameObject.name = "UIManager";
     }
 
     
@@ -53,8 +51,8 @@ public class UIManager : Singleton<UIManager>
     
     public void ClosePanel()
     {
-        settingsMenu.Close(activePanel == pauseMenu);
-        pauseMenu.Close(activePanel == settingsMenu);
+        settingsMenu.HidePanel();
+        pauseMenu.HidePanel();
         PauseManager.TogglePause();
         activePanel = null;
     }
@@ -63,19 +61,19 @@ public class UIManager : Singleton<UIManager>
     public void OpenOptionsPanel()
     {
 
-        pauseMenu.Close();
+        pauseMenu.HidePanel();
         
 
         activePanel = settingsMenu;
-        settingsMenu.Open();
+        settingsMenu.ShowPanel();
     }
 
     public void OpenPausePanel()
     {
-        settingsMenu.Close();
+        settingsMenu.HidePanel();
         resumeButton.Select();
         activePanel = pauseMenu;
-        pauseMenu.Open();
+        pauseMenu.ShowPanel();
     }
 
     public void GoBackToMenu()

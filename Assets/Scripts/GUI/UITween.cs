@@ -1,164 +1,173 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
+using NaughtyAttributes;
+using Pixelplacement;
+using Pixelplacement.TweenSystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.PlayerLoop;
 
-public enum UITweenType
-{
-    MOVE,
-    SCALE,
-    FADE,
-    ROTATE
-}
-
+[ExecuteInEditMode]
 [RequireComponent(typeof(CanvasGroup), typeof(RectTransform))]
 public class UITween : MonoBehaviour
 {
-    public GameObject objectToAnimate;
+	public AnimationCurve easeType;
+	public float duration;
+	public float delay;
 
-    public UITweenType animationType;
-    public LeanTweenType easeType;
-    public float duration;
-    public float delay;
 
-    public bool loop;
-    public bool pingpong;
+	public bool fade;
+	
+	public bool move;
+	
+	[ShowIf("move")]
+	public Vector2 moveFrom;
+	[ShowIf("move")]
+	public Vector2 moveTo;
 
-    public bool startPositionOffset;
-    public Vector3 from;
-    public Vector3 to;
+	public bool scale;
 
-    private LTDescr tweenObject;
+	public bool rotate;
+	[ShowIf("rotate")]
+	public int laps;
+	private Vector3 destinationRotation => laps * 360 * Vector3.forward;
+	private CanvasGroup canvasGroup;
+	private RectTransform rectTransform;
 
-    public bool showOnEnable;
-    public bool workOnDisable;
 
-    private CanvasGroup canvasGroup;
-    private RectTransform rectTransform;
+	private Vector2 originalPosition;
+	private void Awake()
+	{
+		canvasGroup = GetComponent<CanvasGroup>();
+		rectTransform = GetComponent<RectTransform>();
+		originalPosition = rectTransform.anchoredPosition;
+	}
 
-    public void OnEnable()
+	private TweenBase tween;
+
+	
+	private bool showing;
+
+	public bool Active { get; private set; }
+
+	private void Start()
+	{
+		HidePanel();
+	}
+
+	public void ShowPanel()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-        rectTransform = GetComponent<RectTransform>();
+	    if (Active && showing) return;
+	    Active = true;
+	    showing = true;
+	    
+	    if (fade)
+	    {
 
-        if (showOnEnable)
-        {
-            Show();
-        }
+		    tween = Tween.CanvasGroupAlpha(canvasGroup, 1, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+	    }
+
+	    if (move)
+	    {
+		    tween = Tween.AnchoredPosition(rectTransform, moveTo, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+	    }
+
+	    if (scale)
+	    {
+		    tween = Tween.LocalScale(transform, Vector3.one, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+		    
+	    }
+
+	    if (rotate)
+	    {
+		    tween = Tween.Rotate(rectTransform, destinationRotation, Space.Self, duration, delay, easeType,
+				    Tween.LoopType.None,
+				    OnStartCallback, OnCompleteCallback, false);
+	    }
     }
 
-    public void Show()
+    public void ButtonClick()
     {
-        HandleTween();
+	    if (scale)
+	    {
+		    tween = Tween.LocalScale(transform, Vector3.one, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+	    }
     }
 
-    public bool Active { get; private set; }
-
-    void HandleTween()
+    private void ResetPosition()
     {
-        Active = true;
-        if (objectToAnimate == null)
-        {
-            objectToAnimate = gameObject;
-        }
+	    if (!move)
+	    {
+		    rectTransform.anchoredPosition = originalPosition;
+		    
+	    }
+	    if (!fade)
+	    {
+		    canvasGroup.alpha = 1;
+	    }
 
-        switch (animationType)
-        {            
-            case UITweenType.FADE:
-                Fade();
-                break;
-            case UITweenType.MOVE:
-                Move();
-                break;
-            case UITweenType.SCALE:
-                Scale();
-                break;
-            case UITweenType.ROTATE:
-                Rotate();
-                break;
-        }
-
-        tweenObject.setDelay(delay);
-        tweenObject.setEase(easeType);
-        tweenObject.setOnComplete(() => { Active = false; });
-
-        if (loop)
-        {
-            tweenObject.loopCount = int.MaxValue;
-        }
-
-        if (pingpong)
-        {
-            tweenObject.setLoopPingPong();
-        }
-    }
-
-    void Fade()
-    {
-        if (startPositionOffset)
-        {
-            canvasGroup.alpha = @from.x;
-        }
-
-        tweenObject = LeanTween.alphaCanvas(canvasGroup, to.x, duration);
-    }
-
-    void Move()
-    {
-        rectTransform.anchoredPosition = @from;
-
-        tweenObject = LeanTween.move(rectTransform, to, duration);
-    }
-
-    void Scale()
-    {
-        if (startPositionOffset)
-        {
-            rectTransform.localScale = @from;
-        }
-
-        tweenObject = LeanTween.scale(objectToAnimate, to, duration);
-    }
-
-    void Rotate()
-    {
-        if (startPositionOffset)
-        {
-            rectTransform.anchoredPosition = @from;
-        }
-
-        tweenObject = LeanTween.rotate(rectTransform, to, duration);
-    }
-
-    void SwapDirection()
-    {
-        var temp = @from;
-        from = to;
-        to = temp;
-    }
-
-    public void Disable()
-    {
-        SwapDirection();
-        HandleTween();
-
-        tweenObject.setOnComplete(() =>
-        {
-            SwapDirection();
-        });
-    }
-
-    public void Disable(Action onCompleteAction)
-    {
-        SwapDirection();
-        HandleTween();
-        tweenObject.setOnComplete(() =>
-        {
-            SwapDirection();
-        });
-        tweenObject.setOnComplete(onCompleteAction);
+	    if (!scale)
+	    {
+		    rectTransform.localScale = Vector3.one;
+	    }
     }
     
-    
+
+    public void HidePanel()
+    {
+	    if (Active && !showing) return;
+	    Active = true;
+	    showing = false;
+	    if (fade)
+	    {
+
+		    tween = Tween.CanvasGroupAlpha(canvasGroup, 0, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+	    }
+
+	    if (move)
+	    {
+		    tween = Tween.AnchoredPosition(rectTransform, moveFrom, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+	    }
+	    	    
+	    if (scale)
+	    {
+		    tween = Tween.LocalScale(transform, Vector3.zero, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+	    }
+	    
+	    if (rotate)
+	    {
+		    tween = Tween.Rotate(rectTransform, destinationRotation, Space.Self, duration, delay, easeType, Tween.LoopType.None,
+			    OnStartCallback, OnCompleteCallback, false);
+	    }
+    }
+
+    private void OnCompleteCallback()
+    {
+	    Active = false;
+    }
+
+    private void OnStartCallback()
+    {
+	    ResetPosition();
+    }
+
+    public void Set(float duration, float delay, AnimationCurve animationCurve, bool fade = false,
+	    bool move = false, bool scale = false, bool rotate = false)
+    {
+	    this.duration = duration;
+	    this.delay = delay;
+	    this.easeType = animationCurve;
+	    this.fade = fade;
+	    this.move = move;
+	    this.scale = scale;
+	    this.rotate = rotate;
+    }
 }
