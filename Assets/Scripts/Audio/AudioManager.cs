@@ -5,7 +5,7 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.Audio;
 
- public class AudioManager : Singleton<AudioManager>
+ public class AudioManager : Singleton<AudioManager>, ISaveData
     {
         #region references
 
@@ -98,7 +98,7 @@ using UnityEngine.Audio;
 
         public void Start()
         {         
-            LoadAllVolumes();
+            Load();
             InitializePool();
         }
 
@@ -424,14 +424,14 @@ using UnityEngine.Audio;
     
     #endregion
 
-    public void SaveAllVolumes()
+    public void Save()
     {
         SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MasterVolume, masterVolume);
         SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MusicVolume, musicVolume);
         SaveSystem<float>.SavePrefs(PlayerPrefsKeys.SFXVolume, sfxVolume);
     }
 
-    public void LoadAllVolumes()
+    public void Load()
     {
         MasterVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MasterVolume);
         MusicVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MusicVolume);

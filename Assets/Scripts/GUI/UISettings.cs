@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class UISettings : MonoBehaviour
+public class UISettings : MonoBehaviour, ISaveData
 {
     public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
@@ -12,7 +12,7 @@ public class UISettings : MonoBehaviour
     
     void Awake()
     {
-        LoadSettings();
+        Load();
         masterVolumeSlider.onValueChanged.AddListener(ChangeMasterVolume);
         musicVolumeSlider.onValueChanged.AddListener(ChangeMusicVolume);
         sfxSlider.onValueChanged.AddListener(ChangeSFXVolume);
@@ -34,7 +34,7 @@ public class UISettings : MonoBehaviour
         AudioManager.SFXVolume = volume / sfxSlider.maxValue;
     }
 
-    private void LoadSettings()
+    public void Load()
     {
         masterVolumeSlider.value = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MasterVolume) * masterVolumeSlider.maxValue;
         musicVolumeSlider.value = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MusicVolume) * masterVolumeSlider.maxValue;
@@ -60,9 +60,9 @@ public class UISettings : MonoBehaviour
         Application.targetFrameRate = vsync ? normalFrameRate : -1;
     }
     
-    public void SaveSettings()
+    public void Save()
     {
-        AudioManager.GetInstance().SaveAllVolumes();
+        AudioManager.GetInstance().Save();
         
         if(fullScreenToggle.isOn)
             SaveSystem<int>.SavePrefs(PlayerPrefsKeys.FullScreen, 1);
@@ -81,6 +81,6 @@ public class UISettings : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveSettings();
+        Save();
     }
 }
