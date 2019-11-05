@@ -175,7 +175,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8.87
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 7
+    OrthographicSize: 8.87
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   settingsButton: {fileID: 1327439743}
   exitButton: {fileID: 2001274880}
   clickSound: {fileID: 11400000, guid: 3f6d5156b0b328e4cb5b1e07e361b3c4, type: 2}
-  sceneToLoad: TestScene1
+  sceneToLoad: SampleScene
   rightGears: {fileID: 1536848923}
   leftGears: {fileID: 1189550243}
 --- !u!1 &2001274878
