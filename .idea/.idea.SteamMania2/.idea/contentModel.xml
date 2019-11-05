@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\delga\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\delga\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SteamMania2.1807502494.00" t="ExcludeRecursive" />
+    <e p="D:\Iban\UnityGood\SteamMania2" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="DDOL.cs" t="Include" />
+        <e p="EnemyHealth.cs" t="Include" />
+        <e p="ExternalAssets" t="Include">
+          <e p="Surge" t="Include">
+            <e p="DisplayObject" t="Include">
+              <e p="DisplayObject.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="DisplayObjectEditor.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Events" t="Include">
+              <e p="Events.cs" t="Include" />
+            </e>
+            <e p="Spline" t="Include">
+              <e p="Art" t="Include">
+                <e p="Shaders" t="Include">
+                  <e p="Invisible.shader" t="Include" />
+                </e>
+              </e>
+              <e p="Editor" t="Include">
+                <e p="SplineAnchorEditor.cs" t="Include" />
+                <e p="SplineEditor.cs" t="Include" />
+                <e p="SplineTangentEditor.cs" t="Include" />
+              </e>
+              <e p="Objects" t="Include">
+                <e p="BezierCurves.cs" t="Include" />
+                <e p="CurveDetail.cs" t="Include" />
+                <e p="Spline.cs" t="Include" />
+                <e p="SplineAnchor.cs" t="Include" />
+                <e p="SplineFollower.cs" t="Include" />
+                <e p="SplineTangent.cs" t="Include" />
+              </e>
+              <e p="Utilities" t="Include">
+                <e p="SplineControlledParticleSystem.cs" t="Include" />
+                <e p="SplineRenderer.cs" t="Include" />
+              </e>
+            </e>
+            <e p="StateMachine" t="Include">
+              <e p="Editor" t="Include">
+                <e p="StateEditor.cs" t="Include" />
+                <e p="StateMachineEditor.cs" t="Include" />
+              </e>
+              <e p="State.cs" t="Include" />
+              <e p="StateMachine.cs" t="Include" />
+            </e>
+            <e p="Tween" t="Include">
+              <e p="Helpers" t="Include">
+                <e p="TweenBase.cs" t="Include" />
+                <e p="TweenEngine.cs" t="Include" />
+                <e p="TweenUtilities.cs" t="Include" />
+              </e>
+              <e p="Tween.cs" t="Include" />
+              <e p="TweenActions" t="Include">
+                <e p="AnchoredPosition.cs" t="Include" />
+                <e p="CameraBackgroundColor.cs" t="Include" />
+                <e p="CanvasGroupAlpha.cs" t="Include" />
+                <e p="FieldOfView.cs" t="Include" />
+                <e p="ImageColor.cs" t="Include" />
+                <e p="LightColor.cs" t="Include" />
+                <e p="LightIntensity.cs" t="Include" />
+                <e p="LightRange.cs" t="Include" />
+                <e p="LocalPosition.cs" t="Include" />
+                <e p="LocalRotation.cs" t="Include" />
+                <e p="LocalScale.cs" t="Include" />
+                <e p="PanStereo.cs" t="Include" />
+                <e p="Pitch.cs" t="Include" />
+                <e p="Position.cs" t="Include" />
+                <e p="RawImageColor.cs" t="Include" />
+                <e p="Rotate.cs" t="Include" />
+                <e p="Rotation.cs" t="Include" />
+                <e p="ShaderColor.cs" t="Include" />
+                <e p="ShaderFloat.cs" t="Include" />
+                <e p="ShaderInt.cs" t="Include" />
+                <e p="ShaderVector.cs" t="Include" />
+                <e p="ShakePosition.cs" t="Include" />
+                <e p="Size.cs" t="Include" />
+                <e p="SplinePercentage.cs" t="Include" />
+                <e p="SpriteRendererColor.cs" t="Include" />
+                <e p="TextColor.cs" t="Include" />
+                <e p="TextMeshColor.cs" t="Include" />
+                <e p="ValueColor.cs" t="Include" />
+                <e p="ValueFloat.cs" t="Include" />
+                <e p="ValueInt.cs" t="Include" />
+                <e p="ValueRect.cs" t="Include" />
+                <e p="ValueVector2.cs" t="Include" />
+                <e p="ValueVector3.cs" t="Include" />
+                <e p="ValueVector4.cs" t="Include" />
+                <e p="Volume.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Utilities" t="Include">
+              <e p="EditorUtilities.cs" t="Include" />
+              <e p="LayerMaskHelper.cs" t="Include" />
+              <e p="Math.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="GameManager.cs" t="Include" />
+        <e p="HUDController.cs" t="Include" />
+        <e p="ImpactParticle.cs" t="Include" />
+        <e p="InputMaster.cs" t="Include" />
+        <e p="OdinSerializer" t="Include">
+          <e p="Config" t="Include">
+            <e p="AssemblyBuildInfo.cs" t="Include" />
+            <e p="GlobalSerializationConfig.cs" t="Include" />
+          </e>
+          <e p="Core" t="Include">
+            <e p="DataReaderWriters" t="Include">
+              <e p="BaseDataReader.cs" t="Include" />
+              <e p="BaseDataReaderWriter.cs" t="Include" />
+              <e p="BaseDataWriter.cs" t="Include" />
+              <e p="Binary" t="Include">
+                <e p="BinaryDataReader.cs" t="Include" />
+                <e p="BinaryDataWriter.cs" t="Include" />
+                <e p="BinaryEntryType.cs" t="Include" />
+              </e>
+              <e p="IDataReader.cs" t="Include" />
+              <e p="IDataWriter.cs" t="Include" />
+              <e p="Json" t="Include">
+                <e p="JsonConfig.cs" t="Include" />
+                <e p="JsonDataReader.cs" t="Include" />
+                <e p="JsonDataWriter.cs" t="Include" />
+                <e p="JsonTextReader.cs" t="Include" />
+              </e>
+              <e p="SerializationNodes" t="Include">
+                <e p="SerializationNode.cs" t="Include" />
+                <e p="SerializationNodeDataReader.cs" t="Include" />
+                <e p="SerializationNodeDataReaderWriterConfig.cs" t="Include" />
+                <e p="SerializationNodeDataWriter.cs" t="Include" />
+              </e>
+            </e>
+            <e p="FormatterLocators" t="Include">
+              <e p="ArrayFormatterLocator.cs" t="Include" />
+              <e p="DelegateFormatterLocator.cs" t="Include" />
+              <e p="FormatterLocator.cs" t="Include" />
+              <e p="GenericCollectionFormatterLocator.cs" t="Include" />
+              <e p="IFormatterLocator.cs" t="Include" />
+              <e p="ISerializableFormatterLocator.cs" t="Include" />
+              <e p="SelfFormatterLocator.cs" t="Include" />
+              <e p="TypeFormatterLocator.cs" t="Include" />
+            </e>
+            <e p="Formatters" t="Include">
+              <e p="ArrayFormatter.cs" t="Include" />
+              <e p="ArrayListFormatter.cs" t="Include" />
+              <e p="BaseFormatter.cs" t="Include" />
+              <e p="DateTimeFormatter.cs" t="Include" />
+              <e p="DateTimeOffsetFormatter.cs" t="Include" />
+              <e p="DelegateFormatter.cs" t="Include" />
+              <e p="DerivedDictionaryFormatter.cs" t="Include" />
+              <e p="DictionaryFormatter.cs" t="Include" />
+              <e p="DoubleLookupDictionaryFormatter.cs" t="Include" />
+              <e p="EasyBaseFormatter.cs" t="Include" />
+              <e p="EmittedFormatterAttribute.cs" t="Include" />
+              <e p="EmptyTypeFormatter.cs" t="Include" />
+              <e p="FormatterEmitter.cs" t="Include" />
+              <e p="GenericCollectionFormatter.cs" t="Include" />
+              <e p="HashSetFormatter.cs" t="Include" />
+              <e p="IFormatter.cs" t="Include" />
+              <e p="KeyValuePairFormatter.cs" t="Include" />
+              <e p="ListFormatter.cs" t="Include" />
+              <e p="MethodInfoFormatter.cs" t="Include" />
+              <e p="MinimalBaseFormatter.cs" t="Include" />
+              <e p="MultiDimensionalArrayFormatter.cs" t="Include" />
+              <e p="NullableFormatter.cs" t="Include" />
+              <e p="PrimitiveArrayFormatter.cs" t="Include" />
+              <e p="QueueFormatter.cs" t="Include" />
+              <e p="ReflectionFormatter.cs" t="Include" />
+              <e p="ReflectionOrEmittedBaseFormatter.cs" t="Include" />
+              <e p="SelfFormatterFormatter.cs" t="Include" />
+              <e p="SerializableFormatter.cs" t="Include" />
+              <e p="StackFormatter.cs" t="Include" />
+              <e p="TimeSpanFormatter.cs" t="Include" />
+              <e p="TypeFormatter.cs" t="Include" />
+              <e p="VersionFormatter.cs" t="Include" />
+            </e>
+            <e p="Misc" t="Include">
+              <e p="AllowDeserializeInvalidDataAttribute.cs" t="Include" />
+              <e p="AlwaysFormatsSelfAttribute.cs" t="Include" />
+              <e p="Buffer.cs" t="Include" />
+              <e p="CachedMemoryStream.cs" t="Include" />
+              <e p="CustomFormatterAttribute.cs" t="Include" />
+              <e p="CustomGenericFormatterAttribute.cs" t="Include" />
+              <e p="CustomLogger.cs" t="Include" />
+              <e p="CustomSerializationPolicy.cs" t="Include" />
+              <e p="DataFormat.cs" t="Include" />
+              <e p="DefaultLoggers.cs" t="Include" />
+              <e p="DefaultSerializationBinder.cs" t="Include" />
+              <e p="DeserializationContext.cs" t="Include" />
+              <e p="EmittedAssemblyAttribute.cs" t="Include" />
+              <e p="EntryType.cs" t="Include" />
+              <e p="ErrorHandlingPolicy.cs" t="Include" />
+              <e p="ExcludeDataFromInspectorAttribute.cs" t="Include" />
+              <e p="FormatterLocationStep.cs" t="Include" />
+              <e p="FormatterUtilities.cs" t="Include" />
+              <e p="IAskIfCanFormatTypes.cs" t="Include" />
+              <e p="IExternalGuidReferenceResolver.cs" t="Include" />
+              <e p="IExternalIndexReferenceResolver.cs" t="Include" />
+              <e p="IExternalStringReferenceResolver.cs" t="Include" />
+              <e p="ILogger.cs" t="Include" />
+              <e p="ISelfFormatter.cs" t="Include" />
+              <e p="ISerializationPolicy.cs" t="Include" />
+              <e p="LoggingPolicy.cs" t="Include" />
+              <e p="NodeInfo.cs" t="Include" />
+              <e p="OdinSerializeAttribute.cs" t="Include" />
+              <e p="PrefabModification.cs" t="Include" />
+              <e p="PrefabModificationType.cs" t="Include" />
+              <e p="PreviouslySerializedAsAttribute.cs" t="Include" />
+              <e p="ProperBitConverter.cs" t="Include" />
+              <e p="RegisterFormatterAttribute.cs" t="Include" />
+              <e p="RegisterFormatterLocatorAttribute.cs" t="Include" />
+              <e p="SerializationAbortException.cs" t="Include" />
+              <e p="SerializationConfig.cs" t="Include" />
+              <e p="SerializationContext.cs" t="Include" />
+              <e p="SerializationPolicies.cs" t="Include" />
+              <e p="SerializationUtility.cs" t="Include" />
+              <e p="TwoWaySerializationBinder.cs" t="Include" />
+            </e>
+            <e p="Serializers" t="Include">
+              <e p="BooleanSerializer.cs" t="Include" />
+              <e p="ByteSerializer.cs" t="Include" />
+              <e p="CharSerializer.cs" t="Include" />
+              <e p="ComplexTypeSerializer.cs" t="Include" />
+              <e p="DecimalSerializer.cs" t="Include" />
+              <e p="DoubleSerializer.cs" t="Include" />
+              <e p="EnumSerializer.cs" t="Include" />
+              <e p="GuidSerializer.cs" t="Include" />
+              <e p="Int16Serializer.cs" t="Include" />
+              <e p="Int32Serializer.cs" t="Include" />
+              <e p="Int64Serializer.cs" t="Include" />
+              <e p="IntPtrSerializer.cs" t="Include" />
+              <e p="SByteSerializer.cs" t="Include" />
+              <e p="Serializer.cs" t="Include" />
+              <e p="SingleSerializer.cs" t="Include" />
+              <e p="StringSerializer.cs" t="Include" />
+              <e p="UInt16Serializer.cs" t="Include" />
+              <e p="UInt32Serializer.cs" t="Include" />
+              <e p="UInt64Serializer.cs" t="Include" />
+              <e p="UIntPtrSerializer.cs" t="Include" />
+            </e>
+          </e>
+          <e p="OdinSerializer.asmdef" t="Include" />
+          <e p="Unity Integration" t="Include">
+            <e p="AOTSupportScanner.cs" t="Include" />
+            <e p="AOTSupportUtilities.cs" t="Include" />
+            <e p="DictionaryKeySupport" t="Include">
+              <e p="BaseDictionaryKeyPathProvider.cs" t="Include" />
+              <e p="DictionaryKeyUtility.cs" t="Include" />
+              <e p="IDictionaryKeyPathProvider.cs" t="Include" />
+              <e p="RegisterDictionaryKeyPathProviderAttribute.cs" t="Include" />
+              <e p="Vector2DictionaryKeyPathProvider.cs" t="Include" />
+              <e p="Vector3DictionaryKeyPathProvider.cs" t="Include" />
+              <e p="Vector4DictionaryKeyPathProvider.cs" t="Include" />
+            </e>
+            <e p="Formatters" t="Include">
+              <e p="AnimationCurveFormatter.cs" t="Include" />
+              <e p="BoundsFormatter.cs" t="Include" />
+              <e p="Color32Formatter.cs" t="Include" />
+              <e p="ColorBlockFormatter.cs" t="Include" />
+              <e p="ColorFormatter.cs" t="Include" />
+              <e p="CoroutineFormatter.cs" t="Include" />
+              <e p="GradientAlphaKeyFormatter.cs" t="Include" />
+              <e p="GradientColorKeyFormatter.cs" t="Include" />
+              <e p="GradientFormatter.cs" t="Include" />
+              <e p="KeyframeFormatter.cs" t="Include" />
+              <e p="LayerMaskFormatter.cs" t="Include" />
+              <e p="QuaternionFormatter.cs" t="Include" />
+              <e p="RectFormatter.cs" t="Include" />
+              <e p="UnityEventFormatter.cs" t="Include" />
+              <e p="Vector2Formatter.cs" t="Include" />
+              <e p="Vector3Formatter.cs" t="Include" />
+              <e p="Vector4Formatter.cs" t="Include" />
+            </e>
+            <e p="OdinPrefabSerializationEditorUtility.cs" t="Include" />
+            <e p="SerializedUnityObjects" t="Include">
+              <e p="IOverridesSerializationFormat.cs" t="Include" />
+              <e p="IOverridesSerializationPolicy.cs" t="Include" />
+              <e p="ISupportsPrefabSerialization.cs" t="Include" />
+              <e p="SerializationData.cs" t="Include" />
+              <e p="SerializedBehaviour.cs" t="Include" />
+              <e p="SerializedComponent.cs" t="Include" />
+              <e p="SerializedMonoBehaviour.cs" t="Include" />
+              <e p="SerializedScriptableObject.cs" t="Include" />
+              <e p="SerializedStateMachineBehaviour.cs" t="Include" />
+              <e p="SerializedUnityObject.cs" t="Include" />
+            </e>
+            <e p="UnityReferenceResolver.cs" t="Include" />
+            <e p="UnitySerializationInitializer.cs" t="Include" />
+            <e p="UnitySerializationUtility.cs" t="Include" />
+          </e>
+          <e p="Utilities" t="Include">
+            <e p="Extensions" t="Include">
+              <e p="FieldInfoExtensions.cs" t="Include" />
+              <e p="GarbageFreeIterators.cs" t="Include" />
+              <e p="LinqExtensions.cs" t="Include" />
+              <e p="MemberInfoExtensions.cs" t="Include" />
+              <e p="MethodInfoExtensions.cs" t="Include" />
+              <e p="Operator.cs" t="Include" />
+              <e p="PathUtilities.cs" t="Include" />
+              <e p="PropertyInfoExtensions.cs" t="Include" />
+              <e p="StringExtensions.cs" t="Include" />
+              <e p="TypeExtensions.cs" t="Include" />
+              <e p="UnityExtensions.cs" t="Include" />
+            </e>
+            <e p="Misc" t="Include">
+              <e p="AssemblyImportSettingsUtilities.cs" t="Include" />
+              <e p="Cache.cs" t="Include" />
+              <e p="DoubleLookupDictionary.cs" t="Include" />
+              <e p="EmitUtilities.cs" t="Include" />
+              <e p="FastTypeComparer.cs" t="Include" />
+              <e p="Flags.cs" t="Include" />
+              <e p="ICacheNotificationReceiver.cs" t="Include" />
+              <e p="ImmutableList.cs" t="Include" />
+              <e p="MemberAliasFieldInfo.cs" t="Include" />
+              <e p="MemberAliasMethodInfo.cs" t="Include" />
+              <e p="MemberAliasPropertyInfo.cs" t="Include" />
+              <e p="ReferenceEqualityComparer.cs" t="Include" />
+              <e p="UnityVersion.cs" t="Include" />
+              <e p="UnsafeUtilities.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Version.txt" t="Include" />
+        </e>
+        <e p="PauseShower.cs" t="Include" />
+        <e p="PlayMusicTester.cs" t="Include" />
+        <e p="Rotate.cs" t="Include" />
+        <e p="ScreenFade.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="Audio" t="Include">
+            <e p="Audio.cs" t="Include" />
+            <e p="AudioFade.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
+            <e p="AudioPauseController.cs" t="Include" />
+            <e p="AudioSourceElement.cs" t="Include" />
+            <e p="PlayerPrefsKeys.cs" t="Include" />
+          </e>
+          <e p="BulletScript.cs" t="Include" />
+          <e p="Enums" t="Include">
+            <e p="AudioType.cs" t="Include" />
+          </e>
+          <e p="GameControllers" t="Include">
+            <e p="LevelManager.cs" t="Include" />
+            <e p="PauseManager.cs" t="Include" />
+            <e p="PlayerManager.cs" t="Include" />
+          </e>
+          <e p="GUI" t="Include">
+            <e p="Editor" t="Include">
+              <e p="EditorGUIExtension.cs" t="Include" />
+            </e>
+            <e p="GameSettings.cs" t="Include" />
+            <e p="UIButton.cs" t="Include" />
+            <e p="UIMainMenu.cs" t="Include" />
+            <e p="UIManager.cs" t="Include" />
+            <e p="UIPanel.cs" t="Include" />
+            <e p="UISettings.cs" t="Include" />
+            <e p="UISliderBar.cs" t="Include" />
+            <e p="UIToggle.cs" t="Include" />
+            <e p="UITween.cs" t="Include" />
+          </e>
+          <e p="Health.cs" t="Include" />
+          <e p="ISaveData.cs" t="Include" />
+          <e p="LevelEntry.cs" t="Include" />
+          <e p="ObjectPooler.cs" t="Include" />
+          <e p="ParallaxingScript.cs" t="Include" />
+          <e p="ParallaxObject.cs" t="Include" />
+          <e p="ParticleScript.cs" t="Include" />
+          <e p="PlayerMovement.cs" t="Include" />
+          <e p="PlayerStates.cs" t="Include" />
+          <e p="SaveSystem" t="Include">
+            <e p="ISave.cs" t="Include" />
+            <e p="SaveSystem.cs" t="Include" />
+          </e>
+          <e p="ShootingFXScript.cs" t="Include" />
+          <e p="Singleton.cs" t="Include" />
+          <e p="SpawnPosition.cs" t="Include" />
+          <e p="StaticMethods.cs" t="Include" />
+        </e>
+        <e p="TestHealth.cs" t="Include" />
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="OdinSerializer.csproj" t="IncludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="SteamMania2.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

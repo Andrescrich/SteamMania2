@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public int bullets;
     public bool canDoubleJump;
 
+    public Audio shootSound;
+
     private static readonly int Shoot = Animator.StringToHash("Shoot");
     private static readonly int Speed = Animator.StringToHash("Speed");
 
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _pS.isShoothing = true;
             _anim.SetTrigger(Shoot);
-            //  AudioManager.Play(uiSound);
+            AudioManager.Play(shootSound);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
