@@ -4,12 +4,20 @@
     <list default="true" id="24617d20-cfc6-4d7e-9bc8-e6749854d2e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Documentation/classes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/LeanTween/Framework.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIFade.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIFade.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/UI/UIClick.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/UI/UIClick.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveTester.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveTester.cs.meta" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +36,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/DDOL.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameControllers/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/GameSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Surge/Tween/Tween.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.1/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Rotate.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,7 +51,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/HUDController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ExternalAssets/Surge/DisplayObject/DisplayObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScreenFade.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,7 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" />
         <option value="$PROJECT_DIR$/Assets/CanvasFade.cs" />
         <option value="$PROJECT_DIR$/Assets/SingletonReferencer.cs" />
         <option value="$PROJECT_DIR$/Assets/DDOL.cs" />
@@ -61,19 +72,23 @@
         <option value="$PROJECT_DIR$/Assets/PlayMusicTest.cs" />
         <option value="$PROJECT_DIR$/Assets/PlayMusicTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameControllers/PauseManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Rotate.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ISaveData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIProgressBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UISliderBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/TestHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/HUDController.cs" />
+        <option value="$PROJECT_DIR$/Assets/TestHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/GameSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveTester.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" />
       </list>
     </option>
   </component>
@@ -134,7 +149,11 @@
       <updated>1572485660585</updated>
       <workItem from="1572485665541" duration="6986000" />
       <workItem from="1572523800687" duration="11925000" />
-      <workItem from="1572751053465" duration="3891000" />
+      <workItem from="1572751053465" duration="4073000" />
+      <workItem from="1572830003458" duration="6209000" />
+      <workItem from="1572907450721" duration="4769000" />
+      <workItem from="1572920729948" duration="4787000" />
+      <workItem from="1572964218570" duration="3762000" />
     </task>
     <servers />
   </component>

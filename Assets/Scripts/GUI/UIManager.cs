@@ -72,7 +72,7 @@ public class UIManager : Singleton<UIManager>
 
         pauseMenu.HidePanel();
         
-
+        
         activePanel = settingsMenu;
         settingsMenu.ShowPanel();
     }

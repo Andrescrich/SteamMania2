@@ -5,7 +5,7 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.Audio;
 
- public class AudioManager : Singleton<AudioManager>, ISaveData
+ public class AudioManager : Singleton<AudioManager>
     {
         #region references
 
@@ -98,7 +98,6 @@ using UnityEngine.Audio;
 
         public void Start()
         {         
-            Load();
             InitializePool();
         }
 
@@ -191,6 +190,8 @@ using UnityEngine.Audio;
         
 
         #region VolumeControl
+        
+        //gets a number between 0 - 1 and do the logaritmic equation 
         public void SetMasterVolumeMethod(float sliderValue)
         {
             masterVolume = sliderValue;
@@ -423,19 +424,5 @@ using UnityEngine.Audio;
     }
     
     #endregion
-
-    public void Save()
-    {
-        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MasterVolume, masterVolume);
-        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MusicVolume, musicVolume);
-        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.SFXVolume, sfxVolume);
-    }
-
-    public void Load()
-    {
-        MasterVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MasterVolume);
-        MusicVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MusicVolume);
-        SFXVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.SFXVolume);
-    }
     }
 

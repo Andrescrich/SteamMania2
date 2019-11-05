@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pixelplacement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class UIMainMenu : MonoBehaviour
     public Button settingsButton;
     public Button exitButton;
 
+    [SerializeField] private Audio clickSound;
     public string sceneToLoad = "SampleScene";
 
     public UITween rightGears;
@@ -26,7 +28,6 @@ public class UIMainMenu : MonoBehaviour
         exitButton.onClick.AddListener(OnClickExit);
         HideButtons();
         Hidetitle();
-        HideGears();
 
     }
 
@@ -71,7 +72,9 @@ public class UIMainMenu : MonoBehaviour
 
     private void OnClickPlay()
     {
+        
         LevelManager.GetInstance().LoadScene(sceneToLoad, 3);
+        HandleClick(playButton.transform);
         HideButtons();
         Hidetitle();
         HideGears();
@@ -79,17 +82,32 @@ public class UIMainMenu : MonoBehaviour
     
     private void OnClickLoad()
     {
-        throw new NotImplementedException();
+        HandleClick(loadButton.transform);
     }
-    
+
+    private void HandleClick(Transform trans)
+    {
+        if (clickSound != null)
+        {
+            AudioManager.Play(clickSound);
+        }
+        //Tween.Shake(trans, trans.localPosition, Vector3.one * 10f, 0.2f, 0f);
+        trans.localScale = Vector3.one;
+        Tween.LocalScale(trans, trans.localScale + Vector3.one *0.1f, 0.1f,
+            0, Tween.EaseInOut);
+        trans.localScale = Vector3.one;
+        Tween.LocalScale(trans, trans.localScale, 0.1f,
+            0.1f, Tween.EaseInOut);
+    }
+
     private void OnClickSettings()
     {
-        throw new NotImplementedException();
+        HandleClick(settingsButton.transform);
     }
     
     private void OnClickExit()
     {
-        throw new NotImplementedException();
+        HandleClick(exitButton.transform);
     }
 
 

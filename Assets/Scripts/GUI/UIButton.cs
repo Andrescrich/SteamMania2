@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Pixelplacement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.String;
 
 
 [RequireComponent(typeof(Button))]
@@ -18,11 +19,14 @@ public class UIButton : MonoBehaviour
 		button = GetComponent<Button>();
 		button.onClick.AddListener(OnClick);
 		textComponent = GetComponentInChildren<TextMeshProUGUI>();
-		textComponent.text = text;
+		if (text != Empty)
+		{
+			textComponent.text = text;
+		}
 	}
 
 	void OnClick()
 	{
-		
+
 	}
 }
