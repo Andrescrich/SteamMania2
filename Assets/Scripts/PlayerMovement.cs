@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _pS.isShoothing = true;
             _anim.SetTrigger(Shoot);
-            AudioManager.Play(shootSound);
+            AudioManager.Play(shootSound, gameObject);
         }
 
         if (Input.GetKeyDown(KeyCode.R))

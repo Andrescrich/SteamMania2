@@ -6,11 +6,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using static System.String;
 
-
+[ExecuteInEditMode]
 [RequireComponent(typeof(Button))]
 public class UIButton : MonoBehaviour
 {
 	private Button button;
+	public ButtonSkin skin;
 	private TextMeshProUGUI textComponent;
 	[SerializeField] private string text;
 
@@ -29,4 +30,11 @@ public class UIButton : MonoBehaviour
 	{
 
 	}
+}
+
+[CreateAssetMenu(menuName = "UI/ButtonSkin", fileName = "New Button Skin")]
+public class ButtonSkin : ScriptableObject
+{
+	public Color color;
+	public Sprite normal;
 }

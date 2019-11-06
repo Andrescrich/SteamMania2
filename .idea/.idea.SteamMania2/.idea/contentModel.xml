@@ -357,6 +357,7 @@
             </e>
             <e p="GameSettings.cs" t="Include" />
             <e p="UIButton.cs" t="Include" />
+            <e p="UIComponent.cs" t="Include" />
             <e p="UIMainMenu.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
             <e p="UIPanel.cs" t="Include" />

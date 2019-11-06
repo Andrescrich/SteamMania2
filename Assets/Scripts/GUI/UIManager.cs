@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
-public class UIManager : Singleton<UIManager>
+public class UIManager : MonoBehaviour
 {
     public UITween pauseMenu;
 
@@ -19,9 +19,8 @@ public class UIManager : Singleton<UIManager>
     
     private bool Paused;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         gameObject.name = "UIManager";
     }
 
