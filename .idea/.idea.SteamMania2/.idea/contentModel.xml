@@ -352,8 +352,9 @@
             <e p="PlayerManager.cs" t="Include" />
           </e>
           <e p="GUI" t="Include">
+            <e p="ComponentSkinData.cs" t="Include" />
             <e p="Editor" t="Include">
-              <e p="EditorGUIExtension.cs" t="Include" />
+              <e p="ButtonEditor.cs" t="Include" />
             </e>
             <e p="GameSettings.cs" t="Include" />
             <e p="UIButton.cs" t="Include" />

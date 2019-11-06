@@ -1,18 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class UIComponent : MonoBehaviour
 {
-    void Start()
+ 
+    public ComponentSkinData skinData;
+
+    protected virtual void OnSkinUI()
     {
-	
+        
     }
 
-    void Update()
+    public virtual void Start()
     {
-       	
+        OnSkinUI();
+    }
+
+    public virtual void Update()
+    {
+        if (Application.isEditor)
+        {
+            OnSkinUI();
+        }
     }
 }
+
