@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
 
-	public UISliderBar healthBar;
+	public UISlider healthBar;
 	private RectTransform rectTransform;
 	private void Awake()
 	{

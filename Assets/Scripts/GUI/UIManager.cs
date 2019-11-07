@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour
 
     public UITween activePanel;
 
+    public Audio openPanel;
     
     private bool Paused;
 
@@ -57,6 +59,8 @@ public class UIManager : MonoBehaviour
     
     public void ClosePanel()
     {
+        if(openPanel!=null)
+            AudioManager.Play(openPanel);
         EventSystem.current.SetSelectedGameObject(null);
         settingsMenu.HidePanel();
         pauseMenu.HidePanel();
@@ -68,7 +72,8 @@ public class UIManager : MonoBehaviour
 
     public void OpenOptionsPanel()
     {
-
+        if(openPanel!=null)
+            AudioManager.Play(openPanel);
         pauseMenu.HidePanel();
         
         
@@ -78,6 +83,8 @@ public class UIManager : MonoBehaviour
 
     public void OpenPausePanel()
     {
+        if(openPanel!=null)
+            AudioManager.Play(openPanel);
         settingsMenu.HidePanel();
         resumeButton.Select();
         activePanel = pauseMenu;
@@ -88,6 +95,6 @@ public class UIManager : MonoBehaviour
     {
         PauseManager.TogglePause();
         ClosePanel();
-        LevelManager.GetInstance().LoadScene("MainMenu");
+        LevelManager.GetInstance().LoadScene("MainMenu",LoadSceneMode.Single);
     }
 }

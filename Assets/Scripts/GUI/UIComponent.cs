@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+[ExecuteInEditMode]
 public class UIComponent : MonoBehaviour
 {
  

@@ -6,16 +6,20 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Slider))]
-public class UISliderBar : MonoBehaviour
+public class UISlider : MonoBehaviour
 {
-	private Slider slider;
+	public Slider Slider { get; private set; }
 
 	public int maximum;
 	public int minimum;
+	public float current;
+	private RotateRectTransform handleArea;
 
 	private void Awake()
 	{
-		slider = GetComponent<Slider>();
+		Slider = GetComponent<Slider>();
+		current = Slider.value;
+		handleArea = GetComponentInChildren<RotateRectTransform>();
 		// TODO Pasarle el valor de la vida
 		TestHealth.OnHealthChanged += SetValue;
 	}
@@ -25,6 +29,11 @@ public class UISliderBar : MonoBehaviour
 	    float currentOffset = newValue - minimum;
 	    float maximumOffset = maximum - minimum;
 	    float fillAmount = currentOffset / maximumOffset;
-	    slider.value = fillAmount;
+	    Slider.value = current = fillAmount;
+    }
+
+    public void SetMultiplier(float value)
+    {
+	    handleArea.Multiplier = value;
     }
 }
