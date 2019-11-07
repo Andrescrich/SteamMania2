@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Pixelplacement;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
@@ -73,7 +74,7 @@ public class UIMainMenu : MonoBehaviour
     private void OnClickPlay()
     {
         
-        LevelManager.GetInstance().LoadScene(sceneToLoad, 3);
+        LevelManager.GetInstance().LoadScene(sceneToLoad, LoadSceneMode.Single,3);
         HandleClick(playButton.transform);
         HideButtons();
         Hidetitle();

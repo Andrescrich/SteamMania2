@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class LevelEntry : MonoBehaviour
@@ -16,7 +17,7 @@ public class LevelEntry : MonoBehaviour
 	{
 		if (other.GetComponent<PlayerMovement>() != null)
 		{
-			LevelManager.GetInstance().LoadScene(LevelName, SpawnID);
+			LevelManager.GetInstance().LoadScene(LevelName, LoadSceneMode.Single,SpawnID);
 		}
 	}
 }

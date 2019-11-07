@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\delga\.Rider2019.2\Config\Extensions" t="IncludeRecursive" />
     <e p="C:\Users\delga\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\delga\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SteamMania2.1807502494.00" t="ExcludeRecursive" />
     <e p="D:\Iban\UnityGood\SteamMania2" t="IncludeRecursive">
@@ -332,6 +333,7 @@
         <e p="PauseShower.cs" t="Include" />
         <e p="PlayMusicTester.cs" t="Include" />
         <e p="Rotate.cs" t="Include" />
+        <e p="RotateRectTransform.cs" t="Include" />
         <e p="ScreenFade.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Audio" t="Include">
@@ -352,8 +354,9 @@
             <e p="PlayerManager.cs" t="Include" />
           </e>
           <e p="GUI" t="Include">
+            <e p="ComponentSkinData.cs" t="Include" />
             <e p="Editor" t="Include">
-              <e p="EditorGUIExtension.cs" t="Include" />
+              <e p="ButtonEditor.cs" t="Include" />
             </e>
             <e p="GameSettings.cs" t="Include" />
             <e p="UIButton.cs" t="Include" />
@@ -362,7 +365,7 @@
             <e p="UIManager.cs" t="Include" />
             <e p="UIPanel.cs" t="Include" />
             <e p="UISettings.cs" t="Include" />
-            <e p="UISliderBar.cs" t="Include" />
+            <e p="UISlider.cs" t="Include" />
             <e p="UIToggle.cs" t="Include" />
             <e p="UITween.cs" t="Include" />
           </e>

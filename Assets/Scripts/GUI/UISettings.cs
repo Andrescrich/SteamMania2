@@ -6,9 +6,9 @@ using TMPro;
 
 public class UISettings : MonoBehaviour, ISaveData
 {
-    public Slider masterVolumeSlider;
-    public Slider musicVolumeSlider;
-    public Slider sfxSlider;
+    public UISlider masterVolumeSlider;
+    public UISlider musicVolumeSlider;
+    public UISlider sfxSlider;
     public Toggle fullScreenToggle;
     public Toggle vsyncToggle;
     public TMP_Dropdown antialising;
@@ -25,9 +25,9 @@ public class UISettings : MonoBehaviour, ISaveData
     {
 
         gameSettings = new GameSettings();
-        masterVolumeSlider.onValueChanged.AddListener(delegate { ChangeMasterVolume();});
-        musicVolumeSlider.onValueChanged.AddListener(delegate { ChangeMusicVolume();});
-        sfxSlider.onValueChanged.AddListener(delegate { ChangeSFXVolume();});
+        masterVolumeSlider.Slider.onValueChanged.AddListener(delegate { ChangeMasterVolume();});
+        musicVolumeSlider.Slider.onValueChanged.AddListener(delegate { ChangeMusicVolume();});
+        sfxSlider.Slider.onValueChanged.AddListener(delegate { ChangeSFXVolume();});
         fullScreenToggle.onValueChanged.AddListener(delegate { SetFullScreen();});
         vsyncToggle.onValueChanged.AddListener(delegate { SetVSync();});
         //antialising.onValueChanged.AddListener(delegate { SetAntialising(); });
@@ -59,21 +59,25 @@ public class UISettings : MonoBehaviour, ISaveData
 
     void ChangeMasterVolume()
     {
-        gameSettings.masterVolume = masterVolumeSlider.value / masterVolumeSlider.maxValue;
+        gameSettings.masterVolume = masterVolumeSlider.Slider.value / masterVolumeSlider.Slider.maxValue;
         AudioManager.SetMasterVolume(gameSettings.masterVolume);
         //AudioManager.MasterVolume = gameSettings.masterVolume / masterVolumeSlider.maxValue;
+        
+        masterVolumeSlider.SetMultiplier(gameSettings.masterVolume);
     }
     
     void ChangeMusicVolume()
     {
-        gameSettings.musicVolume = musicVolumeSlider.value / musicVolumeSlider.maxValue;
+        gameSettings.musicVolume = musicVolumeSlider.Slider.value / musicVolumeSlider.Slider.maxValue;
         AudioManager.SetMusicVolume(gameSettings.musicVolume);
+        musicVolumeSlider.SetMultiplier(gameSettings.musicVolume);
     }
     
     void ChangeSFXVolume()
     {
-        gameSettings.sfxVolume = sfxSlider.value / sfxSlider.maxValue;
+        gameSettings.sfxVolume = sfxSlider.Slider.value / sfxSlider.Slider.maxValue;
         AudioManager.SetSFXVolume(gameSettings.sfxVolume);
+        sfxSlider.SetMultiplier(gameSettings.sfxVolume);
     }
 
     public void SetFullScreen()
@@ -92,9 +96,9 @@ public class UISettings : MonoBehaviour, ISaveData
     public void Load()
     {
         gameSettings = SaveSystem.LoadJSON<GameSettings>(GameSettingsKey);
-        masterVolumeSlider.value = gameSettings.masterVolume * masterVolumeSlider.maxValue;
-        musicVolumeSlider.value = gameSettings.musicVolume* musicVolumeSlider.maxValue;
-        sfxSlider.value = gameSettings.sfxVolume * sfxSlider.maxValue;
+        masterVolumeSlider.current = gameSettings.masterVolume * masterVolumeSlider.maximum;
+        musicVolumeSlider.current = gameSettings.musicVolume * musicVolumeSlider.maximum;
+        sfxSlider.current = gameSettings.sfxVolume * sfxSlider.maximum;
         ChangeMasterVolume();
         ChangeMusicVolume();
         ChangeSFXVolume();
