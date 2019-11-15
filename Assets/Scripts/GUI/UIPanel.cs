@@ -10,12 +10,15 @@ public class UIPanel : MonoBehaviour
 
     public TextMeshProUGUI titleText;
 
+    public Canvas canvas;
+
     [SerializeField] private string windowTitle;
 
     // Start is called before the first frame update
     void Start()
     {
         titleText.text = windowTitle;
+        canvas = GetComponent<Canvas>();
         closeButton.onClick.AddListener(OnClickCloseButton);
     }
 

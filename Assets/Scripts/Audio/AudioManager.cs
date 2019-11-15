@@ -98,7 +98,6 @@ using UnityEngine.Audio;
 
         public void Start()
         {         
-            LoadAllVolumes();
             InitializePool();
         }
 
@@ -115,48 +114,48 @@ using UnityEngine.Audio;
         
         #region static Methods
 
-        public static void Play(Audio sound, GameObject go = default)
+        public static void Play(Audio sound, GameObject gameObject = default)
         {
-            GetInstance().PlayMethod(sound, go);
+            GetInstance().PlayMethod(sound, gameObject);
         }
 
-        public static void Stop(Audio sound, GameObject go = default)
+        public static void Stop(Audio sound, GameObject gameObject = default)
         {
-            GetInstance().StopMethod(sound, go);
+            GetInstance().StopMethod(sound, gameObject);
         }
         
-        public static void PlayOnce(Audio sound, GameObject go = default)
+        public static void PlayOnce(Audio sound, GameObject gameObject = default)
         {
-            GetInstance().PlayOnceMethod(sound, go);
+            GetInstance().PlayOnceMethod(sound, gameObject);
         }
         
-        public static void PlayDelayed(Audio sound,float delay, GameObject go = default)
+        public static void PlayDelayed(Audio sound,float delay, GameObject gameObject = default)
         {
-            GetInstance().PlayDelayedMethod(sound, delay, go);
+            GetInstance().PlayDelayedMethod(sound, delay, gameObject);
         }
-        public static void Pause(Audio sound, GameObject go = default)
+        public static void Pause(Audio sound, GameObject gameObject = default)
         {
-            GetInstance().PauseMethod(sound, go);
+            GetInstance().PauseMethod(sound, gameObject);
         }
-        public static void Resume(Audio sound, GameObject go = default)
+        public static void Resume(Audio sound, GameObject gameObject = default)
         {
-            GetInstance().UnPauseMethod(sound, go);
+            GetInstance().UnPauseMethod(sound, gameObject);
         }
 
-        public static void FadeIn(Audio sound, GameObject go = default, float fadeTime = 1f)
+        public static void FadeIn(Audio sound, GameObject gameObject = default, float fadeTime = 1f)
         {
-            GetInstance().FadeInMethod(sound, go, fadeTime);
+            GetInstance().FadeInMethod(sound, gameObject, fadeTime);
         }
         
-        public static void FadeOut(Audio sound, GameObject go = default, float fadeTime = 1f)
+        public static void FadeOut(Audio sound, GameObject gameObject = default, float fadeTime = 1f)
         {
-            GetInstance().FadeOutMethod(sound, go, fadeTime);
+            GetInstance().FadeOutMethod(sound, gameObject, fadeTime);
         }
 
-        public static void CrossFade(Audio inSound, Audio outSound, GameObject inGo = default,
-            GameObject outGo = default, float fadeInTime = 1f, float fadeOutTime = 1f)
+        public static void CrossFade(Audio inSound, Audio outSound, GameObject ingameObject = default,
+            GameObject outgameObject = default, float fadeInTime = 1f, float fadeOutTime = 1f)
         {
-            GetInstance().CrossFade(inSound, outSound, fadeInTime, fadeOutTime, inGo, outGo);
+            GetInstance().CrossFade(inSound, outSound, fadeInTime, fadeOutTime, ingameObject, outgameObject);
         }
 
         public static void SetMasterVolume(float volume)
@@ -191,6 +190,8 @@ using UnityEngine.Audio;
         
 
         #region VolumeControl
+        
+        //gets a number between 0 - 1 and do the logaritmic equation 
         public void SetMasterVolumeMethod(float sliderValue)
         {
             masterVolume = sliderValue;
@@ -423,19 +424,5 @@ using UnityEngine.Audio;
     }
     
     #endregion
-
-    public void SaveAllVolumes()
-    {
-        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MasterVolume, masterVolume);
-        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.MusicVolume, musicVolume);
-        SaveSystem<float>.SavePrefs(PlayerPrefsKeys.SFXVolume, sfxVolume);
-    }
-
-    public void LoadAllVolumes()
-    {
-        MasterVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MasterVolume);
-        MusicVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.MusicVolume);
-        SFXVolume = SaveSystem<float>.LoadFloat(PlayerPrefsKeys.SFXVolume);
-    }
     }
 
