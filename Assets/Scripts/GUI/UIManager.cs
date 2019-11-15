@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
-public class UIManager : Singleton<UIManager>
+public class UIManager : MonoBehaviour
 {
     public UITween pauseMenu;
 
@@ -16,12 +17,12 @@ public class UIManager : Singleton<UIManager>
 
     public UITween activePanel;
 
+    public Audio openPanel;
     
     private bool Paused;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         gameObject.name = "UIManager";
     }
 
@@ -58,6 +59,8 @@ public class UIManager : Singleton<UIManager>
     
     public void ClosePanel()
     {
+        if(openPanel!=null)
+            AudioManager.Play(openPanel);
         EventSystem.current.SetSelectedGameObject(null);
         settingsMenu.HidePanel();
         pauseMenu.HidePanel();
@@ -69,16 +72,19 @@ public class UIManager : Singleton<UIManager>
 
     public void OpenOptionsPanel()
     {
-
+        if(openPanel!=null)
+            AudioManager.Play(openPanel);
         pauseMenu.HidePanel();
         
-
+        
         activePanel = settingsMenu;
         settingsMenu.ShowPanel();
     }
 
     public void OpenPausePanel()
     {
+        if(openPanel!=null)
+            AudioManager.Play(openPanel);
         settingsMenu.HidePanel();
         resumeButton.Select();
         activePanel = pauseMenu;
@@ -89,6 +95,6 @@ public class UIManager : Singleton<UIManager>
     {
         PauseManager.TogglePause();
         ClosePanel();
-        LevelManager.GetInstance().LoadScene("MainMenu");
+        LevelManager.GetInstance().LoadScene("MainMenu",LoadSceneMode.Single);
     }
 }

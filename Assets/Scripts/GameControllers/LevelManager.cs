@@ -18,13 +18,17 @@ public class LevelManager : Singleton<LevelManager>
     {
     }
 
-    public void LoadScene(string sceneName, int id = default)
+    public static event Action OnLoadLevelStart = delegate { };
+    public static event Action OnLoadLevelEnd = delegate { };
+
+    public void LoadScene(string sceneName,LoadSceneMode sceneMode, int doorID = default)
     {
-        StartCoroutine(LoadScene(sceneName, id, LoadSceneMode.Single));
+        StartCoroutine(LoadScene(sceneName, doorID, sceneMode));
     }
 
     IEnumerator LoadScene(string sceneName,int id,  LoadSceneMode mode)
     {
+        OnLoadLevelStart?.Invoke();
         screenFade.FadeIn();
         while (screenFade.Active)
         {
@@ -44,12 +48,13 @@ public class LevelManager : Singleton<LevelManager>
         {
             if (spawn.id == id)
             {
-                
+                //GameManager.Player.SetPosition(spawn.position);
                 FindObjectOfType<PlayerMovement>().transform.position = spawn.Position;
             }
         }
+        OnLoadLevelEnd?.Invoke();
         yield return new WaitForSeconds(0.3f);
-
+        
         screenFade.FadeOut();
     }
 }

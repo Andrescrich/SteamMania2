@@ -1,99 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.IO;
 using UnityEngine;
 using OdinSerializer;
-using UnityEngine.Windows;
 
-public static class SaveSystem<T>
+public static class SaveSystem
 {
     public static string PATH = Application.persistentDataPath + "/Saves/";
-    public static string INTERNAL_PATH = Application.dataPath + "/Saves/";
-    public static string FILENAME = "Save";
-    public static string FILE_EXTENSION = ".porro";
     
     #region Binary
 
-    public static void SaveInternalBinary<T>(T objectToSave, int fileID)
+    
+    public static void SaveBinary<T>(T objectToSave,String path)
     {
-        if (!Exists(fileID, true))
-        {
-            Directory.CreateDirectory(INTERNAL_PATH);
-        }
         byte[] bytes = SerializationUtility.SerializeValue(objectToSave, DataFormat.Binary);
-        File.WriteAllBytes(INTERNAL_PATH+FILENAME+fileID+FILE_EXTENSION, bytes);
+        File.WriteAllBytes(PATH + path, bytes);
+
     }
 
-    public static T LoadInternalBinary<T>(int fileID)
+    public static T LoadBinary<T>(String path)
     {
-        byte[] bytes = File.ReadAllBytes(INTERNAL_PATH + FILENAME + fileID + FILE_EXTENSION);
+        byte[] bytes = File.ReadAllBytes(PATH+path);
         return SerializationUtility.DeserializeValue<T>(bytes, DataFormat.Binary);
-    }
 
-    public static void SaveInternalJSON<T>(T objectToSave, int fileID)
-    {
-        if (!Exists(fileID, true))
-        {
-            Directory.CreateDirectory(INTERNAL_PATH);
-        }
-        byte[] bytes = SerializationUtility.SerializeValue(objectToSave, DataFormat.JSON);
-        File.WriteAllBytes(INTERNAL_PATH+FILENAME+fileID+FILE_EXTENSION, bytes);
-    }
-
-    public static T LoadInternalJSON<T>(int fileID)
-    {
-        if (Exists(fileID, true))
-        { 
-            byte[] bytes = File.ReadAllBytes(INTERNAL_PATH + FILENAME + fileID + FILE_EXTENSION);
-            return SerializationUtility.DeserializeValue<T>(bytes, DataFormat.JSON);
-        }
-        return default(T);
-}
-
-    public static void SaveBinary<T>(T objectToSave, int fileID)
-    {
-        if (!Exists(fileID))
-        {
-            Directory.CreateDirectory(PATH);
-        }
-        byte[] bytes = SerializationUtility.SerializeValue(objectToSave, DataFormat.Binary);
-        File.WriteAllBytes(PATH+FILENAME+fileID+FILE_EXTENSION, bytes);
-        
-    }
-
-    public static T LoadBinary<T>(int fileID)
-    {
-        if (!Exists(fileID))
-        {
-            byte[] bytes = File.ReadAllBytes(PATH + FILENAME + fileID + FILE_EXTENSION);
-            return SerializationUtility.DeserializeValue<T>(bytes, DataFormat.Binary);
-        }
-        return default(T);
-        
     }
     
     #endregion
 
     #region JSON
 
-    public static void SaveJSON<T>(T objectToSave, int fileID)
+    public static void SaveJSON<T>(T objectToSave, String path)
     {
-        if (!Exists(fileID))
-        {
-            Directory.CreateDirectory(PATH);
-        }
-        byte[] bytes = SerializationUtility.SerializeValue(objectToSave, DataFormat.JSON);
-        File.WriteAllBytes(PATH+FILENAME+fileID+FILE_EXTENSION, bytes);
+        var bytes = SerializationUtility.SerializeValue(objectToSave, DataFormat.JSON);
+        File.WriteAllBytes(PATH +path, bytes);
     }
 
-    public static T LoadJSON<T>(int fileID)
+    public static T LoadJSON<T>(String path)
     {
-        if (Exists(fileID))
+        if (File.Exists(PATH + path))
         {
-            byte[] bytes = File.ReadAllBytes(PATH + FILENAME + fileID + FILE_EXTENSION);
+
+            var bytes = File.ReadAllBytes(PATH + path);
             return SerializationUtility.DeserializeValue<T>(bytes, DataFormat.JSON);
         }
 
-        return default(T);
+        Debug.LogError("No Data saves in "+path);
+        return default;
+
     }
 
     #endregion
@@ -139,15 +91,9 @@ public static class SaveSystem<T>
         return -1;
     }
     #endregion
-    
-    
-    public static bool Exists(int fileID, bool internalPath = false)
+
+    public static bool Exists(string path)
     {
-        if (internalPath)
-        {
-            return Directory.Exists(INTERNAL_PATH + FILENAME + fileID + FILE_EXTENSION);
-        }
-        return Directory.Exists(PATH + FILENAME + fileID + FILE_EXTENSION);
+        return Directory.Exists(PATH);
     }
-    
 }

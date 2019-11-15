@@ -73,9 +73,15 @@ public class Audio : ScriptableObject
             source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));
             source.pitch = Pitch * (1 + Random.Range(-RandomPitch / 2f, RandomPitch / 2f));
         }
+
+        if (Type == AudioType.Music)
+        {
+        }
+
     }
     
     public void Play(AudioSource source) {
+        
         ModifyAudio(source);
         source.Play();
         
