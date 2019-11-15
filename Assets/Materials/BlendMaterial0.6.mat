@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlendMaterial0.5
+  m_Name: BlendMaterial0.6
   m_Shader: {fileID: -6465566751694194690, guid: 150a1d2ba034fe34fbf6fd1d22ab9d80,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -33,6 +33,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_D5F43AE4: 0.5
+    - Vector1_D5F43AE4: 0.6
     m_Colors:
     - Color_699F8309: {r: 0.11953845, g: 0.21952623, b: 0.45078585, a: 1}
