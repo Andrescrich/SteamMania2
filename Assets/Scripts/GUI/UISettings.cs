@@ -21,7 +21,7 @@ public class UISettings : MonoBehaviour, ISaveData
     void Awake()
     {
     }
-    private void OnEnable()
+    private void Start()
     {
 
         gameSettings = new GameSettings();

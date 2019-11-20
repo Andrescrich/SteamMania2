@@ -8,28 +8,36 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class UISlider : MonoBehaviour
 {
-	public Slider Slider { get; private set; }
+	public Slider Slider;
 
 	public int maximum;
 	public int minimum;
 	public float current;
-	private RotateRectTransform handleArea;
+	private HandleSliderController handleArea;
 
 	private void Awake()
 	{
 		Slider = GetComponent<Slider>();
-		current = Slider.value;
-		handleArea = GetComponentInChildren<RotateRectTransform>();
+		handleArea = GetComponentInChildren<HandleSliderController>();
 		// TODO Pasarle el valor de la vida
-		TestHealth.OnHealthChanged += SetValue;
+		
 	}
 
-    public void SetValue(float newValue)
-    {
+	private void Start()
+	{
+		Slider.minValue = minimum;
+		Slider.maxValue = maximum;
+	}
+
+	public void SetValue(float newValue)
+	{
+		Mathf.Clamp(newValue, minimum, maximum);
+		/*
 	    float currentOffset = newValue - minimum;
 	    float maximumOffset = maximum - minimum;
 	    float fillAmount = currentOffset / maximumOffset;
-	    Slider.value = current = fillAmount;
+	    */
+	    Slider.value = current = newValue;
     }
 
     public void SetMultiplier(float value)

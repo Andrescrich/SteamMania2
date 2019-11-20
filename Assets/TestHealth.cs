@@ -3,31 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using Pixelplacement;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class TestHealth : MonoBehaviour
 {
 	private float health = 10;
-	public static event Action<float> OnHealthChanged = delegate {  };
-    void Start()
-    {
-		
-    }
+	[SerializeField]
+	private UISlider slider;
 
-    void Update()
+	private void Start()
+	{
+		slider = GetComponent<UISlider>();
+	}
+
+	void Update()
     {
 	    if (Input.GetMouseButtonDown(0))
 	    {
 		    health -= 2;
-		    OnHealthChanged?.Invoke(health);
+		    slider.SetValue(health);
 		    Tween.Shake(transform, GetComponent<RectTransform>().anchoredPosition, Vector3.one * 20f, 0.3f, 0);
 	    }
 
 	    if (Input.GetMouseButtonDown(1))
 	    {
 		    health = 10;
-		    OnHealthChanged?.Invoke(health);
+		    slider.SetValue(health);
 	    }
     }
 }

@@ -150,6 +150,7 @@ public class UITween : MonoBehaviour
     {
 	    OnComplete?.Invoke(this);
 	    Active = false;
+	    
     }
 
     private void OnStartCallback()

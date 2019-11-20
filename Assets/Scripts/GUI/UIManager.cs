@@ -13,7 +13,9 @@ public class UIManager : MonoBehaviour
 
     public UITween settingsMenu;
 
-    public Button resumeButton;
+    public Button blankButtonPause;
+
+    public Button blankButtonOptions;
 
     public UITween activePanel;
 
@@ -76,6 +78,7 @@ public class UIManager : MonoBehaviour
             AudioManager.Play(openPanel);
         pauseMenu.HidePanel();
         
+        blankButtonOptions.Select();
         
         activePanel = settingsMenu;
         settingsMenu.ShowPanel();
@@ -86,7 +89,7 @@ public class UIManager : MonoBehaviour
         if(openPanel!=null)
             AudioManager.Play(openPanel);
         settingsMenu.HidePanel();
-        resumeButton.Select();
+        blankButtonPause.Select();
         activePanel = pauseMenu;
         pauseMenu.ShowPanel();
     }

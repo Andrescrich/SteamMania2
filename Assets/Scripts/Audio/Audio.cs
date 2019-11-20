@@ -37,6 +37,8 @@ public class Audio : ScriptableObject
     [Range(0, 0.5f)]
     public float RandomPitch = .1f;
 
+    public bool PlayOnAwake;
+
     [SerializeField] private bool loop;
 
     private AudioSource hidableSource;
@@ -68,6 +70,7 @@ public class Audio : ScriptableObject
         source.clip = GetRandomClip();
         source.loop = loop;
         source.spatialBlend = SpatialBlend;
+        source.playOnAwake = PlayOnAwake;
         if (Type != AudioType.Music)
         {
             source.volume = Volume * (1 + Random.Range(-RandomVolume / 2f, RandomVolume / 2f));

@@ -2,26 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24617d20-cfc6-4d7e-9bc8-e6749854d2e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Editor/AudioEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Editor/AudioEditor.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SteamMania2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DDOL.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DDOL.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HUDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HUDController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GUI/OptionsMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GUI/OptionsMenu.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GUI/PauseUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GUI/PauseUI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelConnections/SingletonImporter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelConnections/SingletonImporter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/SFX/SFX.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/SFX/SFX.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/UI/UIClick.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/UI/UIClick.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Audio/Music/MainMusic.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Music/MainMusic.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RotateRectTransform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HandleSliderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RotateRectTransform.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HandleSliderController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UISliderBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UISlider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UISliderBar.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UISlider.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UISlider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UISlider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TestHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TestHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +35,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UISlider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/RotateRectTransform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HandleSliderController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DDOL.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIMainMenu.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,6 +63,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/ScreenFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelEntry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/Editor/AudioEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GUI/UIPanel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -78,11 +78,8 @@
         <option value="$PROJECT_DIR$/Assets/PlayMusicTest.cs" />
         <option value="$PROJECT_DIR$/Assets/PlayMusicTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameControllers/PauseManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ISaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIProgressBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/TestHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/GameSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" />
@@ -97,14 +94,19 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIComponent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Audio/AudioManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameControllers/LevelManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UISliderBar.cs" />
         <option value="$PROJECT_DIR$/Assets/HUDController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Audio.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Audio/Editor/AudioEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UITween.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UIToggle.cs" />
+        <option value="$PROJECT_DIR$/Assets/TestHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/RotateRectTransform.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UISlider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GUI/UISettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/HandleSliderController.cs" />
       </list>
     </option>
   </component>
@@ -172,7 +174,10 @@
       <workItem from="1572964218570" duration="5334000" />
       <workItem from="1573050147316" duration="9223000" />
       <workItem from="1573080380137" duration="1732000" />
-      <workItem from="1573153841099" duration="4811000" />
+      <workItem from="1573153841099" duration="5066000" />
+      <workItem from="1573166951766" duration="1441000" />
+      <workItem from="1573177514559" duration="2392000" />
+      <workItem from="1573524684096" duration="2435000" />
     </task>
     <servers />
   </component>

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fde5e480254d5940840c9f3b0d7f687, type: 3}
   m_Name: MainMusic
   m_EditorClassIdentifier: 
+  AudioID: 16658
   Type: 0
   Clips:
   - {fileID: 8300000, guid: a691233a5a46f11418dee3a7c3d0307d, type: 3}
@@ -20,4 +21,5 @@ MonoBehaviour:
   SpatialBlend: 0.193
   RandomVolume: 0.404
   RandomPitch: 0
-  loop: 0
+  PlayOnAwake: 0
+  loop: 1

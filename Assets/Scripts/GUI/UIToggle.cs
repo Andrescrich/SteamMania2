@@ -17,19 +17,14 @@ public class UIToggle : MonoBehaviour
 	    toggle.onValueChanged.AddListener(OnValueChanged);
     }
 
-    public void SetToggle(bool isOn)
-    {
-	    toggle.isOn = isOn;	  
-	    if (clickSound != null)
-	    {
-		    AudioManager.Play(clickSound);
-	    }
-    }
 
     private void OnValueChanged(bool on)
     {
 	    
-		//SetToggle(on);
+	    if (clickSound != null)
+	    {
+		    AudioManager.Play(clickSound);
+	    }
     }
 
 }
