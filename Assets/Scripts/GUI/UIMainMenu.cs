@@ -17,7 +17,6 @@ public class UIMainMenu : MonoBehaviour
     public Button exitButton;
 
     [SerializeField] private Audio clickSound;
-    public string sceneToLoad = "SampleScene";
 
     public UITween rightGears;
     public UITween leftGears;
@@ -74,7 +73,7 @@ public class UIMainMenu : MonoBehaviour
     private void OnClickPlay()
     {
         
-        LevelManager.GetInstance().LoadScene(sceneToLoad, LoadSceneMode.Single,3);
+        LevelManager.GetInstance().LoadScene(SceneNames.SampleScene, LoadSceneMode.Single,3);
         HandleClick(playButton.transform);
         HideButtons();
         Hidetitle();

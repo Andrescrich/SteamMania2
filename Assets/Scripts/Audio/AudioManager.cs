@@ -85,9 +85,8 @@ using UnityEngine.Audio;
         #endregion
 
     #region Unity Methods
-        protected override void Awake()
+        public void Awake()
         {
-            base.Awake();
             gameObject.name = "AudioManager";
             musicSources = new List<AudioSourceElement>();
             inUse = new List<AudioSourceElement>();

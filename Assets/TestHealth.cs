@@ -8,28 +8,31 @@ using UnityEngine.UI;
 
 public class TestHealth : MonoBehaviour
 {
-	private float health = 10;
+	private int maxHealth = 10;
+	private float currentHealth = 10;
 	[SerializeField]
-	private UISlider slider;
+	private UIProgressBar progressBar;
 
 	private void Start()
 	{
-		slider = GetComponent<UISlider>();
+		progressBar = GetComponent<UIProgressBar>();
+		progressBar.maximum = maxHealth;
+		progressBar.SetCurrent(currentHealth);
 	}
 
 	void Update()
     {
 	    if (Input.GetMouseButtonDown(0))
 	    {
-		    health -= 2;
-		    slider.SetValue(health);
+		    currentHealth -= 1;
+		    progressBar.SetCurrent(currentHealth);
 		    Tween.Shake(transform, GetComponent<RectTransform>().anchoredPosition, Vector3.one * 20f, 0.3f, 0);
 	    }
 
 	    if (Input.GetMouseButtonDown(1))
 	    {
-		    health = 10;
-		    slider.SetValue(health);
+		    currentHealth = 10;
+		    progressBar.SetCurrent(currentHealth);
 	    }
     }
 }

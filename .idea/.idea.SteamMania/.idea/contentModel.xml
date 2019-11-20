@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\André\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\André\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_SteamMania.32462181.00" t="ExcludeRecursive" />
-    <e p="D:\Program Files (x86)\Unity Projects\SteamMania" t="IncludeRecursive">
+    <e p="C:\Unity Projects\ProyectoStart\SteamMania" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -11,6 +9,12 @@
         <e p="EnemyHealth.cs" t="Include" />
         <e p="ExternalAssets" t="Include">
           <e p="Surge" t="Include">
+            <e p="DisplayObject" t="Include">
+              <e p="DisplayObject.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="DisplayObjectEditor.cs" t="Include" />
+              </e>
+            </e>
             <e p="Events" t="Include">
               <e p="Events.cs" t="Include" />
             </e>
@@ -99,6 +103,8 @@
           </e>
         </e>
         <e p="GameManager.cs" t="Include" />
+        <e p="HandleSliderController.cs" t="Include" />
+        <e p="HUDController.cs" t="Include" />
         <e p="ImpactParticle.cs" t="Include" />
         <e p="InputMaster.cs" t="Include" />
         <e p="OdinSerializer" t="Include">
@@ -333,11 +339,15 @@
             <e p="AudioManager.cs" t="Include" />
             <e p="AudioPauseController.cs" t="Include" />
             <e p="AudioSourceElement.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="AudioEditor.cs" t="Include" />
+            </e>
             <e p="PlayerPrefsKeys.cs" t="Include" />
           </e>
           <e p="BulletScript.cs" t="Include" />
           <e p="Enums" t="Include">
             <e p="AudioType.cs" t="Include" />
+            <e p="SceneNames.cs" t="Include" />
           </e>
           <e p="GameControllers" t="Include">
             <e p="LevelManager.cs" t="Include" />
@@ -345,16 +355,24 @@
             <e p="PlayerManager.cs" t="Include" />
           </e>
           <e p="GUI" t="Include">
+            <e p="ComponentSkinData.cs" t="Include" />
             <e p="Editor" t="Include">
-              <e p="EditorGUIExtension.cs" t="Include" />
+              <e p="ButtonEditor.cs" t="Include" />
             </e>
+            <e p="GameSettings.cs" t="Include" />
+            <e p="UIButton.cs" t="Include" />
+            <e p="UIComponent.cs" t="Include" />
             <e p="UIMainMenu.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
             <e p="UIPanel.cs" t="Include" />
+            <e p="UIProgressBar.cs" t="Include" />
             <e p="UISettings.cs" t="Include" />
+            <e p="UISlider.cs" t="Include" />
+            <e p="UIToggle.cs" t="Include" />
             <e p="UITween.cs" t="Include" />
           </e>
           <e p="Health.cs" t="Include" />
+          <e p="ISaveData.cs" t="Include" />
           <e p="LevelEntry.cs" t="Include" />
           <e p="ObjectPooler.cs" t="Include" />
           <e p="ParallaxingScript.cs" t="Include" />
@@ -365,13 +383,13 @@
           <e p="SaveSystem" t="Include">
             <e p="ISave.cs" t="Include" />
             <e p="SaveSystem.cs" t="Include" />
-            <e p="SaveTester.cs" t="Include" />
           </e>
           <e p="ShootingFXScript.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
           <e p="SpawnPosition.cs" t="Include" />
           <e p="StaticMethods.cs" t="Include" />
         </e>
+        <e p="TestHealth.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
@@ -407,5 +425,7 @@
       <e p="SteamMania.sln" t="IncludeFlat" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\delga\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\delga\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SteamMania.-47724481.00" t="ExcludeRecursive" />
   </component>
 </project>

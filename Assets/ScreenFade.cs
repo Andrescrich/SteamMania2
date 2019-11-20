@@ -14,9 +14,8 @@ public class ScreenFade : Singleton<ScreenFade>
 
     public bool Active => tween.Active;
 
-    protected override void Awake()
+    public void Awake()
     {
-        base.Awake();
         gameObject.name = "ScreenFade";
         tween = GetComponent<UITween>();
         

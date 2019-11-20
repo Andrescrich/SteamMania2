@@ -18,7 +18,7 @@ public class PauseManager : Singleton<PauseManager>
     public static float PAUSE_TIME_THRESHOLD = 0.5f;
 
     public static bool CanPause;
-    private float timeSinceLastPause;
+    private static float timeSinceLastPause;
 
     public static event Action OnPaused = delegate { };
     public static event Action OnUnpaused = delegate { };
@@ -43,9 +43,9 @@ public class PauseManager : Singleton<PauseManager>
 
     public static void TogglePause()
     {
-        if (GetInstance().timeSinceLastPause >= PAUSE_TIME_THRESHOLD)
+        if (timeSinceLastPause >= PAUSE_TIME_THRESHOLD)
         {
-            GetInstance().timeSinceLastPause = 0;
+            timeSinceLastPause = 0;
 
             if (Paused)
             {
@@ -57,18 +57,31 @@ public class PauseManager : Singleton<PauseManager>
             }
         }
     }
-    
-    public static void Pause()
+
+    private void OnApplicationPause(bool pauseStatus)
     {
-        
+        if (pauseStatus)
+        {
+            Pause();
+        }
+        else
+        {
+            Unpause();
+        }
+    }
+
+    static void Pause()
+    {
+        if (!CanPause) return;
         Time.timeScale = 0;
         Paused = true;
         
         OnPaused?.Invoke();
     }
 
-    public static void Unpause()
+    static void Unpause()
     {
+        if (!CanPause) return;
         Time.timeScale = 1;
         Paused = false;
         

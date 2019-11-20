@@ -13,16 +13,9 @@ public class UIManager : MonoBehaviour
 
     public UITween settingsMenu;
 
-    public Button blankButtonPause;
-
-    public Button blankButtonOptions;
-
     public UITween activePanel;
 
     public Audio openPanel;
-    
-    private bool Paused;
-
     protected void Awake()
     {
         gameObject.name = "UIManager";
@@ -78,8 +71,6 @@ public class UIManager : MonoBehaviour
             AudioManager.Play(openPanel);
         pauseMenu.HidePanel();
         
-        blankButtonOptions.Select();
-        
         activePanel = settingsMenu;
         settingsMenu.ShowPanel();
     }
@@ -89,7 +80,6 @@ public class UIManager : MonoBehaviour
         if(openPanel!=null)
             AudioManager.Play(openPanel);
         settingsMenu.HidePanel();
-        blankButtonPause.Select();
         activePanel = pauseMenu;
         pauseMenu.ShowPanel();
     }
@@ -98,6 +88,6 @@ public class UIManager : MonoBehaviour
     {
         PauseManager.TogglePause();
         ClosePanel();
-        LevelManager.GetInstance().LoadScene("MainMenu",LoadSceneMode.Single);
+        LevelManager.GetInstance().LoadScene(SceneNames.MainMenu,LoadSceneMode.Single);
     }
 }

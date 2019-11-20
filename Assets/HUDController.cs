@@ -9,11 +9,6 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
 
-	public UISlider healthBar;
-	private RectTransform rectTransform;
-	private void Awake()
-	{
-		rectTransform = healthBar.GetComponent<RectTransform>();
-	}
+	public UIProgressBar healthBar;
 
 }

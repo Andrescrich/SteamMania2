@@ -7,9 +7,8 @@ using UnityEngine.SceneManagement;
 public class LevelManager : Singleton<LevelManager>
 {
     private ScreenFade screenFade;
-    protected override void Awake()
+    public void Awake()
     {
-        base.Awake();
         gameObject.name = "LevelManager";
         screenFade = ScreenFade.GetInstance();
     }
@@ -37,7 +36,7 @@ public class LevelManager : Singleton<LevelManager>
         }
         yield return new WaitForSeconds(0.3f);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, mode);
-
+        
         while (!operation.isDone)
         {
             yield return null;

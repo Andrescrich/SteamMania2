@@ -35,7 +35,5 @@ public class HandleSliderController : MonoBehaviour, IPointerEnterHandler, IPoin
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.localScale = Vector3.Lerp(rectTransform.localScale,originalScale, 0.6f);
-        Debug.Log("Hola"+transform.localScale);
-        Debug.Log("Puta"+originalScale);
     }
 }
